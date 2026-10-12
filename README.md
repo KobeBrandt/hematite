@@ -13,11 +13,11 @@ the mouse is a design reference, and no logo, name or product image is used.
 
 | Pale Grey | Graphite |
 |-----------|----------|
-| ![Hematite overview page in the Pale Grey theme](.github/screenshots/overview-light.png) | ![Hematite overview page in the Graphite theme](.github/screenshots/overview-dark.png) |
-| ![Buttons: graphite key, pale key, knurled metal, danger, disabled, small, icon and busy](.github/screenshots/buttons-light.png) | ![Text inputs with a hint and an error message](.github/screenshots/forms-dark.png) |
-| ![Info, done, warning and error alerts](.github/screenshots/alerts-light.png) | ![Cards: a plain card, a featured card and a stat card](.github/screenshots/cards-dark.png) |
+| ![Hematite overview page in the Pale Grey theme](.github/screenshots/hematite-overview-light.png) | ![Hematite overview page in the Graphite theme](.github/screenshots/hematite-overview-dark.png) |
+| ![Buttons: graphite key, pale key, knurled metal, danger, disabled, small, icon and busy](.github/screenshots/hematite-buttons-light.png) | ![Text inputs with a hint and an error message](.github/screenshots/hematite-forms-dark.png) |
+| ![Info, done, warning and error alerts](.github/screenshots/hematite-alerts-light.png) | ![Cards: a plain card, a featured card and a stat card](.github/screenshots/hematite-cards-dark.png) |
 
-![Task list template for an example repair café service, in the Graphite theme](.github/screenshots/template-dark.png)
+![Task list template for an example repair café service, in the Graphite theme](.github/screenshots/hematite-template-dark.png)
 
 ## Documentation
 
