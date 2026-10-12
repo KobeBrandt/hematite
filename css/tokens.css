@@ -68,8 +68,8 @@
   /* Keycap: a shallow dish, lighter where the finger rests. */
   --gradient-key: radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-ink) calc(l + 0.075) c h), var(--color-ink) 72%);
   --gradient-metal: linear-gradient(180deg,
-    oklch(96% 0.003 255) 0%, oklch(82% 0.005 255) 30%,
-    oklch(94% 0.003 255) 52%, oklch(74% 0.007 255) 100%);
+    oklch(95% 0.003 255) 0%, oklch(89% 0.004 255) 45%,
+    oklch(91% 0.003 255) 60%, oklch(85% 0.005 255) 100%);
   /* Fills for the main action: machined metal. Text on it is --color-on-metal. */
   --gradient-accent: var(--texture-knurl), var(--gradient-metal);
   /* Knurling: the fine ribs of a metal wheel. On metal only. */

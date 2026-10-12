@@ -88,7 +88,7 @@
   background: var(--gradient-accent);
   background-color: var(--color-accent);
   color: var(--color-on-metal);
-  border-color: oklch(70% 0.006 255);
+  border-color: var(--color-line);
 }
 
 .button--danger {

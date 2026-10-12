@@ -35,7 +35,7 @@
   box-shadow: 0 0 0 0.2em oklch(from currentColor l c h / 0.18);
 }
 
-.badge--accent  { background: var(--gradient-metal); background-color: var(--color-accent); color: var(--color-on-metal); border-color: oklch(70% 0.006 255); }
+.badge--accent  { background: var(--color-accent-soft); border-color: var(--color-line); font-weight: var(--weight-bold); }
 .badge--solid   { background: var(--color-ink); color: var(--color-on-ink); border-color: transparent; }
 .badge--info    { color: var(--color-info); }
 .badge--success { color: var(--color-success); }

@@ -26,7 +26,7 @@ body { margin: 0; background: var(--color-bg); color: var(--color-ink); font-fam
 .card__eyebrow.docs-file { text-transform: none; letter-spacing: normal; font-size: var(--step--1); font-weight: var(--weight-regular); }
 .docs-scale__row > * { min-width: 0; overflow-wrap: anywhere; }
 .docs-token { font-family: var(--font-mono); font-size: var(--step--1); color: var(--color-muted); }
-.docs-space { height: 1.25rem; background: var(--gradient-accent); background-color: var(--color-accent); border: var(--border-width) solid oklch(70% 0.006 255); border-radius: var(--radius-xs); }
+.docs-space { height: 1.25rem; background: var(--gradient-accent); background-color: var(--color-accent); border: var(--border); border-radius: var(--radius-xs); }
 .docs-example { overflow: hidden; background: var(--color-surface); border: var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); }
 .docs-example__stage { padding: var(--space-l) var(--space-m); background-color: var(--color-bg); background-image: radial-gradient(oklch(from var(--color-ink) l c h / 0.07) 0.0625rem, transparent 0.0625rem); background-size: 1rem 1rem; }
 .docs-example__code { border: 0; border-top: var(--border); border-radius: 0; box-shadow: none; margin: 0; max-height: 22rem; }
