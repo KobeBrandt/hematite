@@ -183,11 +183,11 @@
     var(--texture-grain),
     var(--texture-ripple),
     var(--gradient-key);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   border-color: transparent;
-  --color-link: var(--color-on-ink);
-  --color-muted: oklch(from var(--color-on-ink) l c h / 0.75);
+  --color-link: var(--color-on-key);
+  --color-muted: oklch(from var(--color-on-key) l c h / 0.75);
 }
 
 .card__media {
@@ -517,8 +517,8 @@
     width: 2.5rem;
     height: 2.5rem;
     background: var(--texture-grain), var(--gradient-key);
-    background-color: var(--color-ink);
-    color: var(--color-on-ink);
+    background-color: var(--color-key);
+    color: var(--color-on-key);
     border-radius: 50%;
     box-shadow: var(--shadow-key);
     font-weight: var(--weight-bold);
@@ -601,7 +601,7 @@
 
 .bar-chart__row--highlight .bar-chart__value::before {
   background: var(--gradient-key);
-  background-color: var(--color-ink);
+  background-color: var(--color-key);
 }
 
 .bar-chart__row--highlight .bar-chart__value {

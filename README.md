@@ -106,6 +106,7 @@ docs/                 the other documentation pages
   patterns.html  templates.html  accessibility.html  usage.html  modern-css.html
   docs.css, docs.js   styles and script for the documentation only
 tools/check-contrast.py checks every colour pair stays between its floor and 15:1
+tools/check-a11y.mjs  runs axe on every page in both themes (CI runs both checks)
 tools/build-docs.py   copies the docs to dist/ with scripts inlined, for hosts whose
                       Content-Security-Policy blocks script files
 ```

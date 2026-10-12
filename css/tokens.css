@@ -48,6 +48,8 @@
   --color-focus: var(--color-accent);         /* focus ring, 3:1 on bg in both themes */
   --color-focus-gap: var(--color-bg);         /* thin band between element and ring, so the ring reads on any fill */
   --color-on-ink: var(--color-bg);            /* text on an ink (graphite) fill */
+  --color-key: light-dark(oklch(27% 0.012 255), oklch(34% 0.008 255));               /* keycaps: graphite in both themes, like the mouse */
+  --color-on-key: light-dark(oklch(95.5% 0.004 255), oklch(94% 0.004 255));          /* label on a key */
   --color-scrim: oklch(14% 0.01 255 / 0.5);   /* behind dialogs, dark in both themes */
   /* Tints and light. Decorative only, never used for text. Plain values
      here; the @supports block below derives some from the theme colours. */
@@ -66,7 +68,7 @@
   --gradient-shell: linear-gradient(180deg, var(--color-sheen) 0%, transparent 60%);
   --gradient-ink: linear-gradient(180deg, oklch(from var(--color-ink) calc(l + 0.06) c h), var(--color-ink));
   /* Keycap: a shallow dish, lighter where the finger rests. */
-  --gradient-key: radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-ink) calc(l + 0.075) c h), var(--color-ink) 72%);
+  --gradient-key: radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-key) calc(l + 0.075) c h), var(--color-key) 72%);
   --gradient-metal: linear-gradient(180deg,
     oklch(95% 0.003 255) 0%, oklch(89% 0.004 255) 45%,
     oklch(91% 0.003 255) 60%, oklch(85% 0.005 255) 100%);
@@ -216,7 +218,7 @@
 @supports not (color: oklch(from red l c h / 0.5)) {
   :root {
     --gradient-ink: linear-gradient(var(--color-ink), var(--color-ink));
-    --gradient-key: linear-gradient(var(--color-ink), var(--color-ink));
+    --gradient-key: linear-gradient(var(--color-key), var(--color-key));
     --texture-knurl: none;
   }
 }
@@ -246,6 +248,8 @@
     --color-on-accent: oklch(98.8% 0.002 255);
     --color-accent-soft: oklch(90% 0.004 255);
     --color-led: oklch(55% 0.15 150);
+    --color-key: oklch(27% 0.012 255);
+    --color-on-key: oklch(95.5% 0.004 255);
     --color-sheen: oklch(100% 0 0 / 0.9);
     --color-shade: oklch(30% 0.02 255 / 0.1);
   }
@@ -268,6 +272,8 @@
       --color-on-accent: oklch(20% 0.006 255);
       --color-accent-soft: oklch(29% 0.006 255);
       --color-led: oklch(78% 0.17 150);
+      --color-key: oklch(34% 0.008 255);
+      --color-on-key: oklch(94% 0.004 255);
       --color-sheen: oklch(100% 0 0 / 0.07);
       --color-shade: oklch(0% 0 0 / 0.42);
     }
@@ -290,6 +296,8 @@
     --color-on-accent: oklch(20% 0.006 255);
     --color-accent-soft: oklch(29% 0.006 255);
     --color-led: oklch(78% 0.17 150);
+    --color-key: oklch(34% 0.008 255);
+    --color-on-key: oklch(94% 0.004 255);
     --color-sheen: oklch(100% 0 0 / 0.07);
     --color-shade: oklch(0% 0 0 / 0.42);
   }

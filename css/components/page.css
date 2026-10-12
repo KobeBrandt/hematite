@@ -88,9 +88,9 @@
 
   &[aria-current="page"] {
     background: var(--texture-grain), var(--gradient-key);
-    background-color: var(--color-ink);
+    background-color: var(--color-key);
     box-shadow: var(--shadow-key);
-    color: var(--color-on-ink);
+    color: var(--color-on-key);
     font-weight: var(--weight-bold);
   }
 }
@@ -140,8 +140,8 @@
     min-height: var(--target-min);
     padding-inline: var(--space-m);
     background: var(--texture-grain), var(--gradient-key);
-    background-color: var(--color-ink);
-    color: var(--color-on-ink);
+    background-color: var(--color-key);
+    color: var(--color-on-key);
     border-radius: var(--radius-key);
     font-weight: var(--weight-medium);
     cursor: pointer;
@@ -172,6 +172,16 @@
 
   .nav-menu[open] > summary::after {
     rotate: 45deg;
+  }
+
+  /* Tucked: slid below the screen edge while the page scrolls down
+     (hematite.js sets data-tucked), so it never sits on top of content. */
+  .nav-menu[data-ready] > summary {
+    transition: transform var(--duration) var(--ease), translate var(--duration-slow) var(--ease);
+  }
+
+  .nav-menu[data-ready][data-tucked]:not([open]) > summary {
+    translate: 0 calc(100% + var(--fab-bottom) + var(--space-s));
   }
 
   /* The open menu: a sheet along the bottom edge, links stacked above the

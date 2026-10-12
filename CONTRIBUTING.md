@@ -21,7 +21,7 @@ A new component or pattern gets in when it meets all of these:
    menu and on `docs/components.html`. The header, side menu and previous/next links repeat on
    every page: when you add or rename a page, update them on all pages.
 7. **Accessibility check.** Contrast 4.5:1 for text (7:1 for body text) and 3:1 for edges, and
-   never above 15:1, in both themes (`python3 tools/check-contrast.py`); 2.75rem targets, visible focus, keyboard only, axe with no violations, and a screen reader pass for
+   never above 15:1, in both themes (`python3 tools/check-contrast.py`); no axe violations (`node tools/check-a11y.mjs`, run by CI on every push and pull request); 2.75rem targets, visible focus, keyboard only, and a screen reader pass for
    anything interactive. Record the result in the docs test record.
 8. **Changelog.** Add a line to `CHANGELOG.md`. Renaming or removing a class or token is a major
    version.

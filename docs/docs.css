@@ -11,6 +11,15 @@ body { margin: 0; background: var(--color-bg); color: var(--color-ink); font-fam
 /* Docs-only styles. Built from the same tokens as the system. */
 .docs-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); }
 .docs-hero__title { font-size: clamp(3.5rem, 2rem + 9vw, 8rem); line-height: 0.92; letter-spacing: -0.055em; font-weight: var(--weight-bold); background: linear-gradient(180deg, var(--color-ink) 30%, var(--color-muted)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.docs-console { display: flex; flex-direction: column; gap: var(--space-m); max-width: 26rem; margin-inline: auto; padding: var(--space-l); background: var(--texture-ripple), var(--gradient-shell); background-color: var(--color-surface); border: var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-3); }
+.docs-console__head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-s); }
+.docs-console__name { font-weight: var(--weight-bold); }
+.docs-console__status { display: inline-flex; align-items: center; gap: var(--space-2xs); color: var(--color-muted); font-size: var(--step--1); }
+.docs-led { width: 0.5rem; height: 0.5rem; background: var(--color-led); border-radius: 50%; box-shadow: 0 0 0.5rem oklch(from var(--color-led) l c h / 0.6); }
+.docs-console__keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2xs); }
+.docs-console__mode { align-self: flex-start; }
+@media (max-width: 60em) { .docs-console { margin-inline: 0; } }
+@media (max-width: 48em) { .docs-console { display: none; } }
 .docs-hero__lede { font-size: var(--step-1); line-height: 1.35; max-width: 34ch; color: var(--color-muted); }
 .docs-section-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2xs) var(--space-s); }
 .docs-section-head__no { font-size: var(--step--1); font-weight: var(--weight-medium); color: var(--color-muted); font-variant-numeric: tabular-nums; }

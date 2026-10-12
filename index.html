@@ -35,22 +35,53 @@
 <main id="main" tabindex="-1">
   <div class="container">
 
-    <section class="docs-hero stack" id="top" aria-labelledby="hero-title">
-      <p class="cluster" style="--cluster-gap: var(--space-2xs)">
-        <span class="badge badge--accent">WCAG 2.2 AA</span>
-        <span class="badge">0 dependencies</span>
-        <span class="badge">59 components</span>
-        <span class="badge">10 templates</span>
-        <span class="badge">Light + dark</span>
-      </p>
-      <h1 class="docs-hero__title" id="hero-title">Hematite</h1>
-      <p class="docs-hero__lede">A design system in plain CSS, shaped like the MX Master 4: a graphite or pale grey shell, sculpted curves, soft light from above, fine graphite grain, keys with a dished top, and knurled metal as the only shiny part.</p>
-      <div class="cluster docs-theme">
-        <span class="muted" id="theme-label">Theme</span>
-        <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
-          <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
-          <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
-          <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+    <section class="docs-hero switcher" id="top" aria-labelledby="hero-title" style="--switch-at: 60rem; align-items: center">
+      <div class="stack">
+        <p class="cluster" style="--cluster-gap: var(--space-2xs)">
+          <span class="badge badge--accent">WCAG 2.2 AA</span>
+          <span class="badge">0 dependencies</span>
+          <span class="badge">59 components</span>
+          <span class="badge">10 templates</span>
+          <span class="badge">Light + dark</span>
+        </p>
+        <h1 class="docs-hero__title" id="hero-title">Hematite</h1>
+        <p class="docs-hero__lede">A design system in plain CSS, shaped like the MX Master 4: a graphite or pale grey shell, sculpted curves, soft light from above, fine graphite grain, keys with a dished top, and knurled metal as the only shiny part.</p>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- A still life of real components, arranged like a device's controls.
+           Decorative here, so it is hidden from assistive tech and inert. -->
+      <div class="docs-console" aria-hidden="true" inert>
+        <div class="docs-console__head">
+          <span class="docs-console__name">Workspace</span>
+          <span class="docs-console__status"><span class="docs-led"></span>Connected</span>
+        </div>
+        <div class="docs-console__keys">
+          <button class="button button--small" type="button">Copy</button>
+          <button class="button button--small" type="button">Paste</button>
+          <button class="button button--small" type="button">Undo</button>
+          <button class="button button--small button--secondary" type="button">Zoom</button>
+          <button class="button button--small button--secondary" type="button">Pan</button>
+          <button class="button button--small button--accent" type="button">Smart</button>
+        </div>
+        <div class="button-group button-group--joined docs-console__mode">
+          <button class="button button--small" type="button" aria-pressed="true">Ratchet</button>
+          <button class="button button--small" type="button" aria-pressed="false">Free spin</button>
+        </div>
+        <div class="field">
+          <span class="label">Scroll speed</span>
+          <input class="range" type="range" min="0" max="100" value="64" tabindex="-1">
+        </div>
+        <div class="field">
+          <span class="label">Battery <span class="muted">82%</span></span>
+          <progress class="progress" max="100" value="82">82%</progress>
         </div>
       </div>
     </section>

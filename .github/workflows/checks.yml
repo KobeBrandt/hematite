@@ -1,0 +1,29 @@
+name: Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  accessibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Colour contrast
+        run: python3 tools/check-contrast.py
+      - name: Install axe and a browser
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.2
+          npx playwright install --with-deps chromium
+      - name: axe on every page, both themes
+        run: |
+          python3 -m http.server 8765 &
+          sleep 1
+          node tools/check-a11y.mjs http://localhost:8765

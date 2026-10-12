@@ -130,16 +130,16 @@
 .notification__close {
   min-height: var(--target-min);
   padding-inline: var(--space-s);
-  background: oklch(from currentColor l c h / 0.14);
+  background: transparent;
   color: inherit;
-  border: 0;
+  border: var(--border-width) solid currentColor;
   border-radius: var(--radius-key);
   font-weight: var(--weight-medium);
   cursor: pointer;
-  transition: background-color var(--duration) var(--ease);
 
   &:hover {
-    background: oklch(from currentColor l c h / 0.24);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
 }
 
@@ -197,9 +197,9 @@
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
-  background: var(--gradient-ink);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background: var(--gradient-key);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   border-radius: 50%;
   box-shadow: var(--shadow-1);
   font-size: var(--step-1);
@@ -268,8 +268,8 @@
 
 /* --- Progress bar · Atom ---------------------------------------------------
    Native <progress>: screen readers announce the value. Label it, and show
-   the number as text too ("3 of 5 files"). A recessed track with a knurled
-   metal fill, like the edge of the scroll wheel. */
+   the number as text too ("3 of 5 files"). A recessed track with a ribbed
+   gunmetal fill (brushed silver on graphite), like the edge of the scroll wheel. */
 .progress {
   display: block;
   width: 100%;
@@ -287,14 +287,14 @@
   }
 
   &::-webkit-progress-value {
-    background: var(--gradient-accent);
+    background: var(--texture-knurl), linear-gradient(180deg, oklch(from var(--color-accent) calc(l + 0.12) c h), var(--color-accent));
     background-color: var(--color-accent);
     border-radius: var(--radius-pill);
     transition: width var(--duration-slow) var(--ease);
   }
 
   &::-moz-progress-bar {
-    background: var(--gradient-accent);
+    background: var(--texture-knurl), linear-gradient(180deg, oklch(from var(--color-accent) calc(l + 0.12) c h), var(--color-accent));
     background-color: var(--color-accent);
     border-radius: var(--radius-pill);
   }
@@ -353,9 +353,9 @@
   justify-content: space-between;
   gap: var(--space-s);
   padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-m);
-  background: var(--texture-grain), var(--gradient-ink);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background: var(--texture-grain), var(--gradient-key);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-3);
   font-weight: var(--weight-medium);
@@ -428,9 +428,9 @@
    (planned downtime, an emergency). Rare. */
 .site-banner {
   padding-block: var(--space-xs);
-  background: var(--texture-grain), var(--gradient-ink);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background: var(--texture-grain), var(--gradient-key);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   font-weight: var(--weight-medium);
 }
 
@@ -459,10 +459,5 @@
 
   .notification__header {
     border-block-end: var(--border-width) solid CanvasText;
-  }
-
-  .loader {
-    border-color: CanvasText;
-    border-block-start-color: transparent;
   }
 }

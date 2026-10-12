@@ -39,8 +39,8 @@
   min-height: var(--target-min);
   padding: var(--space-2xs) var(--space-m);
   background: var(--texture-grain), var(--gradient-key);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   border: var(--border-width) solid transparent;
   border-radius: var(--radius-key);
   box-shadow: var(--shadow-key);
@@ -202,8 +202,8 @@
 
 .button-group--joined > .button[aria-pressed="true"] {
   background: var(--texture-grain), var(--gradient-key);
-  background-color: var(--color-ink);
-  color: var(--color-on-ink);
+  background-color: var(--color-key);
+  color: var(--color-on-key);
   box-shadow: var(--shadow-key);
 }
 

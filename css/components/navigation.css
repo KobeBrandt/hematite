@@ -71,8 +71,8 @@
 
   &[aria-current="page"] {
     background: var(--texture-grain), var(--gradient-key);
-    background-color: var(--color-ink);
-    color: var(--color-on-ink);
+    background-color: var(--color-key);
+    color: var(--color-on-key);
     box-shadow: var(--shadow-key);
   }
 }

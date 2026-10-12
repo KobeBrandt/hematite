@@ -341,6 +341,23 @@
     // On phones the button floats at the bottom and the links open as a sheet.
     menu.setAttribute('data-ready', '');
     initSheet(menu, small);
+    // The floating button slides away while you scroll down to read, and
+    // comes back as soon as you scroll up, reach the end or tab to it.
+    var lastY = window.scrollY, ticking = false;
+    var tuck = function (on) { menu.toggleAttribute('data-tucked', on && !menu.open); };
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = window.scrollY;
+        var atEnd = window.innerHeight + y >= document.documentElement.scrollHeight - 8;
+        if (atEnd || y < lastY - 4) tuck(false);
+        else if (y > lastY + 4 && y > 120) tuck(true);
+        lastY = y;
+        ticking = false;
+      });
+    }, { passive: true });
+    menu.addEventListener('focusin', function () { tuck(false); });
   }
 
   /* --- Bottom sheet: a <details> shown as a sheet on small screens --------

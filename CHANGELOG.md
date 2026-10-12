@@ -16,6 +16,11 @@ is kept; only the skin changes.
   `--border-control`, `--gradient-*`, `--texture-knurl`, `--texture-grain`, `--texture-ripple`,
   `--color-led`, `--color-on-metal`, `--color-grain`,
   `--font-display`, `--weight-medium`, `--step--2`, `--press-scale`, `--lift`, `--ease-snap`.
+- `--color-key` and `--color-on-key`: keys (buttons, current page, toasts) stay graphite in
+  both themes, like the keys on the mouse, instead of turning pale in the dark theme.
+- On phones the floating Menu button slides away while you scroll down and comes back when you
+  scroll up, reach the end of the page or tab to it.
+- `tools/check-a11y.mjs` runs axe on every page in both themes; CI runs it with the contrast check.
 - Removed tokens: `--shadow-offset`, `--shadow-press`.
 - `--color-accent` is gunmetal in light and brushed silver in dark; the main action is knurled metal.
 - New modifiers: `.button--quiet`, `.card--flat`, `.table--striped` (stripes are now opt-in).
