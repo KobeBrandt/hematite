@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Modern CSS · Contour</title>
+<meta name="description" content="The current CSS features Contour uses and their browser support.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html" aria-current="page">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">08</span><h1 class="docs-title">Modern CSS</h1></div>
+<p>Contour uses current CSS wherever it removes code or JavaScript. "Widely" means Baseline for more than 30 months; "2024" means Baseline since that year, in every current browser; "Limited" means not in every browser yet, so it is only an enhancement.</p>
+          <div class="table-wrap" role="region" aria-label="Modern CSS features" tabindex="0">
+          <table class="table table--compact">
+            <thead><tr><th scope="col">Feature</th><th scope="col">Used for</th><th scope="col">Baseline</th><th scope="col">Without it</th></tr></thead>
+            <tbody>
+              <tr><td><code>@layer</code></td><td>Load order: your CSS always wins</td><td>Widely</td><td>Needed</td></tr>
+              <tr><td>Nesting <code>&amp;</code></td><td>State rules sit inside their component</td><td>Widely</td><td>Needed</td></tr>
+              <tr><td><code>:has()</code></td><td>Field and character count states, error rows</td><td>Widely</td><td>Needed</td></tr>
+              <tr><td>Container queries</td><td>Summary list, steps, contact and bar chart adapt to their own width, not the screen's</td><td>Widely</td><td>Needed</td></tr>
+              <tr><td><code>:user-invalid</code></td><td>Browser validation shows the error style only after someone has used the field</td><td>Widely</td><td>Only <code>aria-invalid</code> shows it</td></tr>
+              <tr><td><code>dvh</code>, <code>lh</code></td><td>Full visible height on mobile; textarea height in lines</td><td>Widely</td><td><code>vh</code> fallback</td></tr>
+              <tr><td><code>light-dark()</code></td><td>One set of colour tokens for both themes</td><td>2024</td><td>Media query fallback in <code>tokens.css</code></td></tr>
+              <tr><td>Relative colour</td><td>Tints from theme colours: skeleton sweep, invalid field</td><td>2024</td><td>Plain fallback values</td></tr>
+              <tr><td><code>@property</code></td><td>Typed <code>--value</code>, so bar chart bars can grow</td><td>2024</td><td>Bars appear without growing</td></tr>
+              <tr><td><code>@starting-style</code>, <code>allow-discrete</code></td><td>Dialog, popover and toast slide in and out with transitions, no keyframes</td><td>2024</td><td>They appear at once</td></tr>
+              <tr><td>Popover</td><td>Light-dismiss popups without JavaScript</td><td>2024</td><td>Needed for popovers</td></tr>
+              <tr><td><code>scrollbar-gutter</code></td><td>No layout jump when the scrollbar appears</td><td>2024</td><td>Small jump</td></tr>
+              <tr><td>Anchor positioning</td><td>Popover sits under its button</td><td>Limited</td><td>Popover centres</td></tr>
+              <tr><td><code>field-sizing</code></td><td><code>textarea--auto</code> grows with its text</td><td>Limited</td><td>Normal resizable textarea</td></tr>
+            </tbody>
+          </table>
+          </div>
+          
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="usage.html" rel="prev">Previous<span class="pagination__label">Usage</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

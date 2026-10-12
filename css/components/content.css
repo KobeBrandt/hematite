@@ -1,0 +1,629 @@
+/* ==========================================================================
+   CONTOUR / components/content.css
+   Reading content: prose, lists, card, inset text, summary box, quote,
+   divider, figure, video, icon, contact, person, process list, bar chart.
+   ========================================================================== */
+
+/* --- Prose · Organism -------------------------------------------------------
+   Wrap CMS or Markdown output: it gets vertical rhythm without classes on
+   every element. Headings get more space above than below (proximity). */
+.prose > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.prose > * + :is(h2, h3, h4) {
+  margin-block-start: var(--space-xl);
+}
+
+.prose > :is(h2, h3, h4) + * {
+  margin-block-start: var(--space-xs);
+}
+
+.prose :is(ul, ol) {
+  padding-inline-start: 1.25em;
+}
+
+.prose li + li {
+  margin-block-start: var(--space-3xs);
+}
+
+.prose img,
+.prose video {
+  border-radius: var(--radius-m);
+}
+
+/* --- List · Atom ------------------------------------------------------------ */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.list--bullet,
+.list--number {
+  padding-inline-start: 1.25em;
+}
+
+.list--bullet { list-style: disc; }
+.list--number { list-style: decimal; }
+
+.list--bullet > li::marker,
+.list--number > li::marker {
+  color: var(--color-muted);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+}
+
+.list--spaced { gap: var(--space-s); }
+
+/* Ruled: a line between items, for scannable lists of links or results. */
+.list--ruled > li {
+  padding-block: var(--space-xs);
+  border-block-end: var(--border);
+
+  &:first-child {
+    border-block-start: var(--border);
+  }
+}
+
+/* --- Link list · Molecule ---------------------------------------------------
+   A list of related links ("Related content", footer columns). Links are
+   block-level so each line is a full target. */
+.link-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+}
+
+.link-list__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: var(--target-min);
+  padding-block: var(--space-3xs);
+}
+
+.link-list--arrows .link-list__link::before {
+  content: "\2192";
+  flex: none;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: translate var(--duration) var(--ease);
+}
+
+.link-list--arrows .link-list__link:hover::before {
+  translate: 0.1875rem 0;
+}
+
+[dir="rtl"] .link-list--arrows .link-list__link::before {
+  content: "\2190";
+}
+
+.link-list--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 var(--space-m);
+}
+
+/* --- Icon · Atom ------------------------------------------------------------
+   Inline SVG from icons/contour-icons.svg: <svg class="icon"><use href="…#check"/></svg>.
+   Round caps and joins, one fine stroke width, currentColor. Decorative icons get
+   aria-hidden="true"; an icon on its own needs a text alternative. */
+.icon {
+  display: inline-block;
+  flex: none;
+  width: var(--icon-size, var(--icon-s));
+  height: var(--icon-size, var(--icon-s));
+  vertical-align: -0.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--m { --icon-size: var(--icon-m); }
+.icon--l { --icon-size: var(--icon-l); }
+
+/* Icon list: a list where each item starts with an icon (features, checks). */
+.icon-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+}
+
+.icon-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
+.icon-list__item > .icon {
+  margin-block-start: 0.2em;
+}
+
+/* --- Card · Molecule --------------------------------------------------------
+   A moulded object: raised surface, hairline, top sheen. To make the whole
+   card clickable, put the link on the title and let .card__link::after
+   stretch over the card. */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m);
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease);
+}
+
+.card--raised {
+  box-shadow: var(--shadow-2);
+}
+
+/* Flat: sits in the page, for dense grids. */
+.card--flat {
+  background: var(--color-sunken);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Accent: the graphite shell itself, with its fine grain and the
+   concentric ripple of the thumb pad in one corner. */
+.card--accent {
+  background:
+    var(--texture-grain),
+    var(--texture-ripple),
+    var(--gradient-key);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  border-color: transparent;
+  --color-link: var(--color-on-ink);
+  --color-muted: oklch(from var(--color-on-ink) l c h / 0.75);
+}
+
+.card__media {
+  margin: calc(var(--space-m) * -1) calc(var(--space-m) * -1) 0;
+  overflow: hidden;
+  border-start-start-radius: inherit;
+  border-start-end-radius: inherit;
+}
+
+.card__media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card__eyebrow {
+  color: var(--color-muted);
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+.card__title {
+  font-size: var(--step-1);
+}
+
+.card__link {
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.card:has(.card__link:hover) {
+  transform: translateY(calc(var(--lift) * 3));
+  box-shadow: var(--shadow-3);
+}
+
+.card:has(.card__link:focus-visible) {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+  box-shadow: var(--focus-ring), var(--shadow-2);
+}
+
+.card__link:focus-visible {
+  outline: none;
+  box-shadow: none;
+  background: none;
+  text-decoration: underline;
+}
+
+.card__meta {
+  margin-block-start: auto;
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+.card--accent .card__meta {
+  color: inherit;
+}
+
+/* Stat card: one big number and what it means. */
+.card__stat {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Inset text · Atom ------------------------------------------------------
+   Sets a quote, example or extra detail apart from the text around it. */
+.inset {
+  padding: var(--space-xs) var(--space-m);
+  border-inline-start: 0.25rem solid var(--color-edge);
+  max-width: var(--measure);
+}
+
+/* --- Summary box · Molecule ------------------------------------------------
+   The key points or next steps of a long page, at the top. */
+.summary-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m) var(--space-l);
+  background: var(--color-sunken);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-inset);
+}
+
+.summary-box__title {
+  font-size: var(--step-1);
+}
+
+/* --- Quote · Molecule ------------------------------------------------------- */
+.quote {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  max-width: var(--measure);
+}
+
+.quote__text {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: var(--weight-medium);
+  line-height: 1.3;
+  letter-spacing: var(--tracking-tight);
+
+  &::before {
+   content: "\201C"; 
+  }
+
+  &::after {
+   content: "\201D"; 
+  }
+}
+
+.quote__cite {
+  font-style: normal;
+  color: var(--color-muted);
+
+  &::before {
+    content: "\2014\00a0";
+  }
+}
+
+/* --- Divider · Atom ---------------------------------------------------------
+   <hr class="divider">. Thin for inside a section, thick between sections. */
+.divider {
+  border: 0;
+  border-block-start: var(--border);
+}
+
+.divider--thin {
+  border-block-start-width: var(--border-width-thin);
+}
+
+.divider--thick {
+  height: 0.5rem;
+  border: 0;
+  background: var(--texture-knurl);
+  border-radius: var(--radius-pill);
+}
+
+/* With a label in the middle: <div class="divider-label" role="separator">or</div> */
+.divider-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  color: var(--color-muted);
+  font-size: var(--step--1);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-block-start: var(--border);
+  }
+}
+
+/* --- Figure (image) · Molecule ----------------------------------------------
+   <figure class="figure"> with <img alt="…"> and <figcaption>. The caption
+   does not replace alt text: alt says what is in it, the caption why it is there. */
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.figure__media {
+  width: 100%;
+  background: var(--color-sunken);
+  border-radius: var(--radius-l);
+}
+
+.figure__caption {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  max-width: var(--measure);
+
+  &::before {
+    content: "\25CF\00a0";   /* ● */
+    color: var(--color-led);
+  }
+}
+
+/* Video: native <video controls> with captions (<track kind="captions">, 1.2.2)
+   and a transcript link under it (1.2.1, 1.2.3). Never autoplay with sound. */
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-ink);
+  border-radius: var(--radius-l);
+}
+
+/* Gallery: thumbnails in a grid, each a link to the full image. */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+  gap: var(--space-s);
+  padding: 0;
+  list-style: none;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-m);
+}
+
+/* --- Contact block · Molecule -----------------------------------------------
+   <address class="contact">: name, address, phone, email, opening hours. */
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+  font-style: normal;
+  container: contact / inline-size;
+}
+
+.contact__name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--step-1);
+}
+
+.contact__row {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: var(--space-s);
+}
+
+/* In a narrow card, the label goes above its value. */
+@container contact (width < 18rem) {
+  .contact__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.contact__row > :first-child {
+  color: var(--color-muted);
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  padding-block-start: 0.15em;
+}
+
+/* --- Person · Molecule ------------------------------------------------------
+   Avatar (photo or initials), name, role. Initials are aria-hidden: the name is next to it. */
+.person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.person__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  background: var(--gradient-metal);
+  color: var(--color-on-metal);
+  border-radius: 50%;
+  box-shadow: var(--shadow-1), inset 0 0 0 var(--border-width) var(--color-line);
+  font-weight: var(--weight-bold);
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+
+.person__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person__name {
+  font-weight: var(--weight-bold);
+}
+
+.person__role {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+/* --- Process list · Molecule -----------------------------------------------
+   Numbered steps of a real-world process ("How to apply"). Not navigation:
+   for steps in a form flow use .steps. */
+.process-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  counter-reset: process;
+}
+
+.process-list__item {
+  position: relative;
+  padding-inline-start: 3.5rem;
+  padding-block-end: var(--space-l);
+  counter-increment: process;
+
+  &::before {
+    content: counter(process);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--texture-grain), var(--gradient-key);
+    background-color: var(--color-ink);
+    color: var(--color-on-ink);
+    border-radius: 50%;
+    box-shadow: var(--shadow-key);
+    font-weight: var(--weight-bold);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* The line that joins the numbers. */
+.process-list__item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(1.25rem - var(--border-width) / 2);
+  inset-block: 2.5rem 0;
+  border-inline-start: var(--border);
+}
+
+.process-list__title {
+  font-size: var(--step-1);
+  margin-block-end: var(--space-2xs);
+}
+
+/* --- Bar chart · Organism ---------------------------------------------------
+   Simple horizontal bars from data, no library. It is a table underneath
+   (a <table> or a <dl>), so the numbers are always there for screen readers
+   and for print. Set --value as a percentage on each bar. Label every bar
+   with its number: never make people read values off an axis. */
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+  container: bar-chart / inline-size;
+}
+
+.bar-chart__row {
+  display: grid;
+  grid-template-columns: minmax(6rem, 12rem) 1fr;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+/* Narrow chart: label on its own line above the bar, so bars keep their length. */
+@container bar-chart (width < 28rem) {
+  .bar-chart__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xs);
+  }
+}
+
+.bar-chart__label {
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+}
+
+.bar-chart__value {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+
+  &::before {
+    content: "";
+    flex: none;
+    width: calc(var(--value, 0%) * 0.85);
+    height: 0.875rem;
+    background: var(--color-edge);
+    border-radius: var(--radius-pill);
+    /* --value is a registered <percentage> (@property in tokens.css), so the
+       browser can animate it: each bar grows from 0 to its own value. */
+    animation: contour-grow var(--duration-slow) var(--ease) both;
+  }
+}
+
+@keyframes contour-grow {
+  from { --value: 0%; }
+}
+
+.bar-chart__row--highlight .bar-chart__value::before {
+  background: var(--gradient-key);
+  background-color: var(--color-ink);
+}
+
+.bar-chart__row--highlight .bar-chart__value {
+  color: var(--color-ink);
+  font-weight: var(--weight-medium);
+}
+
+@media (forced-colors: active) {
+  .card,
+  .contact,
+  .summary-box,
+  .figure__media,
+  .video {
+    border: var(--border-width) solid CanvasText;
+  }
+
+  .bar-chart__value::before {
+    background: CanvasText;
+    forced-color-adjust: none;
+  }
+
+  .process-list__item::before {
+    border: var(--border-width) solid CanvasText;
+  }
+}

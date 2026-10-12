@@ -1,0 +1,15 @@
+/* ==========================================================================
+   CONTOUR / components.css
+   Imports every component file. Link this one, or only the files you use.
+   BEM naming: .block, .block__element, .block--modifier.
+   Each component is tagged Atom, Molecule or Organism (Atomic design).
+   Every interactive part is at least --target-min (2.75rem) tall (2.5.8).
+   ========================================================================== */
+@import url("components/actions.css");      /* skip link, button, button group, back link, exit page */
+@import url("components/forms.css");        /* inputs, checks, field, error summary, date, search, upload… */
+@import url("components/feedback.css");     /* badge, alert, notification, panel, loader, progress, toast… */
+@import url("components/content.css");      /* prose, lists, card, icon, quote, figure, contact, chart… */
+@import url("components/data.css");         /* table, summary list */
+@import url("components/navigation.css");   /* breadcrumb, pagination, side nav, steps, task list… */
+@import url("components/interactive.css");  /* disclosure, accordion, tabs, dialog, tooltip, popover */
+@import url("components/page.css");         /* site header, footer, cookie banner, sticky bar */

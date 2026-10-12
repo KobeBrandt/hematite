@@ -1,0 +1,178 @@
+/* ==========================================================================
+   CONTOUR / base.css
+   Reset plus default styles for bare HTML elements. Semantic HTML should
+   look right before a single class is added.
+   ========================================================================== */
+
+/* --- Generic reset ------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Reserve room for the scrollbar so the page does not jump when a dialog
+     locks scrolling or a short page becomes long. */
+  scrollbar-gutter: stable;
+  /* Keep focused elements clear of a sticky header (2.4.11 Focus not obscured) */
+  scroll-padding-top: var(--space-2xl);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;   /* the visible height on mobile; 100vh above is the fallback */
+  /* Graphite has a fine dot grain, like the matte shell; the pale theme is clean. */
+  background: radial-gradient(var(--color-grain) 0.03rem, transparent 0.05rem) 0 0 / 0.25rem 0.25rem, var(--color-bg);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* The hidden attribute always wins, even over components that set display. */
+[hidden] {
+  display: none !important;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- Type ---------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--step-3); letter-spacing: var(--tracking-display); }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); }
+h4,
+h5,
+h6 { font-size: var(--step-0); }
+h4 { font-size: 1.125rem; }
+h5 { letter-spacing: normal; }
+h6 { font-size: var(--step--2); font-weight: var(--weight-medium); color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-caps); }
+
+p,
+li,
+dd {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+strong,
+b {
+  font-weight: var(--weight-bold);
+}
+
+small {
+  font-size: var(--step--1);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9375em;
+}
+
+:not(pre) > code {
+  padding: 0.1em 0.4em;
+  background: var(--color-sunken);
+  border-radius: var(--radius-xs);
+}
+
+pre {
+  padding: var(--space-s) var(--space-m);
+  overflow-x: auto;
+  background: var(--color-sunken);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-inset);
+}
+
+hr {
+  border: 0;
+  border-top: var(--border);
+}
+
+/* --- Links: underlined always, never colour alone (1.4.1) -----------------
+   A fine underline that thickens on hover. */
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-thickness var(--duration) var(--ease), text-underline-offset var(--duration) var(--ease);
+
+  &:hover {
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.18em;
+  }
+}
+
+/* --- Focus: one rule for everything (2.4.7) --------------------------------
+   A 2px gunmetal outline (brushed silver on graphite), 2px clear of the
+   element, with a soft halo round it. It is 3:1 or more against the page in
+   both themes. Never removed. Components that have
+   their own box-shadow add var(--focus-ring) to it. */
+:focus-visible {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+  box-shadow: var(--focus-ring);
+}
+
+/* Links get a rounded glow behind the text as well. */
+a:focus-visible {
+  border-radius: var(--radius-xs);
+  text-decoration-thickness: 0.125rem;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-ink);
+}
+
+/* --- Motion -------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

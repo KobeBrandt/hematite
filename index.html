@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contour Design System</title>
+<meta name="description" content="An accessible design system in plain CSS, with the sculpted, soft-lit look of a premium mouse.">
+<link rel="stylesheet" href="css/contour.css">
+<link rel="stylesheet" href="docs/docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="index.html" aria-current="page">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="docs/tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="docs/components.html">Components</a></li>
+          <li><a class="nav__link" href="docs/patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="docs/templates.html">Templates</a></li>
+          <li><a class="nav__link" href="docs/accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="docs/usage.html">Usage</a></li>
+          <li><a class="nav__link" href="docs/modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container">
+
+    <section class="docs-hero stack" id="top" aria-labelledby="hero-title">
+      <p class="cluster" style="--cluster-gap: var(--space-2xs)">
+        <span class="badge badge--accent">WCAG 2.2 AA</span>
+        <span class="badge">0 dependencies</span>
+        <span class="badge">59 components</span>
+        <span class="badge">10 templates</span>
+        <span class="badge">Light + dark</span>
+      </p>
+      <h1 class="docs-hero__title" id="hero-title">Contour</h1>
+      <p class="docs-hero__lede">A design system in plain CSS, shaped like the MX Master 4: a graphite or pale grey shell, sculpted curves, soft light from above, fine graphite grain, keys with a dished top, and knurled metal as the only shiny part.</p>
+      <div class="cluster docs-theme">
+        <span class="muted" id="theme-label">Theme</span>
+        <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+          <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+          <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+          <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="section stack stack--loose" id="principles" aria-labelledby="principles-title">
+      <div class="docs-section-head"><span class="docs-section-head__no">01</span><h2 id="principles-title">Principles</h2></div>
+      <p class="measure">The look comes from an object you hold all day: a sculpted mouse. Matte surfaces, curves that fit the hand, light that falls from above, metal only where something turns, and one light that tells you what is live. Every rule below still comes from established UI-design, CSS-architecture and accessibility practice.</p>
+      <div class="grid" style="--grid-min: 17rem">
+        <article class="card"><p class="card__eyebrow">CRAP: Contrast</p><h3 class="card__title">Graphite on pale grey</h3><p>Graphite text on a pale grey shell, 13:1, and the reverse in dark mode: sharp but never glaring. Every colour pair stays between 4.5:1 and 15:1, and control edges stay above 3:1 even though they look soft.</p></article>
+        <article class="card"><p class="card__eyebrow">CRAP: Repetition</p><h3 class="card__title">One material, three heights</h3><p>Every surface is the same matte shell with a hairline and a top sheen. Three soft shadows say how high it sits. Radii grow with size and stay concentric. If it looks different, it behaves differently.</p></article>
+        <article class="card"><p class="card__eyebrow">CRAP: Alignment</p><h3 class="card__title">Left, on a grid</h3><p>Text is left aligned and capped at 65 characters. Layout primitives snap to one container and gutter.</p></article>
+        <article class="card"><p class="card__eyebrow">CRAP + Gestalt: Proximity</p><h3 class="card__title">Space groups things</h3><p>Micro space inside components, macro space between sections. Related items sit closer than unrelated ones.</p></article>
+        <article class="card card--accent"><p class="card__eyebrow">Colour: 60-30-10</p><h3 class="card__title">Shell, graphite, metal</h3><p>About 60% pale shell, 30% graphite, 10% brushed metal. No brand colour: metal marks the one main action, graphite keys mark what is pressed, and a small green light marks what is current.</p></article>
+        <article class="card"><p class="card__eyebrow">Efficiency</p><h3 class="card__title">HTML first</h3><p>System fonts, no images, native elements wherever they exist. Every component works without JavaScript; an optional 5 KB script adds tab keys, dialogs and counters.</p></article>
+      </div>
+
+      <div class="stack">
+        <h3>Nielsen's heuristics, built in</h3>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Heuristics and how Contour covers them">
+          <table class="table">
+            <thead><tr><th scope="col">Heuristic</th><th scope="col">How the system covers it</th></tr></thead>
+            <tbody>
+              <tr><td>Visibility of system status</td><td>Alerts, notification banners, toasts, loaders and progress bars with live regions; step indicators and task lists; <code>aria-current</code> everywhere.</td></tr>
+              <tr><td>Match with the real world</td><td>Templates and patterns in plain language: "Check your answers", "Booking confirmed", not "Submit form".</td></tr>
+              <tr><td>User control and freedom</td><td>Back links in every flow, Change links on check answers pages, dialogs that close with Escape, cancel links next to actions.</td></tr>
+              <tr><td>Consistency and standards</td><td>All values come from tokens. Links are always underlined; buttons are always keys.</td></tr>
+              <tr><td>Error prevention</td><td>Hints above the field, inputs sized to the answer, a confirm dialog before destructive actions, warning text for consequences.</td></tr>
+              <tr><td>Recognition rather than recall</td><td>Visible labels on every input, combo box suggestions, summary lists that show answers back.</td></tr>
+              <tr><td>Aesthetic and minimalist design</td><td>No brand colour, one material, gradients only as light on a surface, metal only on parts that move.</td></tr>
+              <tr><td>Help users recover from errors</td><td>Error summary that links to each field, errors that start with "Error" and say how to fix it, error pages that say what to do next.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <section class="section stack stack--loose" id="explore" aria-labelledby="explore-title">
+      <div class="docs-section-head"><span class="docs-section-head__no" aria-hidden="true">→</span><h2 id="explore-title">Explore</h2></div>
+      <div class="grid" style="--grid-min: 16rem">
+        <article class="card card--raised">
+          <p class="card__eyebrow">02</p>
+          <h3 class="card__title"><a class="card__link" href="docs/tokens.html">Tokens</a></h3>
+          <p>Colour, type, space, shape, motion, stacking order and breakpoints.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">03</p>
+          <h3 class="card__title"><a class="card__link" href="docs/components.html">Components</a></h3>
+          <p>59 components in eight groups, each with a live example, its HTML and when to use it.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">04</p>
+          <h3 class="card__title"><a class="card__link" href="docs/patterns.html">Patterns</a></h3>
+          <p>Asking for names, dates and addresses; check answers; error pages; writing rules.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">05</p>
+          <h3 class="card__title"><a class="card__link" href="docs/templates.html">Templates</a></h3>
+          <p>Ten full pages for an example service. Copy one to start.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">06</p>
+          <h3 class="card__title"><a class="card__link" href="docs/accessibility.html">Accessibility</a></h3>
+          <p>How Contour meets WCAG 2.2 AA, and what was tested.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">07</p>
+          <h3 class="card__title"><a class="card__link" href="docs/usage.html">Usage</a></h3>
+          <p>Install, start a page, cascade layers, themes and right to left.</p>
+        </article>
+        <article class="card card--raised">
+          <p class="card__eyebrow">08</p>
+          <h3 class="card__title"><a class="card__link" href="docs/modern-css.html">Modern CSS</a></h3>
+          <p>The current CSS Contour uses, and what happens in older browsers.</p>
+        </article>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs/docs.js"></script>
+<script src="js/contour.js"></script>
+</body>
+</html>

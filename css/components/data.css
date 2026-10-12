@@ -1,0 +1,208 @@
+/* ==========================================================================
+   CONTOUR / components/data.css
+   Structured data: table and summary list.
+   ========================================================================== */
+
+/* --- Table · Organism ------------------------------------------------------
+   Wrap in .table-wrap so wide tables scroll inside their box, not the page
+   (1.4.10 Reflow). Give the wrapper tabindex="0", role="region" and a label
+   so keyboard users can scroll it. */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table caption {
+  padding: var(--space-xs) var(--space-s);
+  text-align: start;
+  font-weight: var(--weight-bold);
+  border-block-end: var(--border);
+}
+
+.table th,
+.table td {
+  padding: var(--space-2xs) var(--space-s);
+  text-align: start;
+  vertical-align: top;
+  border-block-end: var(--border);
+}
+
+/* Header row: a quiet recessed band, small muted labels. */
+.table thead th {
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+  white-space: nowrap;
+  border-block-end-color: var(--color-edge);
+}
+
+.table tbody tr {
+  transition: background-color var(--duration) var(--ease);
+}
+
+.table tbody tr:hover {
+  background: oklch(from var(--color-sunken) l c h / 0.6);
+}
+
+/* Striped: optional, for very wide tables. */
+.table--striped tbody tr:nth-child(even) {
+  background: var(--color-sunken);
+}
+
+.table tbody tr:last-child > * {
+  border-block-end: 0;
+}
+
+.table .table__num {
+  text-align: end;
+}
+
+/* Compact: for dense data in apps. */
+.table--compact th,
+.table--compact td {
+  padding: var(--space-3xs) var(--space-2xs);
+}
+
+/* Sticky header row inside a scrolling .table-wrap with a max-height. */
+.table--sticky thead th {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-raised);
+}
+
+/* Sortable: put a <button> in the <th>, and aria-sort on the th. */
+.table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: 1.5rem;
+  padding: 0;
+  background: none;
+  color: inherit;
+  border: 0;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+
+  &::after {
+    content: "\2195";   /* ↕ */
+  }
+}
+
+[aria-sort="ascending"] > .table__sort::after  { content: "\2191"; }
+[aria-sort="descending"] > .table__sort::after { content: "\2193"; }
+
+.table__sort:hover {
+  color: var(--color-ink);
+}
+
+/* --- Summary list · Organism -----------------------------------------------
+   Key / value pairs in a <dl>: "Check your answers", record details.
+   Optional third column for a "Change" link; give it visually-hidden text
+   saying what it changes ("Change<span class="visually-hidden"> name</span>"). */
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-block-start: var(--border);
+  /* A container: rows stack when the list is narrow, wherever it sits
+     (a sidebar, a card, a phone), not only when the screen is narrow. */
+  container: summary-list / inline-size;
+}
+
+.summary-list__row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 2fr auto;
+  gap: var(--space-3xs) var(--space-m);
+  padding-block: var(--space-xs);
+  border-block-end: var(--border);
+}
+
+.summary-list__key {
+  color: var(--color-muted);
+  font-weight: var(--weight-medium);
+}
+
+.summary-list__value {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.summary-list__actions {
+  margin: 0;
+  text-align: end;
+}
+
+@container summary-list (width < 26rem) {
+  .summary-list__row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-list__actions {
+    text-align: start;
+  }
+}
+
+/* No borders, for a short list inside a card. */
+.summary-list--plain,
+.summary-list--plain .summary-list__row {
+  border: 0;
+  padding-block: var(--space-3xs);
+}
+
+/* Card wrapper: a titled box around one summary list (one per section). */
+.summary-card {
+  overflow: hidden;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+}
+
+.summary-card__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding: var(--space-xs) var(--space-m);
+  background: var(--gradient-shell);
+  background-color: var(--color-sunken);
+  border-block-end: var(--border);
+}
+
+.summary-card__title {
+  font-size: var(--step-0);
+}
+
+.summary-card__body {
+  padding-inline: var(--space-m);
+}
+
+.summary-card__body .summary-list {
+  border-block-start: 0;
+}
+
+.summary-card__body .summary-list__row:last-child {
+  border-block-end: 0;
+}
+
+@media (forced-colors: active) {
+  .table-wrap,
+  .summary-card {
+    border: var(--border-width) solid CanvasText;
+  }
+}

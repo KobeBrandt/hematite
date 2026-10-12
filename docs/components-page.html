@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page components · Contour</title>
+<meta name="description" content="Page components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html" aria-current="page">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-nav">Site header and navigation</a></li><li><a class="in-page-nav__link" href="#c-footer">Footer</a></li><li><a class="in-page-nav__link" href="#c-cookie">Cookie banner</a></li><li><a class="in-page-nav__link" href="#c-sticky-bar">Sticky action bar</a></li><li><a class="in-page-nav__link" href="#c-skip">Skip link</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Page</h1></div>
+        <p class="docs-lede measure">The frame around every page. <span class="docs-file">css/components/page.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-nav">Site header and navigation <span class="badge">Organism</span> <span class="docs-file">components/page.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <header class="site-header">
+                  <div class="site-header__inner" style="padding-inline: var(--space-s)">
+                    <a class="site-header__brand" href="#c-nav">Repair Café</a>
+                    <details class="nav-menu" open>
+                      <summary>Menu</summary>
+                      <nav class="nav" aria-label="Main example">
+                        <ul class="nav__list">
+                          <li><a class="nav__link" href="#c-nav" aria-current="page">Book</a></li>
+                          <li><a class="nav__link" href="#c-nav">Workshops</a></li>
+                          <li><a class="nav__link" href="#c-nav">Help</a></li>
+                        </ul>
+                      </nav>
+                    </details>
+                  </div>
+                </header>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Same links, same order on every page (3.2.3).</li><li><code>aria-current="page"</code> on the active link.</li><li><code>details.nav-menu</code> collapses the links behind Menu on small screens. With contour.js, on phones the Menu button floats at the bottom right, within thumb reach, and the links open as a sheet from the bottom edge; Escape or a tap outside closes it. Without JS it is an open list in the header.</li><li>Keep the header to one slim row on phones and do not make it sticky there.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Hide primary links behind a menu on desktop.</li><li>Use more than about seven top-level items.</li></ul></div>
+            <div><h3>Modifiers</h3><ul><li><code>--sticky</code> sticks it to the top</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-footer">Footer <span class="badge">Organism</span> <span class="docs-file">components/page.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <footer class="site-footer" style="padding-inline: var(--space-s)">
+                  <div class="site-footer__columns">
+                    <div><h2 class="site-footer__title">Service</h2><ul class="link-list"><li><a class="link-list__link" href="#c-footer">Book a visit</a></li><li><a class="link-list__link" href="#c-footer">Workshops</a></li></ul></div>
+                    <div><h2 class="site-footer__title">Support</h2><ul class="link-list"><li><a class="link-list__link" href="#c-footer">Accessibility statement</a></li><li><a class="link-list__link" href="#c-footer">Cookies</a></li></ul></div>
+                  </div>
+                  <div class="site-footer__meta"><span class="tabular">© 2026 Repair café</span><span>Content is example text.</span></div>
+                </footer>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Columns of link lists for a big "doormat" footer.</li><li>Accessibility statement, privacy and cookies links on every page.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Put primary navigation only in the footer.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-cookie">Cookie banner <span class="badge">Organism</span> <span class="docs-file">components/page.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="cookie-banner" role="region" aria-label="Cookies on this site" style="padding-inline: var(--space-s)">
+                  <div class="cookie-banner__inner" data-cookie-question>
+                    <h2 class="cookie-banner__title">Cookies on this site</h2>
+                    <p>We use some essential cookies to make this site work. We would also like to set analytics cookies to understand how you use it.</p>
+                    <div class="button-group">
+                      <button class="button button--secondary" type="button" data-cookie-choice="accept">Accept analytics cookies</button>
+                      <button class="button button--secondary" type="button" data-cookie-choice="reject">Reject analytics cookies</button>
+                      <a href="#c-cookie">View cookies</a>
+                    </div>
+                  </div>
+                  <div class="cookie-banner__inner" data-cookie-confirm="accept" hidden><p>You have accepted analytics cookies. You can change this at any time on the cookies page.</p></div>
+                  <div class="cookie-banner__inner" data-cookie-confirm="reject" hidden><p>You have rejected analytics cookies. You can change this at any time on the cookies page.</p></div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Accept and reject are equal buttons.</li><li>First in the page after the skip link; no consent cookies until people choose.</li><li>Listen for the <code>contour:cookies</code> event to load analytics.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use a modal that blocks the page.</li><li>Make "accept" the only bright button.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-sticky-bar">Sticky action bar <span class="badge">Organism</span> <span class="docs-file">components/page.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="sticky-bar" style="position: static; padding-inline: var(--space-s)">
+                  <div class="button-group"><button class="button" type="button">Save changes</button><button class="button button--secondary" type="button">Discard</button></div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Long edit pages where the save button would scroll away.</li><li>Add <code>.has-sticky-bar</code> to <code>&lt;body&gt;</code> so focus is never hidden behind it (2.4.11).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it on short forms.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-skip">Skip link <span class="badge">Atom</span> <span class="docs-file">components/actions.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <p>Press <kbd>Tab</kbd> at the top of this page to see the skip link.</p>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>First element in <code>&lt;body&gt;</code>, pointing at <code>&lt;main id="main" tabindex="-1"&gt;</code> (2.4.1).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Hide it with <code>display: none</code>.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-show-and-hide.html" rel="prev">Previous<span class="pagination__label">Show and hide components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="patterns.html" rel="next">Next<span class="pagination__label">Patterns</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

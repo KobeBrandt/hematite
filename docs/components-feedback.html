@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feedback components · Contour</title>
+<meta name="description" content="Feedback components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html" aria-current="page">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-badge">Badge</a></li><li><a class="in-page-nav__link" href="#c-alert">Alert</a></li><li><a class="in-page-nav__link" href="#c-notification">Notification banner</a></li><li><a class="in-page-nav__link" href="#c-panel">Confirmation panel</a></li><li><a class="in-page-nav__link" href="#c-warning-text">Warning text</a></li><li><a class="in-page-nav__link" href="#c-loader">Loader, skeleton and progress</a></li><li><a class="in-page-nav__link" href="#c-toast">Toast</a></li><li><a class="in-page-nav__link" href="#c-phase">Phase banner</a></li><li><a class="in-page-nav__link" href="#c-site-banner">Site banner</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Feedback</h1></div>
+        <p class="docs-lede measure">Say what happened and what is happening. A word carries the meaning; colour repeats it. <span class="docs-file">css/components/feedback.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-badge">Badge <span class="badge">Atom</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <p class="cluster" style="--cluster-gap: var(--space-2xs)">
+                  <span class="badge">Draft</span>
+                  <span class="badge badge--solid">Beta</span>
+                  <span class="badge badge--accent">New</span>
+                  <span class="badge badge--info">Submitted</span>
+                  <span class="badge badge--success">Paid</span>
+                  <span class="badge badge--warning">Overdue</span>
+                  <span class="badge badge--danger">Failed</span>
+                </p>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A short status word next to the thing it describes.</li><li>The word carries the meaning; colour only repeats it.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Make badges clickable. Use a button or link.</li><li>Use a colour dot without a word.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-alert">Alert <span class="badge">Molecule</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="stack">
+                  <div class="alert alert--info" role="status"><span class="alert__label">Info</span><p class="alert__body">Bookings for December open on 1 November.</p></div>
+                  <div class="alert alert--success" role="status"><span class="alert__label">Done</span><p class="alert__body">Your photo was uploaded.</p></div>
+                  <div class="alert alert--warning" role="status"><span class="alert__label">Warning</span><p class="alert__body">Your booking has no contact phone number yet.</p></div>
+                  <div class="alert alert--danger" role="alert"><span class="alert__label">Error</span><p class="alert__body">The file is larger than 10 MB. Compress it or choose another photo.</p></div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>role="status"</code> for messages after an action (4.1.3).</li><li><code>role="alert"</code> only for errors that need attention now.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Auto-dismiss alerts on a timer (2.2.1).</li><li>Drop the label word.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-notification">Notification banner <span class="badge">Organism</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="stack">
+                  <div class="notification" role="region" aria-labelledby="ex-nb1">
+                    <div class="notification__header"><h3 class="notification__title" id="ex-nb1">Important</h3></div>
+                    <div class="notification__body"><p class="notification__heading"><strong>The café is closed on 26 December.</strong></p><p>Bookings for that day were moved to 2 January.</p></div>
+                  </div>
+                  <div class="notification notification--success" role="alert" aria-labelledby="ex-nb2">
+                    <div class="notification__header"><h3 class="notification__title" id="ex-nb2">Success</h3><button class="notification__close" type="button" data-dismiss>Dismiss</button></div>
+                    <div class="notification__body"><p class="notification__heading"><strong>Your changes were saved.</strong></p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Top of <code>&lt;main&gt;</code>, above the h1, one per page.</li><li>For the result of the last action, or news that affects the whole page.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for errors in a form: that is the error summary.</li><li>Stack several banners.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-panel">Confirmation panel <span class="badge">Organism</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="panel">
+                  <h3 class="panel__title">Booking confirmed</h3>
+                  <div class="panel__body">Your reference number<br><strong class="panel__reference">RC-2026-0417</strong></div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Only on a confirmation page, as its h1.</li><li>Show the reference number people need later.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for anything that is not the end of a transaction.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-warning-text">Warning text <span class="badge">Molecule</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="warning-text">
+                  <span class="warning-text__icon" aria-hidden="true">!</span>
+                  <strong class="warning-text__text"><span class="visually-hidden">Warning</span>You can be fined up to €200 if you do not cancel a slot you cannot use.</strong>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>For legal or money consequences people must not miss.</li><li>Start with visually hidden "Warning".</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for tips or general information; use inset text.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-loader">Loader, skeleton and progress <span class="badge">Atom</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="stack">
+                  <p role="status"><span class="loader" aria-hidden="true"></span> Loading bookings</p>
+                  <div class="stack stack--tight" aria-hidden="true">
+                    <span class="skeleton skeleton--title"></span>
+                    <span class="skeleton skeleton--text"></span>
+                    <span class="skeleton skeleton--text" style="--skeleton-width: 70%"></span>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="ex-progress">Uploading 3 of 5 photos</label>
+                    <progress class="progress" id="ex-progress" max="5" value="3">3 of 5</progress>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="ex-progress2">Preparing your download</label>
+                    <progress class="progress" id="ex-progress2">Preparing</progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Always with words ("Loading bookings"), in a polite live region.</li><li><code>aria-busy="true"</code> on the region that is loading; skeletons are <code>aria-hidden</code>.</li><li>Native <code>&lt;progress&gt;</code>; no <code>value</code> means indeterminate.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Show a spinner for less than a second; it flickers.</li><li>Use a skeleton when you can show the real content just as fast.</li></ul></div>
+            <div><h3>Motion</h3><ul><li>The dotted ring turns one dot at a time, like the ring on the mouse.</li><li>Everything stops under reduced motion; the words still say what is happening.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-toast">Toast <span class="badge">Molecule</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="cluster">
+                  <button class="button button--secondary" type="button" onclick="Contour.toast('Link copied')">Show a toast</button>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Short confirmation of a small action: "Copied", "Saved".</li><li><code>Contour.toast("Saved")</code> creates the live region for you.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Put the only way to undo something in a toast.</li><li>Remove it in under 10 seconds (2.2.1).</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-phase">Phase banner <span class="badge">Molecule</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <p class="phase-banner"><span class="badge badge--solid">Beta</span><span>This is a new service. <a href="#c-phase">Tell us what you think</a>.</span></p>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Directly under the header while a service is new.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Leave it up for years.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-site-banner">Site banner <span class="badge">Organism</span> <span class="docs-file">components/feedback.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="site-banner"><div class="container" style="padding-inline: var(--space-s)">The booking service will be offline on Sunday from 6am to 9am for maintenance.</div></div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Above the header, on every page, for something that affects everyone.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for marketing.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-forms.html" rel="prev">Previous<span class="pagination__label">Forms components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components-content.html" rel="next">Next<span class="pagination__label">Content components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

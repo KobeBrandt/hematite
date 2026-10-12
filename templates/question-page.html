@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Error: What do you want to repair? · Book a repair café visit</title>
+<link rel="stylesheet" href="../css/contour.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="start-page.html">Repair Café</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="start-page.html">Start</a></li>
+          <li><a class="nav__link" href="task-list.html">Your booking</a></li>
+          <li><a class="nav__link" href="content-page.html">Help</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+  <div class="container">
+    <p class="phase-banner"><span class="badge badge--solid">Beta</span><span>This is a new service. <a href="content-page.html#feedback">Tell us what you think</a><span class="phase-banner__more"> to help us improve it</span>.</span></p>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container container--narrow page stack">
+    <a class="back-link" href="start-page.html">Back</a>
+    <div class="error-summary" role="alert" aria-labelledby="error-summary-title" data-error-summary>
+      <h2 class="error-summary__title" id="error-summary-title">There is a problem</h2>
+      <ul class="error-summary__list">
+        <li><a href="#item-type">Select what kind of item you want to repair</a></li>
+        <li><a href="#visit-day">Visit date must include a month</a></li>
+      </ul>
+    </div>
+    <form class="stack stack--loose" novalidate>
+      <fieldset class="fieldset fieldset--bare field--error" aria-describedby="item-type-hint item-type-error">
+        <legend class="fieldset__legend fieldset__legend--page"><h1 style="font-size: inherit">What do you want to repair?</h1></legend>
+        <span class="hint" id="item-type-hint">Choose the closest match.</span>
+        <span class="field__error" id="item-type-error">Error: select what kind of item you want to repair</span>
+        <div class="choices">
+          <label class="check"><input class="check__input" type="radio" name="item" id="item-type" value="electric"> Something with a plug or battery</label>
+          <label class="check"><input class="check__input" type="radio" name="item" value="bike"> A bike</label>
+          <label class="check"><input class="check__input" type="radio" name="item" value="textile"> Clothes or textiles</label>
+          <label class="check"><input class="check__input" type="radio" name="item" value="furniture"> Furniture or wood</label>
+          <p class="choices__divider">or</p>
+          <label class="check"><input class="check__input" type="radio" name="item" value="other"> Something else</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset fieldset--bare field--error" role="group" aria-describedby="visit-hint visit-error">
+        <legend class="fieldset__legend"><span class="label">When do you want to come?</span></legend>
+        <span class="hint" id="visit-hint">For example, 14 11 2026. The café is open on Saturdays.</span>
+        <span class="field__error" id="visit-error">Error: visit date must include a month</span>
+        <div class="date-input">
+          <div class="date-input__item"><label class="label" for="visit-day">Day</label><input class="input input--w2" id="visit-day" name="visit-day" inputmode="numeric" value="14"></div>
+          <div class="date-input__item"><label class="label" for="visit-month">Month</label><input class="input input--w2" id="visit-month" name="visit-month" inputmode="numeric" aria-invalid="true"></div>
+          <div class="date-input__item"><label class="label" for="visit-year">Year</label><input class="input input--w4" id="visit-year" name="visit-year" inputmode="numeric" value="2026"></div>
+        </div>
+      </fieldset>
+
+      <div class="field character-count" data-maxlength="200">
+        <label class="label" for="problem">What is wrong with it?</label>
+        <span class="hint" id="problem-hint">Volunteers read this before you arrive. Do not include personal information.</span>
+        <textarea class="textarea" id="problem" name="problem" rows="4" aria-describedby="problem-hint problem-count">The lamp flickers and then goes out after a few minutes.</textarea>
+        <span class="character-count__status" id="problem-count">You can enter up to 200 characters</span>
+      </div>
+
+      <details class="disclosure disclosure--plain">
+        <summary class="disclosure__summary">I do not know what is wrong</summary>
+        <div class="disclosure__body"><p>That is fine. Write what happens when you use it, for example "it makes a noise and stops".</p></div>
+      </details>
+
+      <div class="button-group">
+        <button class="button" type="submit">Continue</button>
+        <a href="start-page.html">Cancel and go back to the start</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__columns">
+      <div>
+        <h2 class="site-footer__title">Service</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="start-page.html">Book a visit</a></li>
+          <li><a class="link-list__link" href="content-page.html">What we can repair</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Support</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="content-page.html#contact">Contact</a></li>
+          <li><a class="link-list__link" href="content-page.html#accessibility">Accessibility statement</a></li>
+          <li><a class="link-list__link" href="content-page.html#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <span>Built with Contour</span>
+      <span>Content is example text.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/contour.js" defer></script>
+</body>
+</html>

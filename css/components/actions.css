@@ -1,0 +1,286 @@
+/* ==========================================================================
+   CONTOUR / components/actions.css
+   Things you press: skip link, button, button group, back link, exit page.
+   ========================================================================== */
+
+/* --- Skip link (2.4.1 Bypass blocks) · Atom --------------------------------
+   First element in <body>. Hidden until it receives keyboard focus. */
+.skip-link {
+  position: absolute;
+  inset-block-start: var(--space-2xs);
+  inset-inline-start: var(--space-2xs);
+  z-index: var(--z-skip);
+  padding: var(--space-xs) var(--space-m);
+  background: var(--gradient-accent);
+  background-color: var(--color-accent);
+  color: var(--color-on-metal);
+  border-radius: var(--radius-key);
+  box-shadow: var(--shadow-key);
+  font-weight: var(--weight-medium);
+  transform: translateY(-200%);
+  transition: transform var(--duration) var(--ease);
+
+  &:focus {
+    transform: none;
+  }
+}
+
+/* --- Button · Atom ---------------------------------------------------------
+   Use <button> for actions, <a class="button"> for navigation.
+   Default is the primary action: a graphite key, like the buttons on the
+   mouse and the keys of its keyboard: a matte, grained cap with a slightly
+   dished top, a lit upper edge and a tight shadow. One per view.
+   Hover lifts it a pixel; pressing sinks it into its well, like a click. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-height: var(--target-min);
+  padding: var(--space-2xs) var(--space-m);
+  background: var(--texture-grain), var(--gradient-key);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-key);
+  box-shadow: var(--shadow-key);
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  letter-spacing: -0.005em;
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    transform var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease),
+    filter var(--duration) var(--ease),
+    background-color var(--duration) var(--ease);
+
+  &:hover {
+    transform: translateY(var(--lift));
+    filter: brightness(1.08);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--focus-ring), var(--shadow-key);
+  }
+}
+
+/* Pressed: the key travels down into its well and its shadow closes up. */
+.button:active {
+  transform: translateY(0.0625rem);
+  box-shadow: var(--shadow-key-pressed);
+  filter: none;
+}
+
+/* Secondary: a pale key from the same set. A raised surface with a hairline. */
+.button--secondary {
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  border-color: var(--color-line);
+}
+
+/* Accent: the one call to action on a page ("Start now"). Knurled metal,
+   like the scroll wheel: the only shiny part of the device. */
+.button--accent {
+  background: var(--gradient-accent);
+  background-color: var(--color-accent);
+  color: var(--color-on-metal);
+  border-color: oklch(70% 0.006 255);
+}
+
+.button--danger {
+  background: var(--color-danger);
+  color: var(--color-bg);
+}
+
+/* Quiet: no shell until you point at it. For toolbars. */
+.button--quiet {
+  background: transparent;
+  color: var(--color-ink);
+  box-shadow: none;
+
+  &:hover {
+    background: var(--color-sunken);
+    box-shadow: none;
+    filter: none;
+  }
+}
+
+/* Small: for dense toolbars and table rows. Still 2.75rem tall (2.5.8). */
+.button--small {
+  padding-inline: var(--space-s);
+  font-size: var(--step--1);
+}
+
+/* Looks like a link, behaves like a button ("Change", "Remove", "Show"). */
+.button--link {
+  min-height: 1.5rem;
+  padding: 0;
+  background: none;
+  color: var(--color-link);
+  border: 0;
+  border-radius: var(--radius-xs);
+  box-shadow: none;
+  font-weight: inherit;
+  letter-spacing: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.22em;
+
+  &:hover,
+  &:active {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+    text-decoration-thickness: 0.125rem;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--focus-ring);
+  }
+}
+
+/* Icon only: round. Always give it an accessible name (aria-label or visually-hidden text). */
+.button--icon {
+  min-width: var(--target-min);
+  padding: 0;
+}
+
+.button--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Disabled: flat, recessed and dashed, so the state is not colour alone. */
+.button:disabled,
+.button[aria-disabled="true"] {
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  border: var(--border-width) dashed var(--color-edge);
+  box-shadow: none;
+  transform: none;
+  filter: none;
+  cursor: not-allowed;
+}
+
+/* Busy: keeps its label, adds a spinner (see .loader) via aria-busy. */
+.button[aria-busy="true"] {
+  cursor: progress;
+}
+
+/* --- Button group · Molecule -----------------------------------------------
+   The primary action first, then secondary actions and links. Stacks on
+   narrow screens so every button keeps its full width. */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-m);
+}
+
+/* Joined: a segmented control. The buttons sit in one recessed well with
+   tight gaps, like the keys on the mouse, and the pressed one is a graphite key. */
+.button-group--joined {
+  display: inline-flex;
+  gap: var(--space-3xs);
+  padding: var(--space-3xs);
+  background: var(--color-sunken);
+  border: var(--border-control);
+  border-radius: calc(var(--radius-key) + var(--space-3xs));
+  box-shadow: var(--shadow-inset);
+}
+
+.button-group--joined > .button {
+  min-height: calc(var(--target-min) - var(--space-2xs) - 2 * var(--border-width));
+  background: transparent;
+  color: var(--color-muted);
+  box-shadow: none;
+}
+
+.button-group--joined > .button[aria-pressed="true"] {
+  background: var(--texture-grain), var(--gradient-key);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  box-shadow: var(--shadow-key);
+}
+
+.button-group--joined > .button:not([aria-pressed="true"]):hover {
+  color: var(--color-ink);
+}
+
+.button-group--joined > .button:hover {
+  transform: none;
+  filter: none;
+}
+
+.button-group--joined > .button:focus-visible {
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+/* --- Back link · Atom ------------------------------------------------------
+   Top of a page in a multi-page flow, above the h1. Goes to the previous
+   step, not history.back(). */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: var(--target-min);
+  font-weight: var(--weight-medium);
+  color: var(--color-ink);
+  text-decoration: none;
+
+  &::before {
+    content: "\2190";   /* ← */
+    transition: translate var(--duration) var(--ease);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:hover::before {
+    translate: -0.1875rem 0;
+  }
+}
+
+[dir="rtl"] .back-link::before {
+  content: "\2192";
+}
+
+/* --- Exit this page · Molecule ---------------------------------------------
+   Only for services about domestic abuse or other risks where someone may be
+   watching. Sticks to the top; contour.js also exits on Shift pressed 3 times. */
+.exit-page {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  justify-content: flex-end;
+  padding-block: var(--space-2xs);
+  pointer-events: none;
+}
+
+.exit-page .button {
+  pointer-events: auto;
+}
+
+@media (forced-colors: active) {
+  .button {
+    border-color: CanvasText;
+  }
+
+  .button:disabled,
+  .button[aria-disabled="true"] {
+    border-color: GrayText;
+    color: GrayText;
+  }
+
+  .button-group--joined > .button[aria-pressed="true"] {
+    background: Highlight;
+    color: HighlightText;
+  }
+}

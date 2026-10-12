@@ -1,0 +1,132 @@
+/* Contour docs site: styles for the documentation pages only, built from the system tokens. */
+/* Contour sits in cascade layers, so any unlayered CSS beats it. Hosts that
+   inject their own unlayered reset (body background, font, color-scheme)
+   would otherwise override the page ground. Restate it here, unlayered.
+   The colour tokens use light-dark(), so color-scheme alone picks the theme. */
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+body { margin: 0; background: var(--color-bg); color: var(--color-ink); font-family: var(--font-body); font-size: var(--step-0); line-height: var(--leading-body); }
+
+/* Docs-only styles. Built from the same tokens as the system. */
+.docs-hero { position: relative; padding-block: var(--space-2xl) var(--space-xl); }
+.docs-hero__title { font-size: clamp(3.5rem, 2rem + 9vw, 8rem); line-height: 0.92; letter-spacing: -0.055em; font-weight: var(--weight-bold); background: linear-gradient(180deg, var(--color-ink) 30%, var(--color-muted)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.docs-hero__lede { font-size: var(--step-1); line-height: 1.35; max-width: 34ch; color: var(--color-muted); }
+.docs-section-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2xs) var(--space-s); }
+.docs-section-head__no { font-size: var(--step--1); font-weight: var(--weight-medium); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.docs-swatch { display: flex; flex-direction: column; overflow: hidden; background: var(--color-surface); border: var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); }
+.docs-swatch__chip { height: 5rem; margin: var(--space-2xs); border-radius: var(--radius-m); box-shadow: inset 0 0 0 0.0625rem oklch(from var(--color-ink) l c h / 0.08); }
+.docs-swatch__body { padding: var(--space-2xs) var(--space-s) var(--space-s); font-size: var(--step--1); display: flex; flex-direction: column; gap: var(--space-3xs); }
+.docs-swatch__name { font-weight: var(--weight-bold); font-size: var(--step-0); }
+.docs-scale { display: flex; flex-direction: column; overflow: hidden; background: var(--color-surface); border: var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); }
+.docs-scale__row { display: grid; grid-template-columns: 9rem 1fr; gap: var(--space-s); align-items: baseline; padding: var(--space-xs) var(--space-m); border-bottom: var(--border); }
+.docs-scale__row:last-child { border-bottom: 0; }
+.docs-scale { container-type: inline-size; }
+@container (width < 24rem) { .docs-scale__row { grid-template-columns: 1fr; gap: var(--space-3xs); } }
+.card__eyebrow.docs-file { text-transform: none; letter-spacing: normal; font-size: var(--step--1); font-weight: var(--weight-regular); }
+.docs-scale__row > * { min-width: 0; overflow-wrap: anywhere; }
+.docs-token { font-family: var(--font-mono); font-size: var(--step--1); color: var(--color-muted); }
+.docs-space { height: 1.25rem; background: var(--gradient-accent); background-color: var(--color-accent); border: var(--border-width) solid oklch(70% 0.006 255); border-radius: var(--radius-xs); }
+.docs-example { overflow: hidden; background: var(--color-surface); border: var(--border); border-radius: var(--radius-l); box-shadow: var(--shadow-1); }
+.docs-example__stage { padding: var(--space-l) var(--space-m); background-color: var(--color-bg); background-image: radial-gradient(oklch(from var(--color-ink) l c h / 0.07) 0.0625rem, transparent 0.0625rem); background-size: 1rem 1rem; }
+.docs-example__code { border: 0; border-top: var(--border); border-radius: 0; box-shadow: none; margin: 0; max-height: 22rem; }
+.docs-component { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr)); align-items: start; }
+.docs-component > * { min-width: 0; }
+.docs-rules { display: grid; gap: var(--space-s); grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr)); }
+.docs-rules h4, .docs-rules h5 { margin-bottom: var(--space-3xs); }
+.docs-rules ul { padding-left: 1.2em; }
+.docs-theme { font-size: var(--step--1); }
+.docs-ok { color: var(--color-success); font-weight: var(--weight-bold); }
+.docs-you { color: var(--color-warning); font-weight: var(--weight-bold); }
+.docs-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2xs) var(--space-s); padding-block-start: var(--space-l); border-block-start: var(--border); }
+.docs-file { font-family: var(--font-mono); font-size: var(--step--1); color: var(--color-muted); }
+.docs-component-title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs) var(--space-s); font-size: var(--step-1); letter-spacing: var(--tracking-tight); }
+.docs-rules h5 { margin-bottom: var(--space-3xs); color: var(--color-muted); font-size: var(--step--2); font-weight: var(--weight-medium); text-transform: uppercase; letter-spacing: var(--tracking-caps); }
+.docs-example__stage { display: flex; flex-direction: column; gap: var(--space-m); }
+.docs-index { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); }
+.docs-index h3 { font-size: var(--step--2); color: var(--color-muted); font-weight: var(--weight-medium); text-transform: uppercase; letter-spacing: var(--tracking-caps); margin-bottom: var(--space-3xs); }
+.docs-index .link-list__link { min-height: 2rem; }
+.docs-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); gap: var(--space-2xs); padding: 0; list-style: none; }
+.docs-icons li { display: flex; flex-direction: column; align-items: center; gap: var(--space-2xs); padding: var(--space-s) var(--space-2xs); background: var(--color-surface); border: var(--border); border-radius: var(--radius-m); box-shadow: var(--shadow-1); font-size: 0.75rem; color: var(--color-muted); overflow-wrap: anywhere; text-align: center; }
+.docs-icons li .icon { color: var(--color-ink); }
+.docs-patterns { display: grid; gap: var(--space-m); grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); align-items: start; }
+.docs-patterns .card ul { padding-left: 1.2em; }
+.docs-z { display: inline-block; min-width: 3ch; font-weight: var(--weight-bold); font-variant-numeric: tabular-nums; }
+.docs-shadow { display: grid; place-items: center; height: 6rem; background: var(--color-surface); border-radius: var(--radius-l); color: var(--color-muted); font-size: var(--step--1); }
+.docs-radius { display: grid; place-items: center; height: 5rem; background: var(--color-sunken); border: var(--border-control); color: var(--color-muted); font-size: var(--step--1); }
+
+
+/* --- Multi-page layout ------------------------------------------------------ */
+.docs-title { font-size: var(--step-3); }
+.docs-lede { font-size: var(--step-1); line-height: 1.35; }
+.docs-layout { --sidebar-width: 15rem; align-items: flex-start; }
+
+.docs-side__title { padding-inline: var(--space-s); font-size: var(--step--2); color: var(--color-muted); font-weight: var(--weight-medium); text-transform: uppercase; letter-spacing: var(--tracking-caps); margin-block-end: var(--space-2xs); }
+.docs-side__summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding-inline: var(--space-m);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-key);
+  box-shadow: var(--shadow-1);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+}
+.docs-side__menu[open] > .docs-side__summary { margin-block-end: var(--space-s); }
+.docs-side__body { --stack-gap: var(--space-l); }
+.docs-pager { margin-block-start: var(--space-xl); }
+.docs-group-card .link-list__link { min-height: 2rem; }
+
+/* Narrow screens: "In this section" floats at the bottom left, opposite the
+   Menu button, and opens as a sheet from the bottom edge (needs docs.js,
+   which marks it data-ready). */
+@media (max-width: 63.99em) {
+  body:has(.docs-side__menu[data-ready]) {
+    --fab-bottom: calc(var(--space-s) + env(safe-area-inset-bottom, 0px) + var(--fab-lift));
+    --fab-space: calc(var(--target-min) + 2 * var(--space-s) + env(safe-area-inset-bottom, 0px) + var(--fab-lift));
+    padding-block-end: var(--fab-space);
+  }
+  .docs-layout:has(.docs-side__menu[data-ready]) { row-gap: 0; }
+  .docs-side__summary { list-style: none; gap: var(--space-2xs); color: var(--color-ink); }
+  .docs-side__summary::-webkit-details-marker { display: none; }
+  .docs-side__summary::after { content: "+"; }
+  .docs-side__menu[open] > .docs-side__summary::after { content: "\2212"; }
+  .docs-side__menu[data-ready] > .docs-side__summary {
+    position: fixed;
+    inset-inline-start: max(var(--space-s), env(safe-area-inset-left, 0px));
+    inset-block-end: var(--fab-bottom);
+    z-index: calc(var(--z-sticky) + 1);
+    margin: 0;
+    box-shadow: var(--shadow-3);
+  }
+  .docs-side__menu[data-ready][open] > .docs-side__summary { background: var(--color-ink); color: var(--color-on-ink); }
+  .docs-side__menu[data-ready][open] > .docs-side__body {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-sticky);
+    max-height: min(75dvh, 36rem);
+    overflow-y: auto;
+    padding-block: var(--space-m) var(--fab-space);
+    padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px));
+    background: var(--color-surface);
+    border-block-start: var(--border);
+    border-start-start-radius: var(--radius-l);
+    border-start-end-radius: var(--radius-l);
+    box-shadow: var(--shadow-3);
+  }
+}
+
+/* Wide screens: the side column is always open and stays in view. */
+@media (min-width: 64em) {
+  .docs-side {
+    position: sticky;
+    inset-block-start: var(--space-m);
+    max-height: calc(100dvh - 2 * var(--space-m));
+    overflow-y: auto;
+    padding: var(--focus-offset);
+  }
+  .docs-side__summary { display: none; }
+}

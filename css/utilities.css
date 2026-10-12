@@ -1,0 +1,42 @@
+/* ==========================================================================
+   CONTOUR / utilities.css
+   Single-purpose helpers. Use sparingly; reach for a component first.
+   ========================================================================== */
+
+/* Hidden visually, still read by screen readers. */
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Swap shell and ink for a block (a banner, a footer): a graphite fill on
+   the pale theme, a pale one on graphite. */
+.invert {
+  background: var(--texture-grain), var(--gradient-ink);
+  background-color: var(--color-ink);
+  color: var(--color-on-ink);
+  --color-link: var(--color-on-ink);
+  --color-focus: var(--color-on-ink);
+}
+
+/* Pin one block to a theme, whatever the page uses. The colour tokens are
+   light-dark() values, so color-scheme is all it takes; background and
+   color are restated because inherited text colour was resolved higher up. */
+.theme-dark,
+.theme-light {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+.theme-dark { color-scheme: dark; }
+.theme-light { color-scheme: light; }
+
+.mono { font-family: var(--font-mono); }   /* code only */
+.tabular { font-variant-numeric: tabular-nums; }   /* times, phone numbers, amounts */
+.muted { color: var(--color-muted); }
+.caps { text-transform: uppercase; letter-spacing: var(--tracking-caps); }
+.measure { max-width: var(--measure); }

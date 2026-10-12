@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Volunteer dashboard · Book a repair café visit</title>
+<link rel="stylesheet" href="../css/contour.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="start-page.html">Repair Café</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="start-page.html">Start</a></li>
+          <li><a class="nav__link" href="task-list.html">Your booking</a></li>
+          <li><a class="nav__link" href="content-page.html">Help</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+  <div class="container">
+    <p class="phase-banner"><span class="badge badge--solid">Beta</span><span>This is a new service. <a href="content-page.html#feedback">Tell us what you think</a><span class="phase-banner__more"> to help us improve it</span>.</span></p>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page stack stack--loose">
+    <div class="notification notification--success" role="region" aria-labelledby="note-title">
+      <div class="notification__header"><h2 class="notification__title" id="note-title">Success</h2><button class="notification__close" type="button" data-dismiss>Dismiss</button></div>
+      <div class="notification__body"><p class="notification__heading"><strong>3 bookings were assigned to you.</strong></p><p>You will get an email on Friday with the notes.</p></div>
+    </div>
+    <div class="cluster" style="justify-content: space-between">
+      <h1>Saturday 14 November</h1>
+      <div class="button-group">
+        <button class="button button--secondary" type="button" data-dialog-open="cancel-dialog">Cancel a slot</button>
+        <button class="button" type="button" onclick="Contour.toast('Rota exported')">Export rota</button>
+      </div>
+    </div>
+    <div class="sidebar">
+      <nav class="sidebar__side" aria-label="Dashboard">
+        <ul class="side-nav__list">
+          <li><a class="side-nav__link" href="#" aria-current="page">Bookings</a></li>
+          <li><a class="side-nav__link" href="#">Volunteers</a>
+            <ul class="side-nav__list"><li><a class="side-nav__link" href="#">Rota</a></li><li><a class="side-nav__link" href="#">Skills</a></li></ul>
+          </li>
+          <li><a class="side-nav__link" href="#">Spare parts</a></li>
+          <li><a class="side-nav__link" href="#">Reports</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__main stack stack--loose">
+        <div class="grid" style="--grid-min: 11rem; --grid-gap: var(--space-s)">
+          <div class="card"><p class="card__eyebrow">Booked</p><p class="card__stat">24</p><p class="card__meta">of 28 slots</p></div>
+          <div class="card"><p class="card__eyebrow">Volunteers</p><p class="card__stat">7</p><p class="card__meta">2 electricians</p></div>
+          <div class="card card--accent"><p class="card__eyebrow">Waiting list</p><p class="card__stat">5</p><p class="card__meta">needs a slot</p></div>
+        </div>
+        <form role="search" class="search" onsubmit="event.preventDefault()">
+          <label class="visually-hidden" for="booking-search">Search bookings</label>
+          <input class="input search__input" id="booking-search" type="search" placeholder="Name or reference">
+          <button class="button search__button" type="submit"><svg class="icon" aria-hidden="true"><use href="../icons/contour-icons.svg#search"></use></svg>Search</button>
+        </form>
+        <div class="tabs">
+          <ul class="tabs__list">
+            <li><a class="tabs__tab" href="#tab-morning">Morning</a></li>
+            <li><a class="tabs__tab" href="#tab-late">Late morning</a></li>
+          </ul>
+          <section class="tabs__panel" id="tab-morning">
+            <h2 class="visually-hidden">Morning</h2>
+            <div class="table-wrap" tabindex="0" role="region" aria-label="Morning bookings">
+              <table class="table table--compact" data-sortable>
+                <thead><tr><th scope="col"><button class="table__sort" type="button">Time</button></th><th scope="col"><button class="table__sort" type="button">Item</button></th><th scope="col">Status</th></tr></thead>
+                <tbody>
+                  <tr><td class="tabular">09:00</td><td>Bike, gears slip</td><td><span class="badge badge--success">Confirmed</span></td></tr>
+                  <tr><td class="tabular">09:30</td><td>Lamp, flickers</td><td><span class="badge badge--warning">Needs photo</span></td></tr>
+                  <tr><td class="tabular">10:00</td><td>Jumper, hole in sleeve</td><td><span class="badge badge--success">Confirmed</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section class="tabs__panel" id="tab-late">
+            <h2 class="visually-hidden">Late morning</h2>
+            <p>4 bookings, all confirmed.</p>
+          </section>
+        </div>
+        <nav class="pagination" aria-label="Pagination">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="#" rel="prev">Previous<span class="visually-hidden"> page</span></a></li>
+            <li><a class="pagination__link" href="#" aria-current="page">1</a></li>
+            <li><a class="pagination__link" href="#">2</a></li>
+            <li><span class="pagination__ellipsis">…</span></li>
+            <li><a class="pagination__link" href="#">6</a></li>
+            <li class="pagination__next"><a class="pagination__link" href="#" rel="next">Next<span class="visually-hidden"> page</span></a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <dialog class="dialog" id="cancel-dialog" aria-labelledby="cancel-title">
+    <div class="dialog__header"><h2 class="dialog__title" id="cancel-title">Cancel a slot</h2><button class="dialog__close" type="button" data-dialog-close aria-label="Close">×</button></div>
+    <form class="dialog__body" method="dialog">
+      <div class="field"><label class="label" for="cancel-ref">Booking reference</label><input class="input input--w10 input--code" id="cancel-ref" name="ref" autocomplete="off"></div>
+      <p>We will email the visitor to tell them.</p>
+      <div class="button-group"><button class="button button--danger" value="cancel">Cancel slot</button><button class="button button--secondary" value="" formnovalidate>Keep it</button></div>
+    </form>
+  </dialog>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__columns">
+      <div>
+        <h2 class="site-footer__title">Service</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="start-page.html">Book a visit</a></li>
+          <li><a class="link-list__link" href="content-page.html">What we can repair</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Support</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="content-page.html#contact">Contact</a></li>
+          <li><a class="link-list__link" href="content-page.html#accessibility">Accessibility statement</a></li>
+          <li><a class="link-list__link" href="content-page.html#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <span>Built with Contour</span>
+      <span>Content is example text.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/contour.js" defer></script>
+</body>
+</html>

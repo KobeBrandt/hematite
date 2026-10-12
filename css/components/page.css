@@ -1,0 +1,300 @@
+/* ==========================================================================
+   CONTOUR / components/page.css
+   The frame around every page: site header and navigation, footer, cookie
+   banner, sticky action bar.
+   ========================================================================== */
+
+/* --- Site header + navigation · Organism -----------------------------------
+   Same order on every page (3.2.3). Mark the current page with
+   aria-current="page"; it is shown as a raised pill AND bold text.
+   A frosted bar on wide screens: the page shows through, blurred, when it
+   scrolls under. Not on phones: backdrop-filter would make the header the
+   containing block of the floating menu button. */
+.site-header {
+  border-block-end: var(--border);
+  background: var(--color-bg);
+}
+
+@media (min-width: 48.0625em) {
+  .site-header {
+    background: oklch(from var(--color-bg) l c h / 0.82);
+    backdrop-filter: saturate(1.4) blur(0.875rem);
+  }
+}
+
+@supports not (color: oklch(from red l c h / 0.5)) {
+  .site-header {
+    background: var(--color-bg) !important;
+  }
+}
+
+.site-header--sticky {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding-block: var(--space-xs);
+}
+
+.site-header__brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.25rem;
+  color: var(--color-ink);
+  text-decoration: none;
+  letter-spacing: var(--tracking-tight);
+}
+
+
+.site-header__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+  padding: 0;
+  list-style: none;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding-inline: var(--space-s);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-key);
+  color: var(--color-muted);
+  font-weight: var(--weight-medium);
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease), background-color var(--duration) var(--ease);
+
+  &:hover {
+    color: var(--color-ink);
+    background: var(--color-sunken);
+  }
+
+  &[aria-current="page"] {
+    background: var(--texture-grain), var(--gradient-key);
+    background-color: var(--color-ink);
+    box-shadow: var(--shadow-key);
+    color: var(--color-on-ink);
+    font-weight: var(--weight-bold);
+  }
+}
+
+/* Small screens: wrap the nav in <details class="nav-menu">. On phones the
+   "Menu" button floats at the bottom right, where a thumb reaches it, and the
+   links open as a sheet from the bottom edge. On wide screens the summary is
+   hidden and the links always show. The floating button needs contour.js
+   (it marks the menu data-ready and adds Escape and tap-outside to close);
+   without it the menu stays an open list in the header. */
+.nav-menu > summary {
+  display: none;
+}
+
+@media (max-width: 48em) {
+  /* One slim row: brand on the left, nothing else. */
+  .site-header__inner {
+    flex-wrap: nowrap;
+    padding-block: var(--space-3xs);
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--target-min);
+    font-size: var(--step-0);
+  }
+
+  /* A sticky header costs too much height on a phone. */
+  .site-header--sticky {
+    position: static;
+  }
+
+  /* Room at the end of the page, so the floating button never covers the
+     last line or link (2.4.11 Focus not obscured). Computed on body so a
+     --fab-lift set there is included. */
+  body:has(.nav-menu[data-ready]) {
+    --fab-bottom: calc(var(--space-s) + env(safe-area-inset-bottom, 0px) + var(--fab-lift));
+    --fab-space: calc(var(--target-min) + 2 * var(--space-s) + env(safe-area-inset-bottom, 0px) + var(--fab-lift));
+    padding-block-end: var(--fab-space);
+  }
+
+  .nav-menu > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    min-height: var(--target-min);
+    padding-inline: var(--space-m);
+    background: var(--texture-grain), var(--gradient-key);
+    background-color: var(--color-ink);
+    color: var(--color-on-ink);
+    border-radius: var(--radius-key);
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+    list-style: none;
+    transition: transform var(--duration) var(--ease);
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: "+";
+      transition: rotate var(--duration-slow) var(--ease-snap);
+    }
+
+    &:active {
+      transform: scale(var(--press-scale));
+    }
+  }
+
+  .nav-menu[data-ready] > summary {
+    position: fixed;
+    inset-inline-end: max(var(--space-s), env(safe-area-inset-right, 0px));
+    inset-block-end: var(--fab-bottom);
+    z-index: calc(var(--z-sticky) + 1);
+    box-shadow: var(--shadow-3);
+  }
+
+  .nav-menu[open] > summary::after {
+    rotate: 45deg;
+  }
+
+  /* The open menu: a sheet along the bottom edge, links stacked above the
+     button that closes it. */
+  .nav-menu:not([data-ready]) {
+    width: 100%;
+  }
+
+  .nav-menu:not([data-ready]) .nav__list {
+    margin-block-start: var(--space-2xs);
+  }
+
+  .site-header__inner:has(.nav-menu:not([data-ready])) {
+    flex-wrap: wrap;
+  }
+
+  .nav-menu[data-ready][open] > :not(summary) {
+    position: fixed;
+    inset-inline: 0;
+    inset-block-end: 0;
+    z-index: var(--z-sticky);
+    max-height: min(75dvh, 36rem);
+    overflow-y: auto;
+    padding-block: var(--space-s) var(--fab-space);
+    padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px));
+    background: var(--color-surface);
+    border-block-start: var(--border);
+    border-start-start-radius: var(--radius-l);
+    border-start-end-radius: var(--radius-l);
+    box-shadow: var(--shadow-3);
+  }
+
+  .nav-menu .nav__list {
+    flex-direction: column;
+  }
+
+  .nav-menu .nav__link {
+    width: 100%;
+    font-size: var(--step-0);
+  }
+}
+
+/* --- Footer · Organism ------------------------------------------------------ */
+.site-footer {
+  padding-block: var(--space-l);
+  background: var(--color-sunken);
+  border-block-start: var(--border);
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+.site-footer__columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+  gap: var(--space-l);
+  padding-block-end: var(--space-l);
+  margin-block-end: var(--space-l);
+  border-block-end: var(--border);
+}
+
+.site-footer__title {
+  color: var(--color-ink);
+  font-size: var(--step-0);
+  margin-block-end: var(--space-2xs);
+}
+
+.site-footer__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+/* --- Cookie banner · Organism ----------------------------------------------
+   First thing in <body> after the skip link, before the header, so it is
+   reached early but does not trap focus. Accept and reject are equal
+   buttons (GDPR: refusing must be as easy as accepting). No cookies that
+   need consent are set until people choose. Hide with the hidden attribute
+   after a choice, and show a confirmation. */
+.cookie-banner {
+  padding-block: var(--space-m);
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  border-block-end: var(--border);
+  box-shadow: var(--shadow-2);
+}
+
+.cookie-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.cookie-banner__title {
+  font-size: var(--step-1);
+}
+
+/* --- Sticky action bar · Organism ------------------------------------------
+   Keeps the main actions of a long edit page in view. Sticks to the bottom
+   of the viewport. Pad the page so the bar never covers the last field
+   (2.4.11 Focus not obscured): add .has-sticky-bar to <body>. */
+.sticky-bar {
+  position: sticky;
+  inset-block-end: 0;
+  z-index: var(--z-sticky);
+  padding-block: var(--space-s) max(var(--space-s), env(safe-area-inset-bottom, 0px));
+  background: oklch(from var(--color-surface) l c h / 0.88);
+  backdrop-filter: saturate(1.4) blur(0.875rem);
+  border-block-start: var(--border);
+  box-shadow: 0 -0.5rem 1.5rem -0.75rem var(--color-shade);
+}
+
+.has-sticky-bar {
+  scroll-padding-block-end: 6rem;
+}
+
+/* With a sticky action bar the floating menu button sits above it. */
+body:has(.sticky-bar) {
+  --fab-lift: 5.5rem;
+}
+
+@media (forced-colors: active) {
+  .nav__link[aria-current="page"] {
+    border: var(--border-width-strong) solid Highlight;
+  }
+}

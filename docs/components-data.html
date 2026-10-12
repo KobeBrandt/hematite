@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Data components · Contour</title>
+<meta name="description" content="Data components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html" aria-current="page">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-table">Table</a></li><li><a class="in-page-nav__link" href="#c-summary">Summary list</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Data</h1></div>
+        <p class="docs-lede measure">Records and numbers. <span class="docs-file">css/components/data.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-table">Table <span class="badge">Organism</span> <span class="docs-file">components/data.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="table-wrap" tabindex="0" role="region" aria-label="Repairs by type, 2025">
+                  <table class="table" data-sortable>
+                    <caption>Repairs by type, 2025</caption>
+                    <thead><tr><th scope="col"><button class="table__sort" type="button">Type</button></th><th scope="col" class="table__num"><button class="table__sort" type="button">Brought in</button></th><th scope="col" class="table__num"><button class="table__sort" type="button">Repaired</button></th><th scope="col">Status</th></tr></thead>
+                    <tbody>
+                      <tr><th scope="row">Electrical</th><td class="table__num">412</td><td class="table__num">268</td><td><span class="badge badge--warning">Hard</span></td></tr>
+                      <tr><th scope="row">Textiles</th><td class="table__num">198</td><td class="table__num">171</td><td><span class="badge badge--success">Easy</span></td></tr>
+                      <tr><th scope="row">Bikes</th><td class="table__num">143</td><td class="table__num">131</td><td><span class="badge badge--success">Easy</span></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A <code>&lt;caption&gt;</code> and <code>scope</code> on header cells (1.3.1).</li><li><code>.table-wrap</code> so wide tables scroll in their own box (1.4.10).</li><li><code>data-sortable</code> plus <code>.table__sort</code> buttons for sorting.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use tables for layout.</li><li>Merge cells unless the data needs it.</li></ul></div>
+            <div><h3>Modifiers</h3><ul><li><code>--compact</code>, <code>--sticky</code></li><li><code>.table__num</code> right-aligns figures</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-summary">Summary list <span class="badge">Organism</span> <span class="docs-file">components/data.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="summary-card">
+                  <div class="summary-card__header"><h2 class="summary-card__title">Your booking</h2></div>
+                  <div class="summary-card__body">
+                  <dl class="summary-list">
+                    <div class="summary-list__row"><dt class="summary-list__key">Item</dt><dd class="summary-list__value">Table lamp</dd><dd class="summary-list__actions"><a href="#c-summary">Change<span class="visually-hidden"> item</span></a></dd></div>
+                    <div class="summary-list__row"><dt class="summary-list__key">Date</dt><dd class="summary-list__value">Saturday 14 November 2026</dd><dd class="summary-list__actions"><a href="#c-summary">Change<span class="visually-hidden"> date</span></a></dd></div>
+                    <div class="summary-list__row"><dt class="summary-list__key">Email</dt><dd class="summary-list__value">jo.peeters@example.com</dd><dd class="summary-list__actions"><a href="#c-summary">Change<span class="visually-hidden"> email address</span></a></dd></div>
+                  </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Key and value pairs: "Check your answers", record details.</li><li>"Change" links with hidden text saying what they change.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for tabular data with many columns; use a table.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-content.html" rel="prev">Previous<span class="pagination__label">Content components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components-navigation.html" rel="next">Next<span class="pagination__label">Navigation components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

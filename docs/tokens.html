@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tokens · Contour</title>
+<meta name="description" content="Colour, type, space, shape, motion and layout tokens.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html" aria-current="page">Tokens</a></li>
+          <li><a class="nav__link" href="components.html">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">On this page</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#colour">Colour</a></li><li><a class="in-page-nav__link" href="#type">Type</a></li><li><a class="in-page-nav__link" href="#space">Space</a></li><li><a class="in-page-nav__link" href="#shape-and-interaction">Shape and interaction</a></li><li><a class="in-page-nav__link" href="#stacking-order">Stacking order</a></li><li><a class="in-page-nav__link" href="#breakpoints-and-widths">Breakpoints and widths</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">02</span><h1 class="docs-title">Tokens</h1></div>
+        <p class="docs-lede measure">Tokens live in <code>tokens.css</code>. Colours are written in oklch, so lightness steps are perceptually even. Each colour token holds both themes, <code>light-dark(light, dark)</code>, and the browser picks one from <code>color-scheme</code>. Components read only tokens, so a new theme is a new set of values and no new CSS. Switch the theme above to see the dark values.</p>
+
+
+      <div class="stack">
+        <h2 id="colour">Colour</h2>
+        <p class="muted measure">Contrast is measured against the page background. Light / dark.</p>
+        <div class="docs-scale">
+          <div class="docs-scale__row"><span class="docs-token">Floor</span><span>7:1 for body text, 4.5:1 for all other text, 3:1 for borders and focus rings (WCAG 2.2 AA, and AAA for body text).</span></div>
+          <div class="docs-scale__row"><span class="docs-token">Ceiling</span><span>15:1 for every pair. No pure black and no pure white: graphite is a cool near-black, the pale grey shell a cool off-white, so text is sharp without glaring. Very high contrast causes halation (letters seem to glow and blur) for many people with astigmatism, and tires the eyes on long reads.</span></div>
+          <div class="docs-scale__row"><span class="docs-token">Check</span><span><code>python3 tools/check-contrast.py</code> tests every pair in both themes against the floor and the ceiling.</span></div>
+        </div>
+        <div class="grid" style="--grid-min: 11rem; --grid-gap: var(--space-s)">
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-bg)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">shell</span><span class="docs-token">--color-bg</span><span>Page background. Pale Grey in light, Graphite in dark.</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-surface)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">raised</span><span class="docs-token">--color-surface</span><span>Cards, panels, fields, menus: the top of the shell.</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-sunken)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">recessed</span><span class="docs-token">--color-sunken</span><span>Tracks, wells, table headers, code.</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-ink)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">graphite</span><span class="docs-token">--color-ink</span><span>Text and the primary button. 13.2 / 13.8</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-muted)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">muted</span><span class="docs-token">--color-muted</span><span>Hints, meta, quiet labels. 6.0 / 7.8</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-line)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">hairline</span><span class="docs-token">--color-line</span><span>Decorative dividers and card edges. Never the only edge of a control.</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-edge)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">edge</span><span class="docs-token">--color-edge</span><span>Edges of fields, tracks and toggles. 3.5 / 4.0</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-accent)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">gunmetal</span><span class="docs-token">--color-accent</span><span>Focus, checked controls and the base of the metal call to action. Gunmetal in light, brushed silver in dark. 8.8 / 11.4</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-accent-soft)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">gunmetal tint</span><span class="docs-token">--color-accent-soft</span><span>Behind selected tiles and highlighted rows, with graphite text.</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-led)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">status light</span><span class="docs-token">--color-led</span><span>The small green light: only for the current item in a menu or flow, always next to a second cue. 4.0 / 9.9</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-link)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">link</span><span class="docs-token">--color-link</span><span>Graphite links, always underlined so they never rely on colour. 13.2 / 13.8</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-info)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">info</span><span class="docs-token">--color-info</span><span>Neutral notices. 5.7 / 9.4</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-success)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">success</span><span class="docs-token">--color-success</span><span>Confirmations. 5.4 / 9.8</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-warning)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">warning</span><span class="docs-token">--color-warning</span><span>Warnings. 5.7 / 10.2</span></div></div>
+          <div class="docs-swatch"><div class="docs-swatch__chip" style="background: var(--color-danger)"></div><div class="docs-swatch__body"><span class="docs-swatch__name">danger</span><span class="docs-token">--color-danger</span><span>Errors, destructive actions. 5.8 / 7.6</span></div></div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h2 id="type">Type</h2>
+        <p class="muted measure">One family, the platform's own grotesque (SF Pro, Segoe UI Variable, Roboto), in a text cut for reading and a display cut for headings. Semibold, never heavy; headings set a little tight, like product names on packaging. Mono is for code only. Scale ratio 1.5, with the top steps fluid between phone and desktop. Body 1rem, line height 1.55, lines capped at 65ch.</p>
+        <div class="docs-scale">
+          <div class="docs-scale__row"><span class="docs-token">--step-4 · display</span><span style="font-family: var(--font-display); font-size: var(--step-4); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1">8K DPI</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step-3 · h1</span><span style="font-family: var(--font-display); font-size: var(--step-3); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1.1">Heading 1</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step-2 · h2</span><span style="font-family: var(--font-display); font-size: var(--step-2); font-weight: 600; letter-spacing: var(--tracking-tight); line-height: 1.1">Heading 2</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step-1 · h3</span><span style="font-family: var(--font-display); font-size: var(--step-1); font-weight: 600; letter-spacing: var(--tracking-tight)">Heading 3</span></div>
+          <div class="docs-scale__row"><span class="docs-token">1.125rem · h4</span><span style="font-size: 1.125rem; font-weight: 600">Heading 4</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step-0 · h5</span><span style="font-weight: 600">Heading 5</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step--2 · h6, eyebrow</span><span style="font-size: var(--step--2); font-weight: 500; color: var(--color-muted); text-transform: uppercase; letter-spacing: var(--tracking-caps)">Heading 6: overline</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step-0 · body</span><span>Body text in the system sans. Readable at 1rem with 1.55 line height.</span></div>
+          <div class="docs-scale__row"><span class="docs-token">--step--1 · small</span><span style="font-size: var(--step--1)">Hints, captions, meta. Never smaller than 0.875rem for sentences.</span></div>
+        </div>
+      </div>
+
+      <div class="grid" style="--grid-min: 18rem">
+        <div class="stack">
+          <h2 id="space">Space</h2>
+          <div class="docs-scale">
+            <div class="docs-scale__row"><span class="docs-token">3xs · 0.25rem</span><div class="docs-space" style="width: var(--space-3xs)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">2xs · 0.5rem</span><div class="docs-space" style="width: var(--space-2xs)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">xs · 0.75rem</span><div class="docs-space" style="width: var(--space-xs)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">s · 1rem</span><div class="docs-space" style="width: var(--space-s)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">m · 1.5rem</span><div class="docs-space" style="width: var(--space-m)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">l · 2rem</span><div class="docs-space" style="width: var(--space-l)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">xl · 3rem</span><div class="docs-space" style="width: var(--space-xl)"></div></div>
+            <div class="docs-scale__row"><span class="docs-token">2xl · 4.5rem</span><div class="docs-space" style="width: var(--space-2xl)"></div></div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 id="shape-and-interaction">Shape and interaction</h2>
+          <div class="docs-scale">
+            <div class="docs-scale__row"><span class="docs-token">--border</span><span>1px hairline on surfaces; <code>--border-control</code> uses the 3:1 edge colour on fields and tracks</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--radius-*</span><span>xs 0.375 · s 0.625 · key 0.75 · m 1 · l 1.5rem · pill. Buttons and menu items are keys; pills are only for badges, tracks and lights. Nested corners stay concentric.</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--shadow-1/2/3</span><span>Soft, wide and layered, each with a 1px top sheen: resting, raised, floating. <span class="cluster" style="--cluster-gap: var(--space-s); margin-block-start: var(--space-2xs)"><span class="docs-shadow" style="box-shadow: var(--shadow-1); width: 3.5rem">1</span><span class="docs-shadow" style="box-shadow: var(--shadow-2); width: 3.5rem">2</span><span class="docs-shadow" style="box-shadow: var(--shadow-3); width: 3.5rem">3</span></span></span></div>
+            <div class="docs-scale__row"><span class="docs-token">--gradient-*</span><span>Light, not decoration: <code>shell</code> (a sheen from above), <code>ink</code> (a slight dome on fills), <code>key</code> (a dished keycap, lit from the top), <code>metal</code> (brushed steel) and <code>accent</code> (metal with knurled ribs, for the main action only). Textures: <code>--texture-grain</code> (matte dot grain), <code>--texture-ripple</code> (the thumb pad's rings), <code>--texture-knurl</code> (wheel ribs). Shadows: <code>--shadow-key</code> and <code>--shadow-key-pressed</code>.</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--target-min</span><span>2.75rem for every control</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--focus-ring</span><span>A 2px gunmetal outline 2px clear of the element, plus a soft halo. <button class="button button--small" type="button">Tab to me</button></span></div>
+            <div class="docs-scale__row"><span class="docs-token">--duration</span><span>160ms for hover and press; <code>--duration-slow</code> 320ms for dialogs and toasts; <code>--ease</code> glides to a soft stop like a free-spinning wheel, <code>--ease-snap</code> overshoots a touch like a haptic detent. Press scales to 0.97. All removed for reduced motion.</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--icon-*</span><span>s 1em, m 1.5rem, l 2.25rem; stroke 1.75, round caps</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid" style="--grid-min: 18rem">
+        <div class="stack">
+          <h2 id="stacking-order">Stacking order</h2>
+          <div class="docs-scale">
+            <div class="docs-scale__row"><span class="docs-token">--z-skip</span><span><span class="docs-z">600</span> skip link</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-dialog</span><span><span class="docs-z">500</span> dialog fallback (native uses the top layer)</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-toast</span><span><span class="docs-z">400</span> toasts</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-banner</span><span><span class="docs-z">300</span> cookie and site banners</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-dropdown</span><span><span class="docs-z">200</span> popovers, multiselect, tooltips</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-sticky</span><span><span class="docs-z">100</span> sticky header and action bar</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--z-raised</span><span><span class="docs-z">10</span> sticky table headers, focused joined buttons</span></div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 id="breakpoints-and-widths">Breakpoints and widths</h2>
+          <div class="docs-scale">
+            <div class="docs-scale__row"><span class="docs-token">--bp-s</span><span>30em (480px): phones in landscape</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--bp-m</span><span>48em (768px): tablets; header menu collapses below this</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--bp-l</span><span>64em (1024px): in-page navigation becomes sticky</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--bp-xl</span><span>80em (1280px)</span></div>
+            <div class="docs-scale__row"><span class="docs-token">--container-*</span><span>max 72rem; narrow 42rem for forms</span></div>
+          </div>
+          <p class="muted">Breakpoints are in em so they follow the reader's font size. Custom properties cannot go inside <code>@media</code>, so the tokens are for reference and JavaScript; layouts are intrinsic and rarely need them.</p>
+        </div>
+      </div>
+    
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="../index.html" rel="prev">Previous<span class="pagination__label">Overview</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components.html" rel="next">Next<span class="pagination__label">Components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

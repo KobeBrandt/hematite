@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forms components · Contour</title>
+<meta name="description" content="Forms components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html" aria-current="page">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-field">Text input and field</a></li><li><a class="in-page-nav__link" href="#c-textarea">Textarea and character count</a></li><li><a class="in-page-nav__link" href="#c-select">Select</a></li><li><a class="in-page-nav__link" href="#c-checks">Checkboxes and radios</a></li><li><a class="in-page-nav__link" href="#c-tiles">Choice tiles</a></li><li><a class="in-page-nav__link" href="#c-date">Date input</a></li><li><a class="in-page-nav__link" href="#c-input-group">Prefix and suffix</a></li><li><a class="in-page-nav__link" href="#c-search">Search</a></li><li><a class="in-page-nav__link" href="#c-password">Password input</a></li><li><a class="in-page-nav__link" href="#c-file">File upload</a></li><li><a class="in-page-nav__link" href="#c-range">Range slider</a></li><li><a class="in-page-nav__link" href="#c-combobox">Combo box</a></li><li><a class="in-page-nav__link" href="#c-multiselect">Multiselect</a></li><li><a class="in-page-nav__link" href="#c-error-summary">Error summary</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Forms</h1></div>
+        <p class="docs-lede measure">Ask one thing at a time. Every control has a visible label, a 2.75rem target and an edge of 3:1 or more. <span class="docs-file">css/components/forms.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-field">Text input and field <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <form class="stack" novalidate>
+                  <div class="field">
+                    <label class="label" for="ex-name">Full name</label>
+                    <input class="input" id="ex-name" name="name" type="text" autocomplete="name" value="Jo Peeters">
+                  </div>
+                  <div class="field field--error">
+                    <label class="label" for="ex-email">Email address</label>
+                    <span class="hint" id="ex-email-hint">We only use this to send your confirmation.</span>
+                    <span class="field__error" id="ex-email-error">Error: enter an email address with a domain, like name@example.com</span>
+                    <input class="input" id="ex-email" name="email" type="email" autocomplete="email" spellcheck="false" value="jo.peeters@example" aria-describedby="ex-email-hint ex-email-error" aria-invalid="true">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="ex-postcode">Postcode</label>
+                    <input class="input input--w4 input--code" id="ex-postcode" name="postcode" autocomplete="postal-code" inputmode="numeric" value="9000">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="ex-ro">Reference number</label>
+                    <input class="input input--w10 input--code" id="ex-ro" value="RC-2026-0417" readonly>
+                  </div>
+                </form>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A visible <code>&lt;label&gt;</code> on every control (3.3.2).</li><li>Hints and errors linked with <code>aria-describedby</code>; the error goes above the input.</li><li><code>autocomplete</code> on personal data (1.3.5).</li><li>Size the box to the answer with <code>--w2</code>, <code>--w4</code>, <code>--w10</code>, <code>--w20</code>.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use placeholder text as the label.</li><li>Show an error with a red border alone. Start the message with "Error".</li><li>Use <code>type="number"</code> for codes or card numbers; use <code>inputmode="numeric"</code>.</li></ul></div>
+            <div><h3>States</h3><ul><li><code>.field--error</code> adds the red side bar.</li><li><code>aria-invalid="true"</code> gives the field a red, double-weight edge and a faint red fill.</li><li><code>readonly</code> and <code>disabled</code> are dashed.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-textarea">Textarea and character count <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field character-count" data-maxlength="120">
+                  <label class="label" for="ex-more">Can you tell us more?</label>
+                  <span class="hint" id="ex-more-hint">Do not include personal or financial information.</span>
+                  <textarea class="textarea" id="ex-more" name="more" rows="4" aria-describedby="ex-more-hint ex-more-count">My bike's gears slip when I go uphill.</textarea>
+                  <span class="character-count__status" id="ex-more-count">You can enter up to 120 characters</span>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A character count only when there is a real limit.</li><li>Let people type past the limit, then show the error; pasting and editing is easier than being cut off.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use <code>maxlength</code>: it silently cuts pasted text.</li><li>Announce the count on every keystroke (contour.js waits for a pause).</li></ul></div>
+          </div>
+          <p class="muted">Add <code>textarea--auto</code> to let the box grow with its text, from 4 to 12 lines, using <code>field-sizing: content</code>. Browsers without it show a normal resizable textarea.</p>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-select">Select <span class="badge">Atom</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-sort">Sort by</label>
+                  <select class="select input--w20" id="ex-sort" name="sort">
+                    <option>Newest first</option>
+                    <option>Oldest first</option>
+                    <option>Most relevant</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Only when there are too many options for radios (about 7 or more).</li><li>A sensible default, or an empty first option with a label like "Choose a country".</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for 2 to 5 options: radios show them all at once.</li><li>Submit on change (3.2.2).</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-checks">Checkboxes and radios <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <form class="stack" novalidate>
+                  <fieldset class="fieldset">
+                    <legend class="fieldset__legend">Send me</legend>
+                    <div class="choices">
+                      <label class="check"><input class="check__input" type="checkbox" name="news" checked> Workshop dates</label>
+                      <label class="check"><input class="check__input" type="checkbox" name="tips"> Repair tips</label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="fieldset fieldset--bare">
+                    <legend class="fieldset__legend">How should we contact you?</legend>
+                    <div class="choices">
+                      <label class="check"><input class="check__input" type="radio" name="contact" value="email" checked> Email</label>
+                      <label class="check"><input class="check__input" type="radio" name="contact" value="phone"> Phone</label>
+                      <label class="check"><input class="check__input" type="radio" name="contact" value="post"> Post</label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="fieldset fieldset--bare">
+                    <legend class="fieldset__legend">Have you been here before?</legend>
+                    <div class="choices choices--inline">
+                      <label class="check"><input class="check__input" type="radio" name="before" value="yes"> Yes</label>
+                      <label class="check"><input class="check__input" type="radio" name="before" value="no"> No</label>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Radios when people pick one, checkboxes when they pick any number.</li><li>A <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> around every group (1.3.1).</li><li><code>.choices--inline</code> only for two short options like Yes / No.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Pre-select a radio unless one answer really is the default.</li><li>Use a single checkbox for "I agree" when the user has no real choice.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-tiles">Choice tiles <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <fieldset class="fieldset fieldset--bare">
+                  <legend class="fieldset__legend">Choose a slot length</legend>
+                  <div class="choices choices--tiles">
+                    <label class="check check--tile"><input class="check__input" type="radio" name="slot" value="30" checked><span><strong>30 minutes</strong><span class="check__hint">Small electrical items, clothes</span></span></label>
+                    <label class="check check--tile"><input class="check__input" type="radio" name="slot" value="60"><span><strong>60 minutes</strong><span class="check__hint">Bikes, furniture</span></span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A few choices that each need a short explanation.</li><li>The whole tile is the click target.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use tiles for long lists; they take a lot of space.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-date">Date input <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <fieldset class="fieldset fieldset--bare" role="group" aria-describedby="ex-dob-hint">
+                  <legend class="fieldset__legend">What is your date of birth?</legend>
+                  <span class="hint" id="ex-dob-hint">For example, 27 3 1990</span>
+                  <div class="date-input">
+                    <div class="date-input__item"><label class="label" for="ex-dob-d">Day</label><input class="input input--w2" id="ex-dob-d" name="dob-day" inputmode="numeric" autocomplete="bday-day"></div>
+                    <div class="date-input__item"><label class="label" for="ex-dob-m">Month</label><input class="input input--w2" id="ex-dob-m" name="dob-month" inputmode="numeric" autocomplete="bday-month"></div>
+                    <div class="date-input__item"><label class="label" for="ex-dob-y">Year</label><input class="input input--w4" id="ex-dob-y" name="dob-year" inputmode="numeric" autocomplete="bday-year"></div>
+                  </div>
+                </fieldset>
+                <div class="field">
+                  <label class="label" for="ex-appt">Appointment date</label>
+                  <input class="input input--w20" id="ex-appt" type="date" value="2026-11-14">
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Three boxes for dates people know (birth, passport issue).</li><li>Native <code>type="date"</code> only for picking a near date, like an appointment.</li><li>Accept "3", "03" and month names like "mar".</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use three selects for day, month, year.</li><li>Use a date picker for a birth date: scrolling back 40 years is slow.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-input-group">Prefix and suffix <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-cost">Cost of parts, in euros</label>
+                  <div class="input-group input--w10"><span class="input-group__affix" aria-hidden="true">€</span><input class="input" id="ex-cost" inputmode="decimal" value="12.50"></div>
+                </div>
+                <div class="field">
+                  <label class="label" for="ex-weight">Weight, in kilograms</label>
+                  <div class="input-group input--w10"><input class="input" id="ex-weight" inputmode="decimal"><span class="input-group__affix" aria-hidden="true">kg</span></div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>For units and fixed parts.</li><li>Say the unit in the label too; the affix is hidden from screen readers.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Put essential instructions in the affix.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-search">Search <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <form role="search" class="search" onsubmit="event.preventDefault()">
+                  <label class="visually-hidden" for="ex-search">Search the site</label>
+                  <input class="input search__input" id="ex-search" type="search" name="q" placeholder="Search">
+                  <button class="button search__button" type="submit"><svg class="icon" aria-hidden="true"><use href="../icons/contour-icons.svg#search"></use></svg>Search</button>
+                </form>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>role="search"</code> on the form, and a label (hidden is fine here).</li><li>Keep the query in the box on the results page.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Search as you type without telling screen readers how many results there are.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-password">Password input <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-pw">Password</label>
+                  <div class="password">
+                    <input class="input password__input" id="ex-pw" type="password" autocomplete="current-password" spellcheck="false" autocapitalize="none">
+                    <button class="button button--secondary password__toggle" type="button" aria-label="Show password" hidden>Show</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A Show button so people can check what they typed.</li><li><code>autocomplete="new-password"</code> on sign-up, <code>current-password</code> on sign-in.</li><li>Allow paste (3.3.8).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Ask people to type the password twice; Show does the same job.</li><li>Set rules like "one capital letter". Ask for length instead.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-file">File upload <span class="badge">Atom</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-photo">Upload a photo of the item</label>
+                  <span class="hint" id="ex-photo-hint">JPG or PNG, smaller than 10 MB</span>
+                  <input class="file-upload" id="ex-photo" type="file" accept="image/jpeg,image/png" aria-describedby="ex-photo-hint">
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Native <code>&lt;input type="file"&gt;</code>: drag and drop and keyboard come with it.</li><li>State the formats and size limit in the hint.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Only accept upload when people could just as well type the answer.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-range">Range slider <span class="badge">Atom</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-dist">Maximum distance</label>
+                  <div class="range-field">
+                    <input class="range" id="ex-dist" type="range" min="1" max="50" value="10" data-range-output="ex-dist-out" data-unit=" km">
+                    <output class="range-field__output" id="ex-dist-out" for="ex-dist">10 km</output>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Only when an approximate value is fine.</li><li>Show the value next to it.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it when people need an exact number; offer a text input (2.5.7).</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-combobox">Combo box <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <label class="label" for="ex-town">Town</label>
+                  <span class="hint" id="ex-town-hint">Start typing, then pick from the list</span>
+                  <input class="input input--w20" id="ex-town" list="ex-towns" autocomplete="address-level2" aria-describedby="ex-town-hint">
+                  <datalist id="ex-towns"><option value="Antwerpen"></option><option value="Brugge"></option><option value="Gent"></option><option value="Leuven"></option><option value="Mechelen"></option></datalist>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Native <code>&lt;datalist&gt;</code>: suggestions, but any text is still allowed.</li><li>For long lists where people know the answer (towns, countries).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Build a custom ARIA combobox unless you will test it with screen readers.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-multiselect">Multiselect <span class="badge">Molecule</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="field">
+                  <span class="label" id="ex-skills-label">Skills</span>
+                  <details class="multiselect">
+                    <summary class="multiselect__summary" aria-describedby="ex-skills-label">Choose skills</summary>
+                    <fieldset class="multiselect__panel" style="border-width: var(--border-width)">
+                      <legend class="visually-hidden">Skills</legend>
+                      <label class="check"><input class="check__input" type="checkbox" name="skill" value="solder"> Soldering</label>
+                      <label class="check"><input class="check__input" type="checkbox" name="skill" value="sew"> Sewing</label>
+                      <label class="check"><input class="check__input" type="checkbox" name="skill" value="wood"> Woodwork</label>
+                      <label class="check"><input class="check__input" type="checkbox" name="skill" value="bike"> Bike repair</label>
+                    </fieldset>
+                  </details>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>A <code>&lt;details&gt;</code> with real checkboxes: no script needed.</li><li>For filters where space is tight.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Hide choices in a dropdown when there is room to show them as checkboxes.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-error-summary">Error summary <span class="badge">Organism</span> <span class="docs-file">components/forms.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="error-summary" role="alert" aria-labelledby="ex-es-title">
+                  <h3 class="error-summary__title" id="ex-es-title">There is a problem</h3>
+                  <ul class="error-summary__list">
+                    <li><a href="#ex-email">Enter an email address with a domain, like name@example.com</a></li>
+                    <li><a href="#ex-dob-d">Date of birth must include a day</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>At the top of the page after a failed submit, above the h1.</li><li>Same wording as the error next to the field, each linking to the field.</li><li><code>data-error-summary</code> moves focus to it on load; add "Error: " to the page title.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Show it while people are still typing.</li><li>Use it for a single field on a short form? Still use it: it is the first thing a screen reader hears.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-actions.html" rel="prev">Previous<span class="pagination__label">Actions components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components-feedback.html" rel="next">Next<span class="pagination__label">Feedback components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

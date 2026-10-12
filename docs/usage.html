@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Usage · Contour</title>
+<meta name="description" content="Install Contour, start a page, layers, themes and right to left.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html" aria-current="page">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">On this page</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#files">Files</a></li><li><a class="in-page-nav__link" href="#browser-support">Browser support</a></li><li><a class="in-page-nav__link" href="#install">Install</a></li><li><a class="in-page-nav__link" href="#start-a-page">Start a page</a></li><li><a class="in-page-nav__link" href="#cascade-layers">Cascade layers</a></li><li><a class="in-page-nav__link" href="#make-a-theme">Make a theme</a></li><li><a class="in-page-nav__link" href="#pin-a-theme">Pin a theme</a></li><li><a class="in-page-nav__link" href="#right-to-left">Right to left</a></li><li><a class="in-page-nav__link" href="#versions-and-changes">Versions and changes</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">07</span><h1 class="docs-title">Usage</h1></div>
+
+      <div class="sidebar">
+        <div class="sidebar__side stack">
+          <h2 id="files">Files</h2>
+          <div class="docs-scale">
+            <div class="docs-scale__row"><span class="docs-token">contour.css</span><span>Imports everything, in cascade layers</span></div>
+            <div class="docs-scale__row"><span class="docs-token">tokens.css</span><span>Colour, type, space, shape, z-index, motion</span></div>
+            <div class="docs-scale__row"><span class="docs-token">base.css</span><span>Reset, elements, focus</span></div>
+            <div class="docs-scale__row"><span class="docs-token">layout.css</span><span>Container, stack, cluster, grid, sidebar, switcher</span></div>
+            <div class="docs-scale__row"><span class="docs-token">components.css</span><span>Imports the 8 files in <code>components/</code></span></div>
+            <div class="docs-scale__row"><span class="docs-token">utilities.css</span><span>Helpers</span></div>
+            <div class="docs-scale__row"><span class="docs-token">print.css</span><span>Print styles</span></div>
+            <div class="docs-scale__row"><span class="docs-token">js/contour.js</span><span>Optional enhancements</span></div>
+            <div class="docs-scale__row"><span class="docs-token">icons/</span><span>SVG sprite, 39 icons</span></div>
+            <div class="docs-scale__row"><span class="docs-token">templates/</span><span>10 example pages</span></div>
+          </div>
+          <h2 id="browser-support">Browser support</h2>
+          <p>The last two versions of Chrome, Edge, Firefox and Safari (desktop and mobile). Contour uses Baseline CSS: features that work in all four. Features that are still rolling out are enhancements; without them the page works and looks the same, it just moves less. See <a href="modern-css.html">Modern CSS</a> for the list.</p>
+        </div>
+        <div class="sidebar__main stack">
+          <h2 id="install">Install</h2>
+          <p>Copy the <code>css/</code>, <code>js/</code> and <code>icons/</code> folders into your project, or add the repository as a git submodule. There is no build step and nothing to install.</p>
+          <h2 id="start-a-page">Start a page</h2>
+<pre tabindex="0"><code>&lt;!doctype html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;Page name · Site name&lt;/title&gt;
+  &lt;link rel="stylesheet" href="../css/contour.css"&gt;
+  &lt;script src="../js/contour.js" defer&gt;&lt;/script&gt;  &lt;!-- optional --&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;a class="skip-link" href="#main"&gt;Skip to content&lt;/a&gt;
+  &lt;header class="site-header"&gt;…&lt;/header&gt;
+  &lt;main id="main" tabindex="-1" class="container page stack"&gt;
+    &lt;h1&gt;Page name&lt;/h1&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <h2 id="cascade-layers">Cascade layers</h2>
+          <p>Contour puts every file in a layer: <code>contour.tokens</code> &lt; <code>base</code> &lt; <code>layout</code> &lt; <code>components</code> &lt; <code>utilities</code> &lt; <code>print</code>. Your own CSS, outside any layer, always wins, whatever its specificity. No <code>!important</code> needed.</p>
+          <p>The flip side: any unlayered reset also wins. If a CMS, framework or host page sets <code>body { background: #fff }</code> without a layer, dark mode breaks. Put that reset in a layer declared before Contour (<code>@layer reset, contour.tokens, …</code>), or restate the page ground unlayered: <code>body { background: var(--color-bg); color: var(--color-ink); }</code>.</p>
+          <h2 id="make-a-theme">Make a theme</h2>
+          <p>Override tokens, not components. Give each colour a light and a dark value with <code>light-dark()</code>, and keep every text colour at 4.5:1 or above on <code>--color-bg</code> in both.</p>
+<pre tabindex="0"><code>:root {
+  --color-accent: light-dark(oklch(55% 0.17 150), oklch(80% 0.14 150));   /* --color-on-accent on it must stay 4.5:1+ */
+  --color-link: light-dark(oklch(45% 0.2 300), oklch(80% 0.12 300));
+  --radius-l: 2rem;   /* rounder shells */
+}</code></pre>
+          <h2 id="pin-a-theme">Pin a theme</h2>
+          <p>Dark follows the OS setting. Set <code>data-theme="light"</code> or <code>"dark"</code> on <code>&lt;html&gt;</code> to force one. Because the tokens use <code>light-dark()</code>, one block can have its own theme too: add <code>theme-dark</code> or <code>theme-light</code> to it.</p>
+          <h2 id="right-to-left">Right to left</h2>
+          <p>Components use logical properties (<code>margin-inline-start</code>, <code>border-inline-start</code>), so <code>&lt;html dir="rtl"&gt;</code> mirrors the layout. Arrows and the select chevron flip too.</p>
+          <h2 id="versions-and-changes">Versions and changes</h2>
+          <p>Contour follows semantic versioning. Breaking changes (a renamed class, a removed token) bump the major number. See <code>CHANGELOG.md</code> for every release and <code>CONTRIBUTING.md</code> for how to propose a component: a real need, a "Use" and "Don't" list, and an accessibility test before it ships.</p>
+        </div>
+      </div>
+    
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="accessibility.html" rel="prev">Previous<span class="pagination__label">Accessibility</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="modern-css.html" rel="next">Next<span class="pagination__label">Modern CSS</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

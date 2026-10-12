@@ -1,0 +1,305 @@
+/* ==========================================================================
+   CONTOUR / tokens.css
+   Every value the system uses lives here. Components read tokens only,
+   so a theme is a change to this file and nothing else.
+
+   The look follows the industrial design of the MX Master 4 and the desk
+   set around it: a matte graphite shell with a fine grain, sculpted curves
+   instead of corners, soft light from above and a soft cast shadow, keys
+   with a dished top, and knurled machined metal as the only shiny part.
+   There is no brand colour. Graphite (silver in dark mode) marks what can
+   be pressed or has focus, metal marks the one main action, and a small
+   green status light marks what is current.
+
+   Colours are oklch(lightness chroma hue): lightness is perceptual, so two
+   tokens with the same L read as equally light. Neutrals share hue 255, a
+   faint cool tint, like anodised aluminium.
+   Contrast ratios are measured against --color-bg (WCAG 2.2, 1.4.3 / 1.4.11).
+   Typed custom properties (@property) are registered at the end of the file.
+   ========================================================================== */
+
+:root {
+  /* --- Colour --------------------------------------------------------------
+     Each token holds both themes: light-dark(light, dark). Light is
+     "Pale Grey", dark is "Graphite". The browser picks one from the
+     element's color-scheme, which follows the OS setting unless the page
+     pins data-theme="light" or "dark" (see the end of this file).
+     Contrast ratios: light / dark, against --color-bg in the same theme.
+     Every pair stays between its floor (7:1 body text, 4.5:1 other text,
+     3:1 edges) and a ceiling of 15:1: no pure black, no pure white, so
+     nothing glares. tools/check-contrast.py checks all of them. */
+  color-scheme: light dark;
+  --color-bg: light-dark(oklch(95.5% 0.004 255), oklch(18.5% 0.006 255));            /* page: pale grey shell, graphite shell */
+  --color-surface: light-dark(oklch(98.8% 0.002 255), oklch(23.5% 0.007 255));       /* raised: cards, panels, menus, fields */
+  --color-sunken: light-dark(oklch(92% 0.005 255), oklch(16.5% 0.005 255));          /* recessed: wells, tracks, table stripes */
+  --color-ink: light-dark(oklch(27% 0.012 255), oklch(90% 0.006 255));               /* text                    13.2 / 13.8 */
+  --color-muted: light-dark(oklch(47% 0.014 255), oklch(73% 0.012 255));             /* secondary text, hints    6.0 /  7.8 */
+  --color-line: light-dark(oklch(88.5% 0.006 255), oklch(30% 0.008 255));            /* hairlines: decorative only, never the only edge of a control */
+  --color-edge: light-dark(oklch(60% 0.012 255), oklch(56% 0.012 255));              /* edges of controls        3.5 /  4.0 */
+  --color-link: light-dark(oklch(27% 0.012 255), oklch(90% 0.006 255));              /* links: graphite, told apart by the underline   13.2 / 13.8 */
+  --color-danger: light-dark(oklch(50% 0.18 25), oklch(74% 0.14 22));                /* errors                   5.8 /  7.6 */
+  --color-success: light-dark(oklch(48% 0.11 158), oklch(78% 0.13 158));             /* confirmations            5.4 /  9.8 */
+  --color-warning: light-dark(oklch(49% 0.105 62), oklch(81% 0.12 78));              /* warnings                 5.7 / 10.2 */
+  --color-info: light-dark(oklch(47% 0.05 245), oklch(78% 0.04 238));                /* neutral notices: steel    6.0 /  9.4 */
+  --color-accent: light-dark(oklch(38% 0.01 255), oklch(84% 0.005 255));             /* gunmetal / brushed silver: focus, checked, selected edges */
+  --color-on-accent: light-dark(oklch(98.8% 0.002 255), oklch(20% 0.006 255));       /* label on a solid accent fill */
+  --color-accent-soft: light-dark(oklch(90% 0.004 255), oklch(29% 0.006 255));       /* selected tiles and rows: fill behind ink text */
+  --color-led: light-dark(oklch(55% 0.15 150), oklch(78% 0.17 150));                 /* the green status light: the current item, live state */
+  --color-focus: var(--color-accent);         /* focus ring, 3:1 on bg in both themes */
+  --color-focus-gap: var(--color-bg);         /* thin band between element and ring, so the ring reads on any fill */
+  --color-on-ink: var(--color-bg);            /* text on an ink (graphite) fill */
+  --color-scrim: oklch(14% 0.01 255 / 0.5);   /* behind dialogs, dark in both themes */
+  /* Tints and light. Decorative only, never used for text. Plain values
+     here; the @supports block below derives some from the theme colours. */
+  --color-sheen: light-dark(oklch(100% 0 0 / 0.9), oklch(100% 0 0 / 0.07));          /* the top-edge highlight on a sculpted surface */
+  --color-shade: light-dark(oklch(30% 0.02 255 / 0.1), oklch(0% 0 0 / 0.42));        /* shadow colour */
+  --color-shimmer: oklch(50% 0 0 / 0.12);     /* skeleton loader sweep */
+  --color-danger-tint: transparent;           /* behind an invalid field */
+  --color-accent-glow: oklch(50% 0.01 255 / 0.22);
+  --color-grain: light-dark(transparent, oklch(100% 0 0 / 0.028));   /* the micro-dot texture of the shell, on the page */
+  --color-on-metal: oklch(30% 0.012 255);   /* text on --gradient-metal, both themes */  /* soft halo round focus and the active state */
+
+  /* --- Material ---------------------------------------------------------
+     Matte shell: a faint vertical gradient, lighter at the top where the
+     light falls. Metal: the brushed steel of a scroll wheel, used for small
+     moving parts only (switch knobs, slider thumbs). */
+  --gradient-shell: linear-gradient(180deg, var(--color-sheen) 0%, transparent 60%);
+  --gradient-ink: linear-gradient(180deg, oklch(from var(--color-ink) calc(l + 0.06) c h), var(--color-ink));
+  /* Keycap: a shallow dish, lighter where the finger rests. */
+  --gradient-key: radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-ink) calc(l + 0.075) c h), var(--color-ink) 72%);
+  --gradient-metal: linear-gradient(180deg,
+    oklch(96% 0.003 255) 0%, oklch(82% 0.005 255) 30%,
+    oklch(94% 0.003 255) 52%, oklch(74% 0.007 255) 100%);
+  /* Fills for the main action: machined metal. Text on it is --color-on-metal. */
+  --gradient-accent: var(--texture-knurl), var(--gradient-metal);
+  /* Knurling: the fine ribs of a metal wheel. On metal only. */
+  --texture-knurl: repeating-linear-gradient(90deg,
+    oklch(25% 0.01 255 / 0.08) 0 0.0625rem, transparent 0.0625rem 0.1875rem);
+  /* Grain: the micro-dot finish of the graphite shell, for graphite fills. */
+  --texture-grain: radial-gradient(oklch(100% 0 0 / 0.07) 0.025rem, transparent 0.045rem) 0 0 / 0.1875rem 0.1875rem;
+  /* Ripple: the concentric rings of the thumb pad. Decorative, on large graphite areas. */
+  --texture-ripple: repeating-radial-gradient(circle at 12% 88%,
+    oklch(100% 0 0 / 0.045) 0 0.0625rem, transparent 0.0625rem 0.5rem);
+
+  /* --- Typography --------------------------------------------------------
+     One family, the platform's own grotesque, in two optical cuts: no web
+     font download, no layout shift. Mono is for code only. */
+  --font-body: system-ui, -apple-system, "SF Pro Text", "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: system-ui, -apple-system, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Scale ratio 1.5 (course: p 1em, h3 1.5em, h2 2.25em, h1 3.375em).
+     The top steps are fluid so h1 does not overflow a phone. */
+  --step--2: 0.75rem;                                     /* eyebrows, overlines */
+  --step--1: 0.875rem;
+  --step-0: 1rem;                                         /* body, 1rem min (1.4.4) */
+  --step-1: 1.5rem;                                       /* h3 */
+  --step-2: clamp(1.75rem, 1.4rem + 1.6vw, 2.25rem);      /* h2 */
+  --step-3: clamp(2.25rem, 1.6rem + 3vw, 3.375rem);       /* h1 */
+  --step-4: clamp(3rem, 2rem + 5vw, 5.0625rem);           /* display: hero titles, big numbers */
+  /* h4 to h6 all use --step-0 or below: the level shows through weight and colour. */
+  --leading-body: 1.55;       /* 1.4.12 text spacing friendly */
+  --leading-tight: 1.12;
+  --weight-regular: 400;
+  --weight-medium: 500;       /* labels, buttons, navigation */
+  --weight-bold: 600;         /* headings, strong: semibold, never heavy */
+  --tracking-caps: 0.08em;    /* small overlines only */
+  --tracking-tight: -0.022em; /* headings */
+  --tracking-display: -0.035em;
+  --measure: 65ch;            /* 50 to 75 characters per line */
+
+  /* --- Space: 0.25rem base, used for gap, padding and margin ------------ */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4.5rem;
+
+  /* --- Shape: sculpted -------------------------------------------------
+     No sharp corners anywhere. Small parts get small radii, big parts big
+     ones, so nested shapes stay concentric (inner = outer - padding). */
+  --radius-xs: 0.375rem;      /* checkboxes, tags, code */
+  --radius-s: 0.625rem;       /* fields, small buttons, menu items */
+  --radius-m: 1rem;           /* cards, alerts, tables */
+  --radius-l: 1.5rem;         /* dialogs, panels, hero blocks */
+  --radius-key: 0.75rem;      /* things you press: buttons, keys, nav items */
+  --radius-pill: 62.5rem;     /* badges, tracks, progress, lights */
+  --radius: var(--radius-s);
+  --border-width: 0.0625rem;  /* hairline */
+  --border-width-thin: 0.0625rem;
+  --border-width-strong: 0.125rem;  /* selected, checked, current */
+  --border: var(--border-width) solid var(--color-line);
+  --border-control: var(--border-width) solid var(--color-edge);
+
+  /* Elevation. Three steps, soft and wide, like a shell resting on a desk.
+     Each one carries a 1px top highlight (the sheen), which is what makes a
+     flat box read as moulded. */
+  --shadow-1: inset 0 0.0625rem 0 var(--color-sheen), 0 0.0625rem 0.125rem var(--color-shade), 0 0.125rem 0.5rem -0.125rem var(--color-shade);
+  --shadow-2: inset 0 0.0625rem 0 var(--color-sheen), 0 0.125rem 0.25rem var(--color-shade), 0 0.5rem 1.5rem -0.25rem var(--color-shade);
+  --shadow-3: inset 0 0.0625rem 0 var(--color-sheen), 0 0.5rem 1rem -0.25rem var(--color-shade), 0 1.5rem 3rem -0.5rem var(--color-shade);
+  --shadow: var(--shadow-1);
+  --shadow-inset: inset 0 0.0625rem 0.1875rem var(--color-shade);   /* recessed tracks and wells */
+  /* A key: top sheen, a darker skirt along the bottom edge, a soft cast shadow. */
+  --shadow-key: inset 0 0.0625rem 0 oklch(100% 0 0 / 0.14), inset 0 -0.125rem 0 oklch(0% 0 0 / 0.22),
+    0 0.0625rem 0.125rem var(--color-shade), 0 0.375rem 0.75rem -0.25rem var(--color-shade);
+  --shadow-key-pressed: inset 0 0.0625rem 0.1875rem oklch(0% 0 0 / 0.25), 0 0.0625rem 0.0625rem var(--color-shade);
+
+  /* --- Interaction ------------------------------------------------------ */
+  --target-min: 2.75rem;      /* 2.75rem, well above the 1.5rem of 2.5.8 */
+  --focus-width: 0.125rem;
+  --focus-offset: 0.125rem;
+  /* Focus (2.4.7, 2.4.13): a 2px accent outline 2px clear of the element,
+     plus a soft glow. The accent is 3:1 or more on the page in both themes.
+     Add var(--focus-ring) to any box-shadow on focus. */
+  --focus-ring: 0 0 0 calc(var(--focus-offset) + var(--focus-width) + 0.1875rem) var(--color-accent-glow);
+  --press-scale: 0.97;        /* buttons sink a little when pressed, like a click */
+  --lift: -0.0625rem;         /* cards rise a pixel on hover */
+  --duration: 160ms;          /* hover, press; removed under prefers-reduced-motion */
+  --duration-slow: 320ms;     /* dialogs, toasts, progress */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);       /* glide: fast start, long soft stop, like a free-spinning wheel */
+  --ease-snap: cubic-bezier(0.34, 1.4, 0.64, 1); /* a small overshoot for switches: the haptic detent */
+
+  /* --- Icons: inline SVG, sized to the text they sit in ------------------ */
+  --icon-s: 1em;
+  --icon-m: 1.5rem;
+  --icon-l: 2.25rem;
+  --icon-stroke: 1.75;        /* in a 24-unit viewBox: fine, machined lines */
+
+  /* --- Stacking order: one scale, no magic numbers ---------------------- */
+  --z-base: 0;
+  --z-raised: 10;             /* sticky table headers, raised cards */
+  --z-sticky: 100;            /* sticky header, sticky action bar */
+  --z-dropdown: 200;          /* menus, popovers, combobox lists */
+  --z-banner: 300;            /* cookie banner, site banner */
+  --z-toast: 400;
+  --z-dialog: 500;            /* <dialog> uses the top layer anyway; this is for fallbacks */
+  --z-skip: 600;              /* skip link above everything */
+
+  /* --- Layout ----------------------------------------------------------- */
+  --container-max: 72rem;
+  --container-narrow: 42rem;  /* forms and question pages: one thing per page */
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  /* Floating buttons on phones (the menu button) sit this much higher, for
+     example above a sticky action bar. page.css turns it into --fab-bottom
+     (distance from the bottom edge, clear of the home indicator) and
+     --fab-space (room kept free under the page content). */
+  --fab-lift: 0rem;
+
+  /* Breakpoints. Custom properties cannot be used inside @media, so these are
+     for reference and for JavaScript (getComputedStyle). Contour layouts are
+     intrinsic (flex-wrap, auto-fit) and need almost no media queries.
+     Write them in em so they follow the user's font size:
+       --bp-s 30em (480)   phones landscape
+       --bp-m 48em (768)   tablets
+       --bp-l 64em (1024)  laptops
+       --bp-xl 80em (1280) desktops */
+  --bp-s: 30em;
+  --bp-m: 48em;
+  --bp-l: 64em;
+  --bp-xl: 80em;
+}
+
+/* Relative colour syntax: take a token and change one channel. The tints
+   follow the theme without a second set of values. */
+@supports (color: oklch(from red l c h / 0.5)) {
+  :root {
+    --color-shimmer: oklch(from var(--color-ink) l c h / 0.08);
+    --color-danger-tint: oklch(from var(--color-danger) l c h / 0.06);
+    --color-accent-glow: oklch(from var(--color-accent) l c h / 0.22);
+  }
+}
+
+/* Without relative colours the gradients fall back to flat fills. */
+@supports not (color: oklch(from red l c h / 0.5)) {
+  :root {
+    --gradient-ink: linear-gradient(var(--color-ink), var(--color-ink));
+    --gradient-key: linear-gradient(var(--color-ink), var(--color-ink));
+    --texture-knurl: none;
+  }
+}
+
+/* --- Theme pinning --------------------------------------------------------
+   Set data-theme on <html> to override the OS setting. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+/* --- Fallback for browsers without light-dark() (before 2024) -------------
+   Same values, switched the old way with a media query. */
+@supports not (color: light-dark(white, black)) {
+  :root {
+    --color-bg: oklch(95.5% 0.004 255);
+    --color-surface: oklch(98.8% 0.002 255);
+    --color-sunken: oklch(92% 0.005 255);
+    --color-ink: oklch(27% 0.012 255);
+    --color-muted: oklch(47% 0.014 255);
+    --color-line: oklch(88.5% 0.006 255);
+    --color-edge: oklch(60% 0.012 255);
+    --color-link: oklch(27% 0.012 255);
+    --color-danger: oklch(50% 0.18 25);
+    --color-success: oklch(48% 0.11 158);
+    --color-warning: oklch(49% 0.105 62);
+    --color-info: oklch(47% 0.05 245);
+    --color-accent: oklch(38% 0.01 255);
+    --color-on-accent: oklch(98.8% 0.002 255);
+    --color-accent-soft: oklch(90% 0.004 255);
+    --color-led: oklch(55% 0.15 150);
+    --color-sheen: oklch(100% 0 0 / 0.9);
+    --color-shade: oklch(30% 0.02 255 / 0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --color-bg: oklch(18.5% 0.006 255);
+      --color-surface: oklch(23.5% 0.007 255);
+      --color-sunken: oklch(16.5% 0.005 255);
+      --color-ink: oklch(90% 0.006 255);
+      --color-muted: oklch(73% 0.012 255);
+      --color-line: oklch(30% 0.008 255);
+      --color-edge: oklch(56% 0.012 255);
+      --color-link: oklch(90% 0.006 255);
+      --color-danger: oklch(74% 0.14 22);
+      --color-success: oklch(78% 0.13 158);
+      --color-warning: oklch(81% 0.12 78);
+      --color-info: oklch(78% 0.04 238);
+      --color-accent: oklch(84% 0.005 255);
+      --color-on-accent: oklch(20% 0.006 255);
+      --color-accent-soft: oklch(29% 0.006 255);
+      --color-led: oklch(78% 0.17 150);
+      --color-sheen: oklch(100% 0 0 / 0.07);
+      --color-shade: oklch(0% 0 0 / 0.42);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --color-bg: oklch(18.5% 0.006 255);
+    --color-surface: oklch(23.5% 0.007 255);
+    --color-sunken: oklch(16.5% 0.005 255);
+    --color-ink: oklch(90% 0.006 255);
+    --color-muted: oklch(73% 0.012 255);
+    --color-line: oklch(30% 0.008 255);
+    --color-edge: oklch(56% 0.012 255);
+    --color-link: oklch(90% 0.006 255);
+    --color-danger: oklch(74% 0.14 22);
+    --color-success: oklch(78% 0.13 158);
+    --color-warning: oklch(81% 0.12 78);
+    --color-info: oklch(78% 0.04 238);
+    --color-accent: oklch(84% 0.005 255);
+    --color-on-accent: oklch(20% 0.006 255);
+    --color-accent-soft: oklch(29% 0.006 255);
+    --color-led: oklch(78% 0.17 150);
+    --color-sheen: oklch(100% 0 0 / 0.07);
+    --color-shade: oklch(0% 0 0 / 0.42);
+  }
+}
+
+/* --- Registered custom properties ----------------------------------------
+   @property gives a custom property a type, so the browser can animate it
+   and rejects bad values. Used by components that animate a number. */
+@property --value {
+  syntax: "<percentage>";
+  inherits: true;    /* set on the bar, read by its ::before */
+  initial-value: 0%;
+}

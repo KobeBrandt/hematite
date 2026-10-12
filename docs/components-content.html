@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Content components · Contour</title>
+<meta name="description" content="Content components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html" aria-current="page">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-prose">Prose and lists</a></li><li><a class="in-page-nav__link" href="#c-link-list">Link list</a></li><li><a class="in-page-nav__link" href="#c-icon">Icons</a></li><li><a class="in-page-nav__link" href="#c-card">Card</a></li><li><a class="in-page-nav__link" href="#c-inset">Inset text and summary box</a></li><li><a class="in-page-nav__link" href="#c-quote">Quote</a></li><li><a class="in-page-nav__link" href="#c-divider">Divider</a></li><li><a class="in-page-nav__link" href="#c-figure">Figure, video and gallery</a></li><li><a class="in-page-nav__link" href="#c-contact">Contact and person</a></li><li><a class="in-page-nav__link" href="#c-process">Process list</a></li><li><a class="in-page-nav__link" href="#c-chart">Bar chart</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Content</h1></div>
+        <p class="docs-lede measure">Text and media people read. Wrap CMS output in <code>.prose</code> and it is styled without classes. <span class="docs-file">css/components/content.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-prose">Prose and lists <span class="badge">Organism</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="prose">
+                  <h3>Before your visit</h3>
+                  <p>Clean the item and bring every part, including chargers and remotes.</p>
+                  <ul class="list list--bullet"><li>Unplug it the night before.</li><li>Write down what happens when it breaks.</li></ul>
+                  <ol class="list list--number"><li>Arrive 5 minutes early.</li><li>Sign in at the desk.</li></ol>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>.prose</code> around long-form content.</li><li><code>.list--bullet</code>, <code>--number</code>, <code>--ruled</code>, <code>--spaced</code>.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Nest lists more than two levels deep.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-link-list">Link list <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <ul class="link-list link-list--arrows">
+                  <li><a class="link-list__link" href="#c-link-list">What we can repair</a></li>
+                  <li><a class="link-list__link" href="#c-link-list">Electrical safety</a></li>
+                  <li><a class="link-list__link" href="#c-link-list">Become a volunteer</a></li>
+                </ul>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Related links, footer columns, "see also".</li><li>Each link is a full-height target.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Write "click here"; the link text says where it goes (2.4.4).</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-icon">Icons <span class="badge">Atom</span> <span class="docs-file">components/content.css + icons/</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <ul class="docs-icons">
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#arrow-left"></use></svg><span>arrow-left</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#arrow-right"></use></svg><span>arrow-right</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#arrow-up"></use></svg><span>arrow-up</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#arrow-down"></use></svg><span>arrow-down</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#chevron-down"></use></svg><span>chevron-down</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#chevron-up"></use></svg><span>chevron-up</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#chevron-left"></use></svg><span>chevron-left</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#chevron-right"></use></svg><span>chevron-right</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#check"></use></svg><span>check</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#close"></use></svg><span>close</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#plus"></use></svg><span>plus</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#minus"></use></svg><span>minus</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#menu"></use></svg><span>menu</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#search"></use></svg><span>search</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#external"></use></svg><span>external</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#download"></use></svg><span>download</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#upload"></use></svg><span>upload</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#info"></use></svg><span>info</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#warning"></use></svg><span>warning</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#error"></use></svg><span>error</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#success"></use></svg><span>success</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#calendar"></use></svg><span>calendar</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#clock"></use></svg><span>clock</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#user"></use></svg><span>user</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#mail"></use></svg><span>mail</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#phone"></use></svg><span>phone</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#location"></use></svg><span>location</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#edit"></use></svg><span>edit</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#trash"></use></svg><span>trash</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#copy"></use></svg><span>copy</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#filter"></use></svg><span>filter</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#print"></use></svg><span>print</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#home"></use></svg><span>home</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#lock"></use></svg><span>lock</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#eye"></use></svg><span>eye</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#eye-off"></use></svg><span>eye-off</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#file"></use></svg><span>file</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#link"></use></svg><span>link</span></li>
+                  <li><svg class="icon icon--m" aria-hidden="true"><use href="../icons/contour-icons.svg#share"></use></svg><span>share</span></li>
+                </ul>
+                <p class="icon-list__item"><svg class="icon" aria-hidden="true"><use href="../icons/contour-icons.svg#check"></use></svg> Icons sit on the text baseline and take its colour.</p>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>&lt;svg class="icon"&gt;&lt;use href="../icons/contour-icons.svg#check"/&gt;&lt;/svg&gt;</code></li><li><code>aria-hidden="true"</code> next to a text label.</li><li><code>--m</code> 1.5rem and <code>--l</code> 2.25rem.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use an icon alone without an accessible name.</li><li>Use icons as decoration in running text.</li></ul></div>
+            <div><h3>Drawing rules</h3><ul><li>24-unit grid, 1.75 stroke.</li><li>Round caps and joins, no fills.</li><li>39 icons, about 4 KB.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-card">Card <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="grid" style="--grid-min: 12rem">
+                  <article class="card card--raised">
+                    <p class="card__eyebrow">Workshop</p>
+                    <h2 class="card__title"><a class="card__link" href="#c-card">Fix your bike brakes</a></h2>
+                    <p>Learn to adjust and replace brake pads.</p>
+                    <p class="card__meta">Saturday 21 November</p>
+                  </article>
+                  <article class="card card--accent">
+                    <p class="card__eyebrow">Featured</p>
+                    <h2 class="card__title"><a class="card__link" href="#c-card">Mend a jumper</a></h2>
+                    <p>Darning, patches and visible mending.</p>
+                    <p class="card__meta">Saturday 28 November</p>
+                  </article>
+                  <div class="card">
+                    <p class="card__eyebrow">Repaired this year</p>
+                    <p class="card__stat">570</p>
+                    <p class="card__meta">items, 75% of all brought in</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Put the link on the title; <code>.card__link</code> stretches it over the card.</li><li><code>.card__stat</code> for one big number.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Wrap the whole card in a link.</li><li>Use <code>--accent</code> for more than one card per group.</li></ul></div>
+            <div><h3>Modifiers</h3><ul><li><code>--raised</code>, <code>--accent</code></li><li><code>__media</code> for a top image</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-inset">Inset text and summary box <span class="badge">Atom</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="stack">
+                  <div class="inset"><p>It can take up to 2 weeks to get spare parts for older bikes.</p></div>
+                  <div class="summary-box">
+                    <h2 class="summary-box__title">In short</h2>
+                    <ul class="list list--bullet"><li>Book online or by phone.</li><li>Bring the item and every part.</li></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Inset for a quote, example or extra detail.</li><li>Summary box for the key points at the top of a long page.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use inset text for warnings; use warning text.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-quote">Quote <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <blockquote class="quote">
+                  <p class="quote__text">Half of what comes in only needs a new fuse.</p>
+                  <footer class="quote__cite">Mina, volunteer electrician</footer>
+                </blockquote>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Real quotes with a real source.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Add quote marks yourself; the CSS draws them.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-divider">Divider <span class="badge">Atom</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="stack">
+                  <hr class="divider divider--thin">
+                  <hr class="divider">
+                  <hr class="divider divider--thick">
+                  <div class="divider-label" role="separator">or</div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>&lt;hr&gt;</code> for a change of topic within a section.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use a divider where white space would do; space groups things.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-figure">Figure, video and gallery <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <figure class="figure">
+                  <svg class="figure__media" viewBox="0 0 320 120" role="img" aria-label="A lamp drawn as a stack of black rectangles"><rect width="320" height="120" fill="none"/><rect x="140" y="90" width="40" height="12" fill="currentColor"/><rect x="156" y="40" width="8" height="50" fill="currentColor"/><polygon points="130,40 190,40 175,14 145,14" fill="currentColor"/></svg>
+                  <figcaption class="figure__caption">The lamp before repair. The switch was loose.</figcaption>
+                </figure>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>alt</code> says what is in the image; the caption says why it is there.</li><li><code>&lt;video class="video" controls&gt;</code> with captions and a transcript link.</li><li><code>.gallery</code> for a grid of thumbnails.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Autoplay video with sound.</li><li>Put text in images.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-contact">Contact and person <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="grid" style="--grid-min: 16rem">
+                  <address class="contact">
+                    <span class="contact__name">Repair café</span>
+                    <div class="contact__row"><span>Address</span><span>Kerkstraat 12, 9000 Gent</span></div>
+                    <div class="contact__row"><span>Phone</span><span class="tabular">+32 9 123 45 67</span></div>
+                    <div class="contact__row"><span>Open</span><span>Saturdays, 9am to 1pm</span></div>
+                  </address>
+                  <div class="person">
+                    <span class="person__avatar" aria-hidden="true">MV</span>
+                    <span><span class="person__name">Mina Verhoeven</span><br><span class="person__role">Volunteer electrician</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li><code>&lt;address&gt;</code> for contact details of the page owner.</li><li>Phone numbers as text people can copy.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use photos of people without their consent.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-process">Process list <span class="badge">Molecule</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <ol class="process-list">
+                  <li class="process-list__item"><h2 class="process-list__title">Book a slot</h2><p>Online or by phone.</p></li>
+                  <li class="process-list__item"><h2 class="process-list__title">Bring the item</h2><p>Arrive 5 minutes early.</p></li>
+                  <li class="process-list__item"><h2 class="process-list__title">Fix it together</h2><p>A volunteer guides you.</p></li>
+                </ol>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>For a real-world process with an order.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for form steps; use the step indicator.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-chart">Bar chart <span class="badge">Organism</span> <span class="docs-file">components/content.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <figure class="figure">
+                  <dl class="bar-chart" aria-label="Items repaired per month">
+                    <div class="bar-chart__row"><dt class="bar-chart__label">August</dt><dd class="bar-chart__value" style="--value: 55%">44</dd></div>
+                    <div class="bar-chart__row"><dt class="bar-chart__label">September</dt><dd class="bar-chart__value" style="--value: 78%">62</dd></div>
+                    <div class="bar-chart__row bar-chart__row--highlight"><dt class="bar-chart__label">October</dt><dd class="bar-chart__value" style="--value: 100%">80</dd></div>
+                  </dl>
+                  <figcaption class="figure__caption">October was the busiest month so far.</figcaption>
+                </figure>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Horizontal bars with the value written on each bar.</li><li>A <code>&lt;dl&gt;</code> or table underneath, so the numbers are always readable.</li><li>Highlight one bar, the one the caption is about.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use colour as the only way to tell series apart.</li><li>Use a pie chart: lengths are easier to compare than angles.</li></ul></div>
+            <div><h3>Data visualisation</h3><ul><li>Start bars at zero.</li><li>Write the conclusion in the caption.</li><li>Offer the table for anything complex.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-feedback.html" rel="prev">Previous<span class="pagination__label">Feedback components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components-data.html" rel="next">Next<span class="pagination__label">Data components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

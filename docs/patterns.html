@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Patterns · Contour</title>
+<meta name="description" content="Patterns for forms and service pages, and writing rules.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html">Components</a></li>
+          <li><a class="nav__link" href="patterns.html" aria-current="page">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">On this page</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#ask-for-a-name">Ask for a name</a></li><li><a class="in-page-nav__link" href="#ask-for-an-address">Ask for an address</a></li><li><a class="in-page-nav__link" href="#ask-for-a-date">Ask for a date</a></li><li><a class="in-page-nav__link" href="#ask-for-an-email-address">Ask for an email address</a></li><li><a class="in-page-nav__link" href="#ask-for-a-phone-number">Ask for a phone number</a></li><li><a class="in-page-nav__link" href="#ask-for-a-password">Ask for a password</a></li><li><a class="in-page-nav__link" href="#one-thing-per-page">One thing per page</a></li><li><a class="in-page-nav__link" href="#recover-from-errors">Recover from errors</a></li><li><a class="in-page-nav__link" href="#check-answers-before-sending">Check answers before sending</a></li><li><a class="in-page-nav__link" href="#complete-multiple-tasks">Complete multiple tasks</a></li><li><a class="in-page-nav__link" href="#start-using-a-service">Start using a service</a></li><li><a class="in-page-nav__link" href="#confirmation-page">Confirmation page</a></li><li><a class="in-page-nav__link" href="#when-things-go-wrong">When things go wrong</a></li><li><a class="in-page-nav__link" href="#navigate-a-service">Navigate a service</a></li><li><a class="in-page-nav__link" href="#cookie-consent">Cookie consent</a></li><li><a class="in-page-nav__link" href="#exit-a-page-quickly">Exit a page quickly</a></li><li><a class="in-page-nav__link" href="#writing-for-the-interface">Writing for the interface</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">04</span><h1 class="docs-title">Patterns</h1></div>
+        <p class="docs-lede measure">Components are the parts; patterns are how to combine them for a task people do again and again. These follow the research published by GOV.UK, the Vlaanderen design system and the US Web Design System.</p>
+
+      <div class="docs-patterns">
+        <article class="card">
+          <p class="card__eyebrow">Names</p>
+          <h2 class="card__title" id="ask-for-a-name">Ask for a name</h2>
+          <ul><li>One "Full name" field unless you really need parts. Not everyone has a first and last name.</li><li><code>autocomplete="name"</code>, <code>spellcheck="false"</code>.</li><li>Allow any characters, including accents, hyphens and apostrophes.</li></ul>
+          <p class="card__meta"></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Addresses</p>
+          <h2 class="card__title" id="ask-for-an-address">Ask for an address</h2>
+          <ul><li>Separate fields for street, number, postcode and town, with <code>autocomplete</code> on each.</li><li>Postcode box sized to a postcode (<code>input--w4</code>).</li><li>Do not make the second address line required.</li></ul>
+          <p class="card__meta"></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Dates</p>
+          <h2 class="card__title" id="ask-for-a-date">Ask for a date</h2>
+          <ul><li>Date input (three boxes) for known dates; native date picker for near dates.</li><li>Hint with an example in the expected order: "For example, 27 3 1990".</li><li>Error messages that say which part is missing.</li></ul>
+          <p class="card__meta"><a href="components-forms.html#c-date">See the component</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Email</p>
+          <h2 class="card__title" id="ask-for-an-email-address">Ask for an email address</h2>
+          <ul><li><code>type="email"</code>, <code>autocomplete="email"</code>, <code>spellcheck="false"</code>.</li><li>Say why you need it in the hint.</li><li>Do not ask for it twice; show it back on the check answers page.</li></ul>
+          <p class="card__meta"><a href="components-forms.html#c-field">See the component</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Phone numbers</p>
+          <h2 class="card__title" id="ask-for-a-phone-number">Ask for a phone number</h2>
+          <ul><li><code>type="tel"</code>, <code>autocomplete="tel"</code>.</li><li>Accept spaces, brackets and +32.</li><li>Say if you will call, text or both.</li></ul>
+          <p class="card__meta"></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Passwords</p>
+          <h2 class="card__title" id="ask-for-a-password">Ask for a password</h2>
+          <ul><li>Password input with a Show button.</li><li>Ask for length (at least 12 characters), not symbol rules.</li><li>Allow paste and password managers (3.3.8).</li></ul>
+          <p class="card__meta"><a href="components-forms.html#c-password">See the component</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Question pages</p>
+          <h2 class="card__title" id="one-thing-per-page">One thing per page</h2>
+          <ul><li>One question per page, the label or legend is the h1.</li><li>A back link above, one Continue button below.</li><li>Narrow container (<code>.container--narrow</code>).</li></ul>
+          <p class="card__meta"><a href="../templates/question-page.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Validation</p>
+          <h2 class="card__title" id="recover-from-errors">Recover from errors</h2>
+          <ul><li>Validate on submit, not while people type.</li><li>Error summary at the top, error message above each field, "Error: " in the title.</li><li>Say what went wrong and how to fix it: "Enter a date in the past", not "Invalid date".</li></ul>
+          <p class="card__meta"><a href="components-forms.html#c-error-summary">See the component</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Check answers</p>
+          <h2 class="card__title" id="check-answers-before-sending">Check answers before sending</h2>
+          <ul><li>Summary lists, one per section, each with Change links.</li><li>Change links return to the question, then back to this page.</li><li>The send button says what happens: "Accept and send".</li></ul>
+          <p class="card__meta"><a href="../templates/check-answers.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Many tasks</p>
+          <h2 class="card__title" id="complete-multiple-tasks">Complete multiple tasks</h2>
+          <ul><li>A task list when a transaction has several parts people can do in any order.</li><li>Status in words: Completed, Incomplete, Cannot start yet.</li><li>Save progress automatically.</li></ul>
+          <p class="card__meta"><a href="../templates/task-list.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Start</p>
+          <h2 class="card__title" id="start-using-a-service">Start using a service</h2>
+          <ul><li>A start page says what the service does, who can use it and what people need.</li><li>One green-for-go equivalent: the accent "Start now" button.</li></ul>
+          <p class="card__meta"><a href="../templates/start-page.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Confirmation</p>
+          <h2 class="card__title" id="confirmation-page">Confirmation page</h2>
+          <ul><li>A panel with the reference number as the h1.</li><li>What happens next, as a process list.</li><li>A link to give feedback.</li></ul>
+          <p class="card__meta"><a href="../templates/confirmation.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Error pages</p>
+          <h2 class="card__title" id="when-things-go-wrong">When things go wrong</h2>
+          <ul><li>404: say the page was not found and how to fix the address.</li><li>503: say when the service will be back and what to do meanwhile.</li><li>500: say it is our fault, whether answers were saved, and who to contact.</li><li>No technical codes or jokes.</li></ul>
+          <p class="card__meta"><a href="../templates/page-not-found.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Navigation</p>
+          <h2 class="card__title" id="navigate-a-service">Navigate a service</h2>
+          <ul><li>Header navigation for sections, breadcrumb on deep pages, side navigation for apps.</li><li>Back links in form flows, not breadcrumbs.</li><li>Skip link on every page.</li></ul>
+          <p class="card__meta"><a href="../templates/content-page.html">Open the template</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Cookies</p>
+          <h2 class="card__title" id="cookie-consent">Cookie consent</h2>
+          <ul><li>Cookie banner with equal accept and reject buttons.</li><li>A cookies page that lists every cookie and lets people change their choice.</li><li>No analytics before consent.</li></ul>
+          <p class="card__meta"><a href="components-page.html#c-cookie">See the component</a></p>
+        </article>
+        <article class="card">
+          <p class="card__eyebrow">Leaving quickly</p>
+          <h2 class="card__title" id="exit-a-page-quickly">Exit a page quickly</h2>
+          <ul><li>Exit this page button on services about abuse or other danger.</li><li>Explain it once; it also works with Shift pressed 3 times.</li></ul>
+          <p class="card__meta"><a href="components-actions.html#c-exit-page">See the component</a></p>
+        </article>
+      </div>
+
+      <div class="stack" id="content-style">
+        <h2 id="writing-for-the-interface">Writing for the interface</h2>
+        <p class="measure">Words are part of the design. Write from the reader's side of the screen.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="Writing rules with examples">
+          <table class="table">
+            <thead><tr><th scope="col">Rule</th><th scope="col">Write</th><th scope="col">Not</th></tr></thead>
+            <tbody>
+              <tr><td>Buttons say what happens</td><td>Send booking</td><td>Submit</td></tr>
+              <tr><td>Errors say how to fix it</td><td>Enter a date in the past</td><td>Invalid date</td></tr>
+              <tr><td>Errors do not blame</td><td>Enter your postcode</td><td>You forgot your postcode</td></tr>
+              <tr><td>Links say where they go</td><td>Read the cookie policy</td><td>Click here</td></tr>
+              <tr><td>Plain words</td><td>Help, start, buy</td><td>Assistance, commence, purchase</td></tr>
+              <tr><td>Sentence case</td><td>Check your answers</td><td>Check Your Answers</td></tr>
+              <tr><td>Numbers as digits</td><td>3 items, 14 November 2026</td><td>three items, 14/11/26</td></tr>
+              <tr><td>Active voice</td><td>We will email you</td><td>An email will be sent</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-page.html" rel="prev">Previous<span class="pagination__label">Page components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="templates.html" rel="next">Next<span class="pagination__label">Templates</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

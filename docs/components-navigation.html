@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navigation components · Contour</title>
+<meta name="description" content="Navigation components in Contour: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html" aria-current="page">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <aside class="sidebar__side docs-side" aria-label="Section navigation">
+        <details class="docs-side__menu" open data-open-wide>
+          <summary class="docs-side__summary">In this section</summary>
+          <div class="docs-side__body stack">
+          <nav aria-label="Component groups">
+            <h2 class="docs-side__title">Components</h2>
+            <ul class="side-nav__list">
+              <li><a class="side-nav__link" href="components.html">All components</a></li>
+              <li><a class="side-nav__link" href="components-actions.html">Actions</a></li>
+              <li><a class="side-nav__link" href="components-forms.html">Forms</a></li>
+              <li><a class="side-nav__link" href="components-feedback.html">Feedback</a></li>
+              <li><a class="side-nav__link" href="components-content.html">Content</a></li>
+              <li><a class="side-nav__link" href="components-data.html">Data</a></li>
+              <li><a class="side-nav__link" href="components-navigation.html" aria-current="page">Navigation</a></li>
+              <li><a class="side-nav__link" href="components-show-and-hide.html">Show and hide</a></li>
+              <li><a class="side-nav__link" href="components-page.html">Page</a></li>
+            </ul>
+          </nav>
+          <nav class="in-page-nav" aria-labelledby="otp-title">
+            <h2 class="in-page-nav__title docs-side__title" id="otp-title">In this group</h2>
+            <ul class="in-page-nav__list"><li><a class="in-page-nav__link" href="#c-breadcrumb">Breadcrumb</a></li><li><a class="in-page-nav__link" href="#c-pagination">Pagination</a></li><li><a class="in-page-nav__link" href="#c-side-nav">Side navigation</a></li><li><a class="in-page-nav__link" href="#c-in-page-nav">In-page navigation</a></li><li><a class="in-page-nav__link" href="#c-steps">Step indicator</a></li><li><a class="in-page-nav__link" href="#c-task-list">Task list</a></li><li><a class="in-page-nav__link" href="#c-language">Language selector</a></li><li><a class="in-page-nav__link" href="#c-share">Share links</a></li></ul>
+          </nav>
+          </div>
+        </details>
+      </aside>
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">03</span><h1 class="docs-title">Navigation</h1></div>
+        <p class="docs-lede measure">Where am I, where can I go. The current item is marked with <code>aria-current</code> and more than colour. <span class="docs-file">css/components/navigation.css</span></p>
+<div class="stack stack--loose" id="components-list">
+        
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-breadcrumb">Breadcrumb <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                  <ol class="breadcrumb__list">
+                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="#c-breadcrumb">Home</a></li>
+                    <li class="breadcrumb__item"><a class="breadcrumb__link" href="#c-breadcrumb">Repair café</a></li>
+                    <li class="breadcrumb__item"><span aria-current="page">What we can repair</span></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>On pages two or more levels deep (2.4.8).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Link the current page.</li><li>Use it inside a form flow; use a back link.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-pagination">Pagination <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <nav class="pagination" aria-label="Pagination">
+                  <ul class="pagination__list">
+                    <li class="pagination__prev"><a class="pagination__link" href="#c-pagination" rel="prev">Previous<span class="visually-hidden"> page</span></a></li>
+                    <li><a class="pagination__link" href="#c-pagination">1</a></li>
+                    <li><a class="pagination__link" href="#c-pagination" aria-current="page">2</a></li>
+                    <li><a class="pagination__link" href="#c-pagination">3</a></li>
+                    <li><span class="pagination__ellipsis">…</span></li>
+                    <li><a class="pagination__link" href="#c-pagination">9</a></li>
+                    <li class="pagination__next"><a class="pagination__link" href="#c-pagination" rel="next">Next<span class="visually-hidden"> page</span></a></li>
+                  </ul>
+                </nav>
+                <nav class="pagination pagination--block" aria-label="Pages in this guide">
+                  <ul class="pagination__list">
+                    <li class="pagination__next"><a class="pagination__link" href="#c-pagination" rel="next">Next<span class="pagination__label">Electrical safety</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Numbered for lists and search results.</li><li><code>--block</code> for previous / next between pages of a guide.</li><li>Show first, last and the pages around the current one.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use infinite scroll: the footer becomes unreachable.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-side-nav">Side navigation <span class="badge">Organism</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <nav aria-label="Sections" style="max-width: 18rem">
+                  <ul class="side-nav__list">
+                    <li><a class="side-nav__link" href="#c-side-nav" aria-current="page">Bookings</a></li>
+                    <li><a class="side-nav__link" href="#c-side-nav">Volunteers</a>
+                      <ul class="side-nav__list"><li><a class="side-nav__link" href="#c-side-nav">Rota</a></li><li><a class="side-nav__link" href="#c-side-nav">Skills</a></li></ul>
+                    </li>
+                    <li><a class="side-nav__link" href="#c-side-nav">Reports</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>In the side column of <code>.sidebar</code>, for apps and large sites.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Go deeper than two levels.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-in-page-nav">In-page navigation <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <nav class="in-page-nav" aria-labelledby="ex-otp" style="max-width: 18rem">
+                  <h2 class="in-page-nav__title" id="ex-otp">On this page</h2>
+                  <ul class="in-page-nav__list">
+                    <li><a class="in-page-nav__link" href="components-actions.html">Actions</a></li>
+                    <li><a class="in-page-nav__link" href="components-forms.html">Forms</a></li>
+                    <li><a class="in-page-nav__link" href="components-feedback.html">Feedback</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Long pages with three or more h2s.</li><li><code>--sticky</code> keeps it in view on wide screens; contour.js marks the section in view.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it on short pages.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-steps">Step indicator <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="steps">
+                  <p class="steps__counter">Step 2 of 4</p>
+                  <ol class="steps__list">
+                    <li class="steps__item steps__item--done"><span class="steps__label">Item</span></li>
+                    <li class="steps__item" aria-current="step"><span class="steps__label">Date</span></li>
+                    <li class="steps__item"><span class="steps__label">Contact</span></li>
+                    <li class="steps__item"><span class="steps__label">Check</span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Linear forms with 3 to 6 steps.</li><li>The text "Step 2 of 4" is the indicator; the bars repeat it.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it when steps can be done in any order; use a task list.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-task-list">Task list <span class="badge">Organism</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <ul class="task-list">
+                  <li class="task-list__item"><span class="task-list__name"><a class="task-list__link" href="#c-task-list">Item to repair</a></span><span class="task-list__status">Completed</span></li>
+                  <li class="task-list__item"><span class="task-list__name"><a class="task-list__link" href="#c-task-list">Contact details</a><span class="task-list__hint">So we can confirm your slot</span></span><span class="badge badge--info">Incomplete</span></li>
+                  <li class="task-list__item"><span class="task-list__name">Check and send</span><span class="task-list__status muted">Cannot start yet</span></li>
+                </ul>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Long transactions people do over several sessions, in any order.</li><li>Status in words.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use it for a short linear form.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-language">Language selector <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <nav aria-label="Language">
+                  <ul class="language-select__list">
+                    <li><a class="language-select__link" href="#c-language" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a class="language-select__link" href="#c-language" lang="en" hreflang="en" aria-current="true">English</a></li>
+                    <li><a class="language-select__link" href="#c-language" lang="fr" hreflang="fr">Français</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Each language named in itself, with <code>lang</code> (3.1.2).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use flags: they are countries, not languages.</li></ul></div>
+          </div>
+          </div>
+        </div>
+        <div class="stack">
+          <h2 class="docs-component-title" id="c-share">Share links <span class="badge">Molecule</span> <span class="docs-file">components/navigation.css</span></h2>
+          <div class="docs-component">
+            <div class="docs-example">
+              <div class="docs-example__stage" data-example>
+                <div class="share">
+                  <span class="share__title">Share</span>
+                  <a class="share__link" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fexample.com">LinkedIn</a>
+                  <button class="share__link" type="button" data-copy="https://example.com/repair-cafe" data-copy-message="Link copied"><svg class="icon" aria-hidden="true"><use href="../icons/contour-icons.svg#link"></use></svg> Copy link</button>
+                </div>
+              </div>
+            </div>
+          <div class="docs-rules">
+            <div><h3>Use</h3><ul><li>Plain links to share URLs; no tracking scripts.</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Load social media widgets: they track visitors.</li></ul></div>
+          </div>
+          </div>
+        </div>      </div>
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="components-data.html" rel="prev">Previous<span class="pagination__label">Data components</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="components-show-and-hide.html" rel="next">Next<span class="pagination__label">Show and hide components</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>

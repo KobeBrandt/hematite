@@ -1,0 +1,486 @@
+/* ==========================================================================
+   CONTOUR / components/navigation.css
+   Finding your way: breadcrumb, pagination, side navigation, in-page
+   navigation, step indicator, task list, language selector, share links.
+   Mark the current item with aria-current, shown with more than colour:
+   the current item is a graphite key or carries a green status light.
+   ========================================================================== */
+
+/* --- Breadcrumb · Molecule -------------------------------------------------- */
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  padding: 0;
+  list-style: none;
+  font-size: var(--step--1);
+  color: var(--color-muted);
+}
+
+.breadcrumb__item:not(:last-child)::after {
+  content: "\203A";   /* › */
+  margin-inline-start: var(--space-2xs);
+  color: var(--color-muted);
+}
+
+[dir="rtl"] .breadcrumb__item:not(:last-child)::after {
+  content: "\2039";
+}
+
+.breadcrumb__link {
+  display: inline-block;
+  min-height: 1.5rem;   /* 1.5rem: the 2.5.8 minimum for inline links in a row */
+}
+
+.breadcrumb__item [aria-current="page"] {
+  color: var(--color-ink);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Pagination · Molecule -------------------------------------------------
+   <nav aria-label="Pagination">. Numbered for lists and search results;
+   --block for previous / next between pages of a guide. */
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3xs);
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  min-width: var(--target-min);
+  min-height: var(--target-min);
+  padding-inline: var(--space-xs);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-key);
+  color: var(--color-ink);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  transition: background-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+
+  &:hover {
+    background: var(--color-sunken);
+  }
+
+  &[aria-current="page"] {
+    background: var(--texture-grain), var(--gradient-key);
+    background-color: var(--color-ink);
+    color: var(--color-on-ink);
+    box-shadow: var(--shadow-key);
+  }
+}
+
+.pagination__ellipsis {
+  display: inline-grid;
+  place-items: center;
+  min-width: var(--target-min);
+  color: var(--color-muted);
+}
+
+.pagination__prev .pagination__link::before { content: "\2190"; }
+.pagination__next .pagination__link::after  { content: "\2192"; }
+[dir="rtl"] .pagination__prev .pagination__link::before { content: "\2192"; }
+[dir="rtl"] .pagination__next .pagination__link::after  { content: "\2190"; }
+
+/* Block: big previous / next links with the page title under the label. */
+.pagination--block .pagination__list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-s);
+}
+
+.pagination--block .pagination__link {
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-s) var(--space-m);
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  border-color: var(--color-line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-1);
+
+  &:hover {
+    transform: translateY(var(--lift));
+    box-shadow: var(--shadow-2);
+  }
+}
+
+.pagination--block .pagination__prev .pagination__link::before,
+.pagination--block .pagination__next .pagination__link::after {
+  content: none;
+}
+
+.pagination__label {
+  color: var(--color-link);
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.22em;
+}
+
+/* --- Side navigation · Organism --------------------------------------------
+   Sections of a large site or app, in the left column of .sidebar.
+   Nest a second list for one sub-level; more than two levels is a sign the
+   content needs restructuring. The current page is a raised key with a
+   small green status light, like the light on the mouse that says it is on. */
+.side-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0;
+  list-style: none;
+}
+
+.side-nav__list .side-nav__list {
+  padding-inline-start: var(--space-s);
+  margin-block: 0.125rem;
+}
+
+.side-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding: var(--space-2xs) var(--space-s) var(--space-2xs) 1.25rem;
+  border-radius: var(--radius-s);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background-color var(--duration) var(--ease);
+
+  &:hover {
+    background: var(--color-sunken);
+  }
+
+  &[aria-current="page"],
+  &[aria-current="true"] {
+    background: var(--gradient-shell);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-1);
+    font-weight: var(--weight-bold);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0.5rem;
+      inset-block-start: calc(50% - 0.1875rem);
+      width: 0.375rem;
+      height: 0.375rem;
+      background: var(--color-led);
+      border-radius: 50%;
+      box-shadow: 0 0 0.375rem oklch(from var(--color-led) l c h / 0.6);
+    }
+  }
+}
+
+/* --- In-page navigation · Molecule -----------------------------------------
+   "On this page": links to the h2s of a long page. Sticky on wide screens.
+   Same shape as the side navigation, so every menu in a sidebar looks alike:
+   rows that darken on hover, and the section in view raised as a key with a
+   green status light (contour.js marks it aria-current="true"). */
+.in-page-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+@media (min-width: 64em) {
+  .in-page-nav--sticky {
+    position: sticky;
+    inset-block-start: var(--space-m);
+    max-height: calc(100dvh - 2 * var(--space-m));  /* dvh: the visible height, without the mobile address bar */
+    overflow-y: auto;
+  }
+}
+
+.in-page-nav__title {
+  padding-inline: var(--space-s);
+  color: var(--color-muted);
+  font-size: var(--step--2);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+}
+
+.in-page-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0;
+  list-style: none;
+}
+
+.in-page-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding: var(--space-2xs) var(--space-s) var(--space-2xs) 1.25rem;
+  border-radius: var(--radius-s);
+  color: var(--color-ink);
+  text-decoration: none;
+  transition: background-color var(--duration) var(--ease);
+
+  &:hover {
+    background: var(--color-sunken);
+  }
+
+  &[aria-current="true"] {
+    background: var(--gradient-shell);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-1);
+    font-weight: var(--weight-bold);
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0.5rem;
+      inset-block-start: calc(50% - 0.1875rem);
+      width: 0.375rem;
+      height: 0.375rem;
+      background: var(--color-led);
+      border-radius: 50%;
+      box-shadow: 0 0 0.375rem oklch(from var(--color-led) l c h / 0.6);
+    }
+  }
+}
+
+/* --- Step indicator · Molecule ----------------------------------------------
+   "Step 2 of 4" in a multi-page form. The text line is the real indicator;
+   the segments repeat it. Mark the current step with aria-current="step". */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  container: steps / inline-size;
+}
+
+.steps__list {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: var(--space-3xs);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps__item {
+  position: relative;
+  counter-increment: step;
+  padding-block-start: var(--space-s);
+  font-size: var(--step--1);
+  color: var(--color-muted);
+
+  /* The segment: a recessed pill that fills when the step is done. */
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-start: 0;
+    height: 0.375rem;
+    background: var(--color-sunken);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-inset);
+  }
+
+  &::before {
+    content: counter(step) ". ";
+    font-variant-numeric: tabular-nums;
+    font-weight: var(--weight-medium);
+  }
+}
+
+.steps__item--done {
+  color: var(--color-ink);
+
+  &::after {
+    background: var(--color-edge);
+    box-shadow: none;
+  }
+}
+
+.steps__item[aria-current="step"] {
+  color: var(--color-ink);
+  font-weight: var(--weight-bold);
+
+  &::after {
+    background: var(--color-led);
+    box-shadow: 0 0 0.5rem oklch(from var(--color-led) l c h / 0.5);
+  }
+}
+
+/* When the steps are narrow, show only the counter line, not every label. */
+@container steps (width < 28rem) {
+  .steps__label {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+.steps__counter {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Task list · Organism ---------------------------------------------------
+   A long application split into tasks people can do in any order. Each row:
+   the task name (a link when it can be started) and its status in words. */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-1);
+}
+
+.task-list__item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-s);
+  min-height: var(--target-min);
+  padding: var(--space-xs) var(--space-m);
+  border-block-end: var(--border);
+  transition: background-color var(--duration) var(--ease);
+
+  &:last-child {
+    border-block-end: 0;
+  }
+
+  &:has(.task-list__link:hover) {
+    background: var(--color-sunken);
+  }
+}
+
+.task-list__name {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The whole row is the target, like a card. */
+.task-list__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.task-list__hint {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+.task-list__status {
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Language selector · Molecule ------------------------------------------
+   Each language written in itself, with lang and hreflang set (3.1.2). */
+.language-select__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs);
+  padding: 0;
+  list-style: none;
+}
+
+.language-select__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding-inline: var(--space-s);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-key);
+  color: var(--color-ink);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+
+  &:hover {
+    background: var(--color-sunken);
+  }
+
+  &[aria-current="true"] {
+    border-color: var(--color-edge);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-1);
+  }
+}
+
+/* --- Share links · Molecule ------------------------------------------------
+   Plain links to share URLs (no tracking scripts) plus a copy button.
+   Name the platform in the link text. */
+.share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.share__title {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+  margin-inline-end: var(--space-2xs);
+}
+
+.share__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-height: var(--target-min);
+  padding-inline: var(--space-s);
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-key);
+  box-shadow: var(--shadow-1);
+  color: var(--color-ink);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+
+  &:hover {
+    transform: translateY(var(--lift));
+    box-shadow: var(--shadow-2);
+  }
+
+  &:active {
+    transform: scale(var(--press-scale));
+  }
+}
+
+@media (forced-colors: active) {
+  .pagination__link[aria-current="page"],
+  .side-nav__link[aria-current="page"],
+  .in-page-nav__link[aria-current="true"],
+  .language-select__link[aria-current="true"] {
+    border: var(--border-width-strong) solid Highlight;
+  }
+
+  .steps__item--done::after,
+  .steps__item[aria-current="step"]::after {
+    background: Highlight;
+    forced-color-adjust: none;
+  }
+}

@@ -1,0 +1,715 @@
+/* ==========================================================================
+   CONTOUR / components/forms.css
+   Form atoms and molecules. Every control is at least --target-min tall
+   (2.5.8), has a visible label (3.3.2) and an edge of 3:1 or more (1.4.11).
+   Fields are raised shells with a fine edge; focus lights the edge in the
+   accent and adds a soft glow.
+   ========================================================================== */
+
+/* --- Label and hint · Atoms ------------------------------------------------ */
+.label {
+  display: block;
+  font-weight: var(--weight-medium);
+}
+
+/* A label that is also the page heading (question pages: one thing per page). */
+.label--page {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--step-3);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.hint {
+  display: block;
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+/* --- Text input, select, textarea · Atoms --------------------------------- */
+.input,
+.select,
+.textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: var(--target-min);
+  padding: var(--space-2xs) var(--space-xs);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  border: var(--border-control);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-inset);
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+
+  &:hover {
+    border-color: var(--color-muted);
+  }
+}
+
+/* Widths in characters: size the box to the answer you expect, it is a hint
+   in itself (a postcode box should look like a postcode). */
+.input--w2  { max-width: calc(2ch + 2 * var(--space-xs) + 2 * var(--border-width) + 1ch); }
+.input--w4  { max-width: calc(4ch + 2 * var(--space-xs) + 2 * var(--border-width) + 1ch); }
+.input--w10 { max-width: calc(10ch + 2 * var(--space-xs) + 2 * var(--border-width)); }
+.input--w20 { max-width: calc(20ch + 2 * var(--space-xs) + 2 * var(--border-width)); }
+.input--short { max-width: 12ch; }
+.input--medium { max-width: 24ch; }
+
+/* Numbers and codes in mono, so 0/O and 1/l are easy to tell apart. */
+.input--code {
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+
+.textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+/* Auto-growing textarea: field-sizing makes the box follow its content,
+   between 4 and 12 lines (lh = one line of this text). Where field-sizing is
+   not supported it stays a normal resizable textarea. */
+@supports (field-sizing: content) {
+  .textarea--auto {
+    field-sizing: content;
+    min-height: calc(4lh + 2 * (var(--space-2xs) + var(--border-width)));
+    max-height: calc(12lh + 2 * (var(--space-2xs) + var(--border-width)));
+  }
+}
+
+.select {
+  appearance: none;
+  padding-inline-end: var(--space-xl);
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  /* Chevron drawn with gradients so it follows the muted colour in both themes */
+  background-image:
+    linear-gradient(45deg, transparent calc(50% - 0.04rem), var(--color-muted) calc(50% - 0.04rem) calc(50% + 0.04rem), transparent calc(50% + 0.04rem)),
+    linear-gradient(135deg, transparent calc(50% - 0.04rem), var(--color-muted) calc(50% - 0.04rem) calc(50% + 0.04rem), transparent calc(50% + 0.04rem));
+  background-position:
+    calc(100% - 1.3rem) 50%,
+    calc(100% - 0.95rem) 50%;
+  background-size: 0.36rem 0.36rem;
+  background-repeat: no-repeat;
+}
+
+[dir="rtl"] .select {
+  background-position:
+    0.95rem 50%,
+    1.3rem 50%;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-muted);
+  opacity: 1;
+}
+
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible {
+  border-color: var(--color-accent);
+  outline-offset: 0;
+  outline-color: transparent;
+  box-shadow: 0 0 0 var(--focus-width) var(--color-accent), var(--focus-ring);
+}
+
+/* Invalid: set by the server or script (aria-invalid), or by the browser's
+   own validation once the person has interacted with the field (:user-invalid,
+   which unlike :invalid does not flag empty required fields on page load).
+   :is() is forgiving, so a browser that does not know :user-invalid still
+   applies the aria-invalid part. */
+:is(.input, .select, .textarea):is([aria-invalid="true"], :user-invalid) {
+  border-color: var(--color-danger);
+  box-shadow: inset var(--border-width-strong) 0 0 var(--color-danger), inset calc(var(--border-width-strong) * -1) 0 0 var(--color-danger);
+  background-color: var(--color-danger-tint);
+}
+
+.input:disabled,
+.select:disabled,
+.textarea:disabled,
+.input[readonly] {
+  background: var(--color-sunken);
+  border-style: dashed;
+  border-color: var(--color-edge);
+  box-shadow: none;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.input[readonly] {
+  cursor: default;
+}
+
+/* --- Checkbox and radio · Atom ---------------------------------------------
+   Native controls, enlarged to 1.375rem and tinted with the accent. Works for both
+   type="checkbox" and type="radio". */
+.check {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--target-min);
+  cursor: pointer;
+}
+
+.check__input {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  margin: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.check__hint {
+  display: block;
+  color: var(--color-muted);
+  font-size: var(--step--1);
+}
+
+/* Tile: the whole box is the target. Good for a few big choices. */
+.check--tile {
+  align-items: flex-start;
+  padding: var(--space-s);
+  border: var(--border-control);
+  border-radius: var(--radius-m);
+  background: var(--gradient-shell);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+.check--tile .check__input {
+  margin-block-start: 0.125rem;
+}
+
+.check--tile:hover {
+  transform: translateY(var(--lift));
+  box-shadow: var(--shadow-2);
+}
+
+/* Checked: the edge thickens and lights up, the tile takes a soft tint.
+   The thicker edge means the state is not colour alone. */
+.check--tile:has(.check__input:checked) {
+  background-color: var(--color-accent-soft);
+  border-color: var(--color-accent);
+  box-shadow: inset 0 0 0 var(--border-width) var(--color-accent), var(--shadow-1);
+}
+
+.check--tile:has(.check__input:focus-visible) {
+  outline: var(--focus-width) solid var(--color-focus);
+  outline-offset: var(--focus-offset);
+}
+
+/* Choices: the list of checks inside a fieldset. Inline only for two short answers (Yes / No). */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.choices--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--space-3xs) var(--space-l);
+}
+
+.choices--tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  gap: var(--space-s);
+}
+
+/* "or" between the last two radios, e.g. before "None of these". */
+.choices__divider {
+  color: var(--color-muted);
+  padding-block: var(--space-3xs);
+}
+
+/* --- Field · Molecule: label + hint + control + error ----------------------
+   Wire the hint and error with aria-describedby. Errors start with the word
+   "Error" so they do not rely on colour (1.4.1, 3.3.1). */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+/* A field with an error gets a red bar down its side, like GOV.UK. */
+.field--error {
+  padding-inline-start: var(--space-s);
+  border-inline-start: 0.1875rem solid var(--color-danger);
+}
+
+.field__error {
+  display: flex;
+  gap: var(--space-2xs);
+  color: var(--color-danger);
+  font-weight: var(--weight-medium);
+
+  &::before {
+    content: "!";
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-block-start: 0.15em;
+    background: var(--color-danger);
+    color: var(--color-bg);
+    border-radius: 50%;
+    font-size: var(--step--1);
+    font-weight: var(--weight-bold);
+  }
+}
+
+/* --- Fieldset · Molecule ---------------------------------------------------
+   Groups related controls under one legend (1.3.1). */
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  min-width: 0;
+  padding: var(--space-s) var(--space-m) var(--space-m);
+  border: var(--border);
+  border-radius: var(--radius-m);
+}
+
+.fieldset__legend {
+  padding-inline: var(--space-2xs);
+  font-weight: var(--weight-bold);
+}
+
+/* Bare: no box. For date inputs and question pages where the legend is the h1. */
+.fieldset--bare {
+  padding: 0;
+  border: 0;
+}
+
+.fieldset--bare > .fieldset__legend {
+  padding: 0;
+  margin-block-end: var(--space-2xs);
+}
+
+.fieldset__legend--page {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-block-end: var(--space-s);
+}
+
+/* --- Error summary · Organism ----------------------------------------------
+   Top of the form, above the h1's content, after a failed submit. Move focus
+   to it (contour.js does this for [data-error-summary]) and repeat each
+   error as a link to its field (3.3.1, 3.3.3). Prefix the page <title> with
+   "Error: ". */
+.error-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m) var(--space-m) var(--space-m) var(--space-l);
+  border: var(--border-width) solid var(--color-danger);
+  border-radius: var(--radius-m);
+  background:
+    linear-gradient(90deg, var(--color-danger) 0 0.375rem, transparent 0.375rem),
+    var(--color-danger-tint);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-1);
+
+  &:focus-visible {
+    outline: var(--focus-width) solid var(--color-focus);
+    outline-offset: var(--focus-offset);
+  }
+}
+
+.error-summary__title {
+  font-size: var(--step-1);
+  color: var(--color-ink);
+}
+
+.error-summary__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: 0;
+  list-style: none;
+}
+
+.error-summary__list a {
+  color: var(--color-danger);
+  font-weight: var(--weight-medium);
+}
+
+/* --- Date input · Molecule -------------------------------------------------
+   Three boxes (day, month, year) for dates people know: birth dates, issue
+   dates. Use a native date picker (<input type="date" class="input">) only
+   for dates in the near future, like an appointment. */
+.date-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+.date-input__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.date-input__item .label {
+  font-weight: var(--weight-regular);
+}
+
+/* --- Input group: prefix and suffix · Molecule ------------------------------
+   Units and fixed parts (€, kg, https://, @example.com). Put the prefix or
+   suffix in the label or hint too: screen readers do not read it as part of
+   the input. Mark the prefix/suffix aria-hidden="true". */
+.input-group {
+  display: flex;
+  align-items: stretch;
+  max-width: 100%;
+}
+
+.input-group__affix {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  padding-inline: var(--space-xs);
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  border: var(--border-control);
+  font-weight: var(--weight-medium);
+  font-variant-numeric: tabular-nums;
+
+  &:first-child {
+    border-inline-end: 0;
+    border-start-start-radius: var(--radius-s);
+    border-end-start-radius: var(--radius-s);
+  }
+
+  &:last-child {
+    border-inline-start: 0;
+    border-start-end-radius: var(--radius-s);
+    border-end-end-radius: var(--radius-s);
+  }
+}
+
+.input-group > .input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.input-group > .input:not(:first-child) {
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.input-group > .input:not(:last-child) {
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+/* --- Search · Molecule ------------------------------------------------------
+   An input and a button joined into one pill. Use role="search" on the <form>. */
+.search {
+  display: flex;
+  max-width: 100%;
+}
+
+.search__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-inline-start: var(--space-s);
+  border-inline-end: 0;
+  border-start-start-radius: var(--radius-pill);
+  border-end-start-radius: var(--radius-pill);
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+
+  &::-webkit-search-cancel-button {
+    cursor: pointer;
+  }
+}
+
+.search__button {
+  flex: none;
+  box-shadow: none;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+
+  &:hover,
+  &:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--focus-ring);
+  }
+}
+
+/* --- Character count · Molecule --------------------------------------------
+   A textarea with a live count under it. The count is a polite live region
+   that contour.js updates; without JS it shows the static limit. Never
+   block typing past the limit: let people paste, then edit. */
+.character-count__status {
+  color: var(--color-muted);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.character-count__status--over {
+  color: var(--color-danger);
+  font-weight: var(--weight-medium);
+}
+
+.character-count:has(.character-count__status--over) .textarea {
+  border-color: var(--color-danger);
+  box-shadow: inset var(--border-width-strong) 0 0 var(--color-danger), inset calc(var(--border-width-strong) * -1) 0 0 var(--color-danger);
+}
+
+/* --- Password input · Molecule ---------------------------------------------
+   A Show / Hide button next to the input (contour.js toggles type).
+   Allow paste and password managers: autocomplete="current-password" or
+   "new-password" (3.3.8 Accessible authentication). */
+.password {
+  display: flex;
+  max-width: 100%;
+}
+
+.password__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-inline-end: 0;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+.password__toggle {
+  flex: none;
+  min-width: 5.5rem;
+  box-shadow: none;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
+
+  &:hover,
+  &:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    box-shadow: var(--focus-ring);
+  }
+}
+
+/* --- File upload · Atom ----------------------------------------------------
+   Native <input type="file">: keyboard, drag and drop and screen reader
+   support come with it. The picker button is styled as a secondary button. */
+.file-upload {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: var(--space-m);
+  border: var(--border-width-strong) dashed var(--color-edge);
+  border-radius: var(--radius-m);
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease), background-color var(--duration) var(--ease);
+
+  &::file-selector-button {
+    min-height: var(--target-min);
+    margin-inline-end: var(--space-s);
+    padding: var(--space-2xs) var(--space-m);
+    background: var(--gradient-shell);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    border: var(--border-width) solid var(--color-line);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-1);
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+    transition: box-shadow var(--duration) var(--ease);
+  }
+
+  &:hover {
+    border-color: var(--color-accent);
+  }
+
+  &:hover::file-selector-button {
+    box-shadow: var(--shadow-2);
+  }
+
+  &:focus-visible {
+    border-style: solid;
+  }
+
+  &[aria-invalid="true"] {
+    border-color: var(--color-danger);
+    background-color: var(--color-danger-tint);
+  }
+}
+
+/* --- Range slider · Atom ---------------------------------------------------
+   Only when the exact value does not matter much. Always show the value in an
+   <output>, and offer a text input when precision matters (2.5.7 Dragging).
+   A recessed track with a machined-metal thumb, like the scroll wheel. */
+.range {
+  display: block;
+  width: 100%;
+  height: var(--target-min);
+  background: transparent;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  appearance: none;
+
+  &::-webkit-slider-runnable-track {
+    height: 0.375rem;
+    background: var(--color-sunken);
+    border: var(--border-width) solid var(--color-edge);
+    border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-inset);
+  }
+
+  &::-moz-range-track {
+    height: 0.375rem;
+    background: var(--color-sunken);
+    border: var(--border-width) solid var(--color-edge);
+    border-radius: var(--radius-pill);
+  }
+
+  &::-moz-range-progress {
+    height: 0.375rem;
+    background: var(--color-accent);
+    border-radius: var(--radius-pill);
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-block-start: calc(-0.75rem + 0.1875rem - var(--border-width));
+    background: var(--gradient-metal);
+    border: var(--border-width) solid var(--color-edge);
+    border-radius: 50%;
+    box-shadow: 0 0.125rem 0.375rem var(--color-shade);
+    transition: transform var(--duration) var(--ease-snap);
+  }
+
+  &::-moz-range-thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--gradient-metal);
+    border: var(--border-width) solid var(--color-edge);
+    border-radius: 50%;
+    box-shadow: 0 0.125rem 0.375rem var(--color-shade);
+  }
+
+  &:active::-webkit-slider-thumb {
+    transform: scale(1.12);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: none;
+  }
+
+  &:focus-visible::-webkit-slider-thumb {
+    outline: var(--focus-width) solid var(--color-focus);
+    outline-offset: var(--focus-offset);
+  }
+
+  &:focus-visible::-moz-range-thumb {
+    outline: var(--focus-width) solid var(--color-focus);
+    outline-offset: var(--focus-offset);
+  }
+}
+
+.range-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.range-field__output {
+  flex: none;
+  min-width: 5ch;
+  padding: var(--space-3xs) var(--space-xs);
+  background: var(--color-sunken);
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-medium);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Multiselect · Molecule ------------------------------------------------
+   A <details> that opens a list of checkboxes. No JS, keyboard friendly,
+   and the choices are real form controls. Show the count in the summary. */
+.multiselect {
+  position: relative;
+  max-width: 100%;
+}
+
+.multiselect__summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--target-min);
+  padding-block: var(--space-2xs);
+  padding-inline: var(--space-xs) var(--space-xl);
+  background-color: var(--color-surface);
+  background-image:
+    linear-gradient(45deg, transparent calc(50% - 0.04rem), var(--color-muted) calc(50% - 0.04rem) calc(50% + 0.04rem), transparent calc(50% + 0.04rem)),
+    linear-gradient(135deg, transparent calc(50% - 0.04rem), var(--color-muted) calc(50% - 0.04rem) calc(50% + 0.04rem), transparent calc(50% + 0.04rem));
+  background-position:
+    calc(100% - 1.3rem) 50%,
+    calc(100% - 0.95rem) 50%;
+  background-size: 0.36rem 0.36rem;
+  background-repeat: no-repeat;
+  border: var(--border-control);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.multiselect[open] > .multiselect__summary {
+  border-color: var(--color-accent);
+}
+
+.multiselect__panel {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: calc(100% + var(--space-3xs));
+  z-index: var(--z-dropdown);
+  max-height: 18rem;
+  overflow-y: auto;
+  padding: var(--space-2xs) var(--space-s);
+  background: var(--color-surface);
+  border: var(--border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-3);
+}
+
+@media (forced-colors: active) {
+  .input,
+  .select,
+  .textarea,
+  .file-upload,
+  .multiselect__summary,
+  .check--tile,
+  .error-summary {
+    border-color: CanvasText;
+  }
+
+  .check--tile:has(.check__input:checked) {
+    outline: var(--border-width-strong) solid Highlight;
+  }
+}

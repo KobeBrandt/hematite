@@ -1,0 +1,76 @@
+/* ==========================================================================
+   CONTOUR / print.css
+   On paper the shell goes flat: near-black on white (14.6:1, under the
+   15:1 ceiling), hairlines instead of shadows, no navigation chrome.
+   ========================================================================== */
+
+@media print {
+  :root {
+    --color-bg: white;
+    --color-surface: white;
+    --color-sunken: white;
+    --color-line: oklch(70% 0 0);
+    --color-edge: oklch(45% 0 0);
+    --color-ink: oklch(28% 0 0);
+    --color-muted: oklch(28% 0 0);
+    --color-link: oklch(28% 0 0);
+    --shadow: none;
+    --gradient-shell: none;
+    color-scheme: light;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+
+  /* Interactive chrome means nothing on paper. */
+  .skip-link,
+  .site-header .nav,
+  .side-nav,
+  .in-page-nav,
+  .pagination,
+  .cookie-banner,
+  .toast,
+  .exit-page,
+  .sticky-bar,
+  .share,
+  .back-link,
+  .button,
+  .button-group,
+  [data-print="hide"] {
+    display: none !important;
+  }
+
+  /* Show where a link goes (unless it is an in-page anchor). */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    overflow-wrap: anywhere;
+  }
+
+  .card__link::after {
+    content: none;
+  }
+
+  /* contour.js opens every <details> and tab panel before printing. */
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+  }
+
+  table, figure, .card, .summary-list__row, .alert {
+    break-inside: avoid;
+  }
+
+  .invert {
+    background: white;
+    color: var(--color-ink);
+    border-top: var(--border);
+  }
+}

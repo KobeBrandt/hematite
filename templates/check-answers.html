@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Check your answers · Book a repair café visit</title>
+<link rel="stylesheet" href="../css/contour.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="start-page.html">Repair Café</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="start-page.html">Start</a></li>
+          <li><a class="nav__link" href="task-list.html">Your booking</a></li>
+          <li><a class="nav__link" href="content-page.html">Help</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+  <div class="container">
+    <p class="phase-banner"><span class="badge badge--solid">Beta</span><span>This is a new service. <a href="content-page.html#feedback">Tell us what you think</a><span class="phase-banner__more"> to help us improve it</span>.</span></p>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container container--narrow page stack stack--loose">
+    <a class="back-link" href="task-list.html">Back</a>
+    <h1>Check your answers before sending your booking</h1>
+    <div class="steps">
+      <p class="steps__counter">Step 4 of 4</p>
+      <ol class="steps__list">
+        <li class="steps__item steps__item--done"><span class="steps__label">Item</span></li>
+        <li class="steps__item steps__item--done"><span class="steps__label">Date</span></li>
+        <li class="steps__item steps__item--done"><span class="steps__label">Contact</span></li>
+        <li class="steps__item" aria-current="step"><span class="steps__label">Check</span></li>
+      </ol>
+    </div>
+    <section class="summary-card" aria-labelledby="sc-item">
+      <div class="summary-card__header"><h2 class="summary-card__title" id="sc-item">Item</h2></div>
+      <div class="summary-card__body">
+      <dl class="summary-list">
+        <div class="summary-list__row">
+          <dt class="summary-list__key">Kind of item</dt>
+          <dd class="summary-list__value">Something with a plug or battery</dd>
+          <dd class="summary-list__actions"><a href="question-page.html">Change<span class="visually-hidden"> kind of item</span></a></dd>
+        </div>
+        <div class="summary-list__row">
+          <dt class="summary-list__key">Problem</dt>
+          <dd class="summary-list__value">The lamp flickers and then goes out after a few minutes.</dd>
+          <dd class="summary-list__actions"><a href="question-page.html">Change<span class="visually-hidden"> problem</span></a></dd>
+        </div>
+      </dl>
+      </div>
+    </section>
+    <section class="summary-card" aria-labelledby="sc-visit">
+      <div class="summary-card__header"><h2 class="summary-card__title" id="sc-visit">Visit</h2></div>
+      <div class="summary-card__body">
+      <dl class="summary-list">
+        <div class="summary-list__row">
+          <dt class="summary-list__key">Date</dt>
+          <dd class="summary-list__value">Saturday 14 November 2026</dd>
+          <dd class="summary-list__actions"><a href="question-page.html">Change<span class="visually-hidden"> date</span></a></dd>
+        </div>
+        <div class="summary-list__row">
+          <dt class="summary-list__key">Time</dt>
+          <dd class="summary-list__value">10:30 to 11:00</dd>
+          <dd class="summary-list__actions"><a href="question-page.html">Change<span class="visually-hidden"> time</span></a></dd>
+        </div>
+        <div class="summary-list__row">
+          <dt class="summary-list__key">Email</dt>
+          <dd class="summary-list__value">jo.peeters@example.com</dd>
+          <dd class="summary-list__actions"><a href="question-page.html">Change<span class="visually-hidden"> email address</span></a></dd>
+        </div>
+      </dl>
+      </div>
+    </section>
+    <form class="stack" novalidate action="confirmation.html">
+      <h2>Now send your booking</h2>
+      <p class="measure">By sending this booking you confirm that the item is safe to carry and is not a gas appliance.</p>
+      <div class="warning-text">
+        <span class="warning-text__icon" aria-hidden="true">!</span>
+        <strong class="warning-text__text"><span class="visually-hidden">Warning</span>Volunteers cannot repair items that are still under warranty. Opening them can end the warranty.</strong>
+      </div>
+      <div class="button-group"><button class="button" type="submit">Accept and send</button></div>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__columns">
+      <div>
+        <h2 class="site-footer__title">Service</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="start-page.html">Book a visit</a></li>
+          <li><a class="link-list__link" href="content-page.html">What we can repair</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Support</h2>
+        <ul class="link-list">
+          <li><a class="link-list__link" href="content-page.html#contact">Contact</a></li>
+          <li><a class="link-list__link" href="content-page.html#accessibility">Accessibility statement</a></li>
+          <li><a class="link-list__link" href="content-page.html#cookies">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <span>Built with Contour</span>
+      <span>Content is example text.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/contour.js" defer></script>
+</body>
+</html>

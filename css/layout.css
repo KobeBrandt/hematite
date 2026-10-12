@@ -1,0 +1,95 @@
+/* ==========================================================================
+   CONTOUR / layout.css
+   Layout primitives. They set space between children with `gap`, never
+   margins on the children, so components stay context-free (OOCSS:
+   separate container from content).
+   ========================================================================== */
+
+/* Container: centred column with a side gutter at every width. */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  /* Clear of the notch and rounded corners in landscape (viewport-fit=cover). */
+  padding-inline: max(var(--gutter), env(safe-area-inset-left, 0px)) max(var(--gutter), env(safe-area-inset-right, 0px));
+}
+
+/* Narrow: forms and question pages. Long lines of form fields are hard to scan. */
+.container--narrow {
+  max-width: calc(var(--container-narrow) + 2 * var(--gutter));
+}
+
+/* Stack: vertical rhythm. Proximity (Gestalt): related items sit closer.
+   Each primitive resets its own custom property, so a nested stack, cluster
+   or grid never inherits the gap of its parent. */
+.stack {
+  --stack-gap: var(--space-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--stack-gap);
+}
+
+.stack--tight { --stack-gap: var(--space-2xs); }
+.stack--loose { --stack-gap: var(--space-xl); }
+
+/* Cluster: a wrapping row (buttons, tags, nav items). */
+.cluster {
+  --cluster-gap: var(--space-s);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-gap);
+}
+
+/* Grid: as many columns as fit, never narrower than --grid-min. */
+.grid {
+  --grid-min: 16rem;
+  --grid-gap: var(--space-m);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-min), 100%), 1fr));
+  gap: var(--grid-gap);
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+/* Sidebar: fixed-ish side column that drops under the main column when narrow. */
+.sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-l);
+}
+
+.sidebar__side {
+  flex: 1 1 var(--sidebar-width, 16rem);
+}
+
+.sidebar__main {
+  flex: 999 1 0;
+  min-width: min(55%, 100%);
+}
+
+/* Section: macro whitespace between page regions. */
+.section {
+  padding-block: var(--space-2xl);
+  border-block-start: var(--border);
+}
+
+/* Page: the vertical space inside <main> on every template. */
+.page {
+  padding-block: var(--space-l) var(--space-2xl);
+}
+
+/* Switcher: a row that becomes a column below --switch-at, with no media query. */
+.switcher {
+  --switch-at: 40rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+}
+
+.switcher > * {
+  flex-grow: 1;
+  flex-basis: calc((var(--switch-at) - 100%) * 999);
+}

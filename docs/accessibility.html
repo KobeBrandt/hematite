@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Accessibility · Contour</title>
+<meta name="description" content="How Contour meets WCAG 2.2 AA, and the test record.">
+<link rel="stylesheet" href="../css/contour.css">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="../index.html">Contour</a>
+    <details class="nav-menu" open>
+      <summary>Menu</summary>
+      <nav class="nav" aria-label="Documentation">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="tokens.html">Tokens</a></li>
+          <li><a class="nav__link" href="components.html">Components</a></li>
+          <li><a class="nav__link" href="patterns.html">Patterns</a></li>
+          <li><a class="nav__link" href="templates.html">Templates</a></li>
+          <li><a class="nav__link" href="accessibility.html" aria-current="page">Accessibility</a></li>
+          <li><a class="nav__link" href="usage.html">Usage</a></li>
+          <li><a class="nav__link" href="modern-css.html">Modern CSS</a></li>
+        </ul>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="container page">
+    <div class="sidebar docs-layout">
+      <div class="sidebar__main stack stack--loose docs-main">
+        <div class="docs-section-head"><span class="docs-section-head__no">06</span><h1 class="docs-title">Accessibility</h1></div>
+        <p class="docs-lede measure">Target: WCAG 2.2 level AA. The system handles what CSS can handle. Some criteria depend on your HTML and content, so they are listed as yours.</p>
+
+      <div class="table-wrap" tabindex="0" role="region" aria-label="WCAG 2.2 AA coverage">
+        <table class="table">
+          <caption>WCAG 2.2 AA coverage</caption>
+          <thead><tr><th scope="col">Criterion</th><th scope="col">Who</th><th scope="col">How</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">1.4.3 Contrast (minimum)</th><td><span class="docs-ok">System</span></td><td>Every text colour is 6.2:1 or higher on its background, in both themes.</td></tr>
+            <tr><th scope="row">1.4.11 Non-text contrast</th><td><span class="docs-ok">System</span></td><td>Control edges are 3.5:1 or more in both themes; hairlines are decorative and never the only edge of a control. Checked and selected states add a thicker edge or a raised shape, not just colour.</td></tr>
+            <tr><th scope="row">1.4.1 Use of colour</th><td><span class="docs-ok">System</span></td><td>Links underlined, errors prefixed with "Error", alerts and badges carry a word, disabled is dashed, the current item is a graphite key and bold, or carries a green light next to bold text.</td></tr>
+            <tr><th scope="row">1.4.4 / 1.4.10 / 1.4.12 Resize, reflow, text spacing</th><td><span class="docs-ok">System</span></td><td>rem units, em breakpoints, fluid headings, wrapping layouts, tables scroll in a box.</td></tr>
+            <tr><th scope="row">1.4.13 Content on hover or focus</th><td><span class="docs-ok">System</span></td><td>Tooltips show on hover and focus, stay while hovered, close with Escape.</td></tr>
+            <tr><th scope="row">2.4.7 Focus visible</th><td><span class="docs-ok">System</span></td><td>One focus style for everything: a 2px gunmetal outline 2px clear of the element (8.8:1 / 11.4:1 on the page), plus a soft halo.</td></tr>
+            <tr><th scope="row">2.4.11 Focus not obscured</th><td><span class="docs-ok">System</span></td><td><code>scroll-padding</code> keeps focus clear of sticky headers and the sticky action bar.</td></tr>
+            <tr><th scope="row">2.5.7 Dragging movements</th><td><span class="docs-ok">System</span></td><td>The range slider always has an output, and the docs tell you to offer a text input.</td></tr>
+            <tr><th scope="row">2.5.8 Target size (minimum)</th><td><span class="docs-ok">System</span></td><td>Controls are 2.75rem tall; inline links in rows 1.5rem.</td></tr>
+            <tr><th scope="row">2.3.3 / reduced motion</th><td><span class="docs-ok">System</span></td><td>All transitions and animations stop under <code>prefers-reduced-motion</code>.</td></tr>
+            <tr><th scope="row">Forced colours</th><td><span class="docs-ok">System</span></td><td>Every component file has a <code>forced-colors</code> block, so borders and current states survive Windows high contrast.</td></tr>
+            <tr><th scope="row">4.1.3 Status messages</th><td><span class="docs-ok">System</span></td><td>Toasts, character counts, password toggles and table sorting announce through polite live regions.</td></tr>
+            <tr><th scope="row">2.4.1 Bypass blocks</th><td><span class="docs-you">You</span></td><td>Put <code>.skip-link</code> first in <code>&lt;body&gt;</code>, pointing at <code>&lt;main id="main"&gt;</code>.</td></tr>
+            <tr><th scope="row">1.1.1 Non-text content</th><td><span class="docs-you">You</span></td><td>Write <code>alt</code> that says what the image shows; <code>alt=""</code> for decoration.</td></tr>
+            <tr><th scope="row">1.3.1 / 2.4.6 Structure, headings, labels</th><td><span class="docs-you">You</span></td><td>Landmarks, one h1, no skipped levels, a label for every field.</td></tr>
+            <tr><th scope="row">3.1.1 / 3.1.2 Language</th><td><span class="docs-you">You</span></td><td><code>&lt;html lang="nl"&gt;</code>, and <code>lang</code> on parts in another language.</td></tr>
+            <tr><th scope="row">3.3.1 / 3.3.3 Errors</th><td><span class="docs-you">You</span></td><td>Use the error summary and <code>.field__error</code>, set <code>aria-invalid</code>, and say how to fix it.</td></tr>
+            <tr><th scope="row">3.3.8 Accessible authentication</th><td><span class="docs-you">You</span></td><td>Allow paste and password managers; use the password input's Show button.</td></tr>
+            <tr><th scope="row">2.1.1 Keyboard</th><td><span class="docs-you">You</span></td><td>Use native elements. Test every page with Tab, Shift+Tab, Enter, Space and Escape.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack" id="test-record">
+        <h2 id="test-record-2">Test record</h2>
+        <p class="measure">Automated checks run on 12 October 2026 with axe-core 4.10.2 in Chromium, against WCAG 2.0, 2.1 and 2.2 A and AA plus axe best practices, in light and dark mode. Automated tools catch only part of the problems, so the manual checks below matter as much.</p>
+        <div class="table-wrap" tabindex="0" role="region" aria-label="axe results per page">
+          <table class="table table--compact">
+            <caption>axe violations per page</caption>
+            <thead><tr><th scope="col">Page</th><th scope="col" class="table__num">Light</th><th scope="col" class="table__num">Dark</th><th scope="col" class="table__num">Rules passed</th></tr></thead>
+            <tbody>
+            <tr><th scope="row">Docs page</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">60</td></tr>
+            <tr><th scope="row">app-page.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">52</td></tr>
+            <tr><th scope="row">check-answers.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">38</td></tr>
+            <tr><th scope="row">confirmation.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">32</td></tr>
+            <tr><th scope="row">content-page.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">49</td></tr>
+            <tr><th scope="row">page-not-found.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">32</td></tr>
+            <tr><th scope="row">problem-with-service.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">32</td></tr>
+            <tr><th scope="row">question-page.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">45</td></tr>
+            <tr><th scope="row">service-unavailable.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">32</td></tr>
+            <tr><th scope="row">start-page.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">36</td></tr>
+            <tr><th scope="row">task-list.html</th><td class="table__num">0</td><td class="table__num">0</td><td class="table__num">32</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid" style="--grid-min: 18rem">
+          <div class="stack stack--tight">
+            <h3>Checked</h3>
+            <ul class="list list--bullet">
+              <li>Contrast of every colour token, light and dark, computed from the oklch values.</li>
+              <li>No horizontal scroll at 400px wide.</li>
+              <li>Keyboard: tabs, dialog, accordion and password toggle operated with keys only.</li>
+            </ul>
+          </div>
+          <div class="stack stack--tight">
+            <h3>Not yet checked</h3>
+            <ul class="list list--bullet">
+              <li>Screen readers: NVDA with Firefox, VoiceOver on macOS and iOS, TalkBack.</li>
+              <li>Windows high contrast mode on real hardware.</li>
+              <li>Text on the dotted example backgrounds, which axe cannot measure.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+        <nav class="pagination pagination--block docs-pager" aria-label="Previous and next page">
+          <ul class="pagination__list">
+            <li class="pagination__prev"><a class="pagination__link" href="templates.html" rel="prev">Previous<span class="pagination__label">Templates</span></a></li>
+            <li class="pagination__next"><a class="pagination__link" href="usage.html" rel="next">Next<span class="pagination__label">Usage</span></a></li>
+          </ul>
+        </nav>
+        <div class="cluster docs-theme">
+          <span class="muted" id="theme-label">Theme</span>
+          <div class="button-group button-group--joined" role="group" aria-labelledby="theme-label">
+            <button class="button button--small" type="button" data-theme-set="system" aria-pressed="true">System</button>
+            <button class="button button--small" type="button" data-theme-set="light" aria-pressed="false">Pale Grey</button>
+            <button class="button button--small" type="button" data-theme-set="dark" aria-pressed="false">Graphite</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container cluster" style="justify-content: space-between">
+    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Sculpted, accessible, efficient.</span>
+  </div>
+</footer>
+
+<script src="docs.js"></script>
+<script src="../js/contour.js"></script>
+</body>
+</html>
