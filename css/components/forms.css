@@ -123,7 +123,6 @@
    applies the aria-invalid part. */
 :is(.input, .select, .textarea):is([aria-invalid="true"], :user-invalid) {
   border-color: var(--color-danger);
-  box-shadow: inset var(--border-width-strong) 0 0 var(--color-danger), inset calc(var(--border-width-strong) * -1) 0 0 var(--color-danger);
   background-color: var(--color-danger-tint);
 }
 
@@ -468,7 +467,6 @@
 
 .character-count:has(.character-count__status--over) .textarea {
   border-color: var(--color-danger);
-  box-shadow: inset var(--border-width-strong) 0 0 var(--color-danger), inset calc(var(--border-width-strong) * -1) 0 0 var(--color-danger);
 }
 
 /* --- Password input · Molecule ---------------------------------------------
