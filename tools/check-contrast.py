@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check every Contour colour pair against a contrast floor AND a ceiling.
+"""Check every Hematite colour pair against a contrast floor AND a ceiling.
 
 Reads the colour tokens from css/tokens.css (light-dark() pairs or single
 oklch values), converts oklch to sRGB, and computes WCAG 2 contrast ratios.

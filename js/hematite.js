@@ -1,9 +1,9 @@
 /* ==========================================================================
-   CONTOUR / contour.js (optional)
+   HEMATITE / hematite.js (optional)
    Every component works without this file. It adds only what HTML and CSS
    cannot do yet. No dependencies, no build step, about 15 KB unminified, 5 KB gzipped.
    Load it at the end of <body> or with defer:
-     <script src="js/contour.js" defer></script>
+     <script src="js/hematite.js" defer></script>
    Each feature is opt-in through a class or data attribute.
    ========================================================================== */
 (function () {
@@ -26,7 +26,7 @@
     setTimeout(function () { live.textContent = text; }, 50);
   }
 
-  /* --- Toast: Contour.toast("Saved") ------------------------------------- */
+  /* --- Toast: Hematite.toast("Saved") ------------------------------------- */
   function toast(message, options) {
     options = options || {};
     var region = document.querySelector('.toast-region');
@@ -218,8 +218,8 @@
     if (choice) {
       var banner = choice.closest('.cookie-banner');
       var value = choice.getAttribute('data-cookie-choice');
-      try { localStorage.setItem('contour-cookies', value); } catch (err) {}
-      document.dispatchEvent(new CustomEvent('contour:cookies', { detail: value }));
+      try { localStorage.setItem('hematite-cookies', value); } catch (err) {}
+      document.dispatchEvent(new CustomEvent('hematite:cookies', { detail: value }));
       $$('[data-cookie-question]', banner).forEach(function (el) { el.hidden = true; });
       $$('[data-cookie-confirm="' + value + '"]', banner).forEach(function (el) { el.hidden = false; el.tabIndex = -1; el.focus(); });
     }
@@ -376,7 +376,7 @@
     $$('table[data-sortable]', root).forEach(initSortable);
   }
 
-  window.Contour = { init: init, toast: toast, announce: announce, sheet: initSheet };
+  window.Hematite = { init: init, toast: toast, announce: announce, sheet: initSheet };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { init(); });
   else init();
 })();

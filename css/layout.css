@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / layout.css
+   HEMATITE / layout.css
    Layout primitives. They set space between children with `gap`, never
    margins on the children, so components stay context-free (OOCSS:
    separate container from content).

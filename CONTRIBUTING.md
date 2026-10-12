@@ -1,10 +1,10 @@
-# Contributing to Contour
+# Contributing to Hematite
 
 A new component or pattern gets in when it meets all of these:
 
 1. **A real need.** Name at least one page that needs it and why existing components do not work.
 2. **HTML first.** Use the native element if there is one (`<details>`, `<dialog>`, `popover`,
-   `<progress>`). JavaScript goes in `js/contour.js`, is opt-in, and the component must still be
+   `<progress>`). JavaScript goes in `js/hematite.js`, is opt-in, and the component must still be
    usable without it.
 3. **Tokens only.** No raw colours, sizes or z-index values in component CSS. rem for sizes, em for
    breakpoints, oklch for colours (a new colour token is a `light-dark()` pair), logical

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / components/feedback.css
+   HEMATITE / components/feedback.css
    Telling people what happened and what is happening: badge, alert,
    notification banner, panel, warning text, loader, skeleton, progress,
    toast, phase banner, site banner.
@@ -229,7 +229,7 @@
   mask: radial-gradient(farthest-side, transparent calc(100% - 0.17em), #000 calc(100% - 0.16em)),
         conic-gradient(#0000 0deg, #000 330deg);
   mask-composite: intersect;
-  animation: contour-spin 1.2s steps(12) infinite;
+  animation: hematite-spin 1.2s steps(12) infinite;
 }
 
 .loader--l {
@@ -237,7 +237,7 @@
   height: var(--icon-l);
 }
 
-@keyframes contour-spin {
+@keyframes hematite-spin {
   to { transform: rotate(360deg); }
 }
 
@@ -254,14 +254,14 @@
   background-image: linear-gradient(90deg, transparent 30%, var(--color-shimmer) 50%, transparent 70%);
   background-size: 300% 100%;
   background-repeat: no-repeat;
-  animation: contour-sweep 1.6s var(--ease) infinite;
+  animation: hematite-sweep 1.6s var(--ease) infinite;
 }
 
 .skeleton--text  { width: min(100%, var(--skeleton-width, 100%)); }
 .skeleton--title { height: 2em; width: 60%; border-radius: var(--radius-s); }
 .skeleton--block { height: var(--skeleton-height, 8rem); border-radius: var(--radius-m); }
 
-@keyframes contour-sweep {
+@keyframes hematite-sweep {
   from { background-position: 100% 0; }
   to { background-position: 0 0; }
 }
@@ -306,7 +306,7 @@
     linear-gradient(90deg, transparent, var(--color-ink), transparent) no-repeat,
     var(--color-sunken);
   background-size: 40% 100%, auto;
-  animation: contour-glide 1.4s var(--ease) infinite;
+  animation: hematite-glide 1.4s var(--ease) infinite;
 }
 
 .progress:indeterminate::-webkit-progress-bar {
@@ -317,7 +317,7 @@
   background: transparent;
 }
 
-@keyframes contour-glide {
+@keyframes hematite-glide {
   from { background-position: -40% 0, 0 0; }
   to { background-position: 140% 0, 0 0; }
 }

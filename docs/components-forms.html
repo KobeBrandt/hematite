@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Forms components · Contour</title>
-<meta name="description" content="Forms components in Contour: examples, code, and when to use them.">
-<link rel="stylesheet" href="../css/contour.css">
+<title>Forms components · Hematite</title>
+<meta name="description" content="Forms components in Hematite: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/hematite.css">
 <link rel="stylesheet" href="docs.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="../index.html">Contour</a>
+    <a class="site-header__brand" href="../index.html">Hematite</a>
     <details class="nav-menu" open>
       <summary>Menu</summary>
       <nav class="nav" aria-label="Documentation">
@@ -114,7 +114,7 @@
             </div>
           <div class="docs-rules">
             <div><h3>Use</h3><ul><li>A character count only when there is a real limit.</li><li>Let people type past the limit, then show the error; pasting and editing is easier than being cut off.</li></ul></div>
-            <div><h3>Don't</h3><ul><li>Use <code>maxlength</code>: it silently cuts pasted text.</li><li>Announce the count on every keystroke (contour.js waits for a pause).</li></ul></div>
+            <div><h3>Don't</h3><ul><li>Use <code>maxlength</code>: it silently cuts pasted text.</li><li>Announce the count on every keystroke (hematite.js waits for a pause).</li></ul></div>
           </div>
           <p class="muted">Add <code>textarea--auto</code> to let the box grow with its text, from 4 to 12 lines, using <code>field-sizing: content</code>. Browsers without it show a normal resizable textarea.</p>
           </div>
@@ -252,7 +252,7 @@
                 <form role="search" class="search" onsubmit="event.preventDefault()">
                   <label class="visually-hidden" for="ex-search">Search the site</label>
                   <input class="input search__input" id="ex-search" type="search" name="q" placeholder="Search">
-                  <button class="button search__button" type="submit"><svg class="icon" aria-hidden="true"><use href="../icons/contour-icons.svg#search"></use></svg>Search</button>
+                  <button class="button search__button" type="submit"><svg class="icon" aria-hidden="true"><use href="../icons/hematite-icons.svg#search"></use></svg>Search</button>
                 </form>
               </div>
             </div>
@@ -406,12 +406,12 @@
 
 <footer class="site-footer">
   <div class="container cluster" style="justify-content: space-between">
-    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Hematite 1.0.0 · plain CSS · MIT</span>
     <span>Sculpted, accessible, efficient.</span>
   </div>
 </footer>
 
 <script src="docs.js"></script>
-<script src="../js/contour.js"></script>
+<script src="../js/hematite.js"></script>
 </body>
 </html>

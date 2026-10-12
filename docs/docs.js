@@ -1,4 +1,4 @@
-/* Contour docs site: shows the HTML under each example, the theme switch, and the side menu. */
+/* Hematite docs site: shows the HTML under each example, the theme switch, and the side menu. */
 (function () {
   function ready(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
@@ -35,13 +35,13 @@
     document.querySelectorAll('[data-theme-set]').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.dataset.themeSet === value));
     });
-    try { localStorage.setItem('contour-theme', value); } catch (e) {}
+    try { localStorage.setItem('hematite-theme', value); } catch (e) {}
   }
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-theme-set]');
     if (b) setTheme(b.dataset.themeSet);
   });
-  try { var saved = localStorage.getItem('contour-theme'); if (saved) setTheme(saved); } catch (e) {}
+  try { var saved = localStorage.getItem('hematite-theme'); if (saved) setTheme(saved); } catch (e) {}
 
   // Example forms are for show only.
   document.querySelectorAll('[data-example] form').forEach(function (f) {

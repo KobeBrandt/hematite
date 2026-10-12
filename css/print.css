@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / print.css
+   HEMATITE / print.css
    On paper the shell goes flat: near-black on white (14.6:1, under the
    15:1 ceiling), hairlines instead of shadows, no navigation chrome.
    ========================================================================== */
@@ -58,7 +58,7 @@
     content: none;
   }
 
-  /* contour.js opens every <details> and tab panel before printing. */
+  /* hematite.js opens every <details> and tab panel before printing. */
 
   h1, h2, h3, h4, h5, h6 {
     break-after: avoid;

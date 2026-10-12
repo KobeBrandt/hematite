@@ -1,7 +1,7 @@
 /* ==========================================================================
-   CONTOUR / components/interactive.css
+   HEMATITE / components/interactive.css
    Show and hide: disclosure, accordion, tabs, dialog, tooltip, popover.
-   Native elements first (<details>, <dialog>, popover). contour.js adds
+   Native elements first (<details>, <dialog>, popover). hematite.js adds
    only what HTML cannot do yet: tab keys, "show all", opening dialogs.
    ========================================================================== */
 
@@ -153,7 +153,7 @@
 
 /* --- Tabs · Organism --------------------------------------------------------
    Without JS: the tab list is a list of in-page links and every panel shows,
-   one under the other. contour.js adds the ARIA tabs pattern: arrow keys,
+   one under the other. hematite.js adds the ARIA tabs pattern: arrow keys,
    Home / End, one panel at a time. Only for content people do not need to
    compare; otherwise show it all.
    The tab list is a segmented control: a recessed track, the selected tab
@@ -334,7 +334,7 @@
 
 /* --- Tooltip · Molecule -----------------------------------------------------
    A short extra label for an icon button, shown on hover AND focus, that
-   stays while hovered and closes on Escape (1.4.13; contour.js handles
+   stays while hovered and closes on Escape (1.4.13; hematite.js handles
    Escape). Never put essential information or links in a tooltip. Connect
    it with aria-describedby (or aria-labelledby for icon-only buttons). */
 .tooltip {

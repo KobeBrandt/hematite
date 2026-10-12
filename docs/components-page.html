@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page components · Contour</title>
-<meta name="description" content="Page components in Contour: examples, code, and when to use them.">
-<link rel="stylesheet" href="../css/contour.css">
+<title>Page components · Hematite</title>
+<meta name="description" content="Page components in Hematite: examples, code, and when to use them.">
+<link rel="stylesheet" href="../css/hematite.css">
 <link rel="stylesheet" href="docs.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__brand" href="../index.html">Contour</a>
+    <a class="site-header__brand" href="../index.html">Hematite</a>
     <details class="nav-menu" open>
       <summary>Menu</summary>
       <nav class="nav" aria-label="Documentation">
@@ -88,7 +88,7 @@
               </div>
             </div>
           <div class="docs-rules">
-            <div><h3>Use</h3><ul><li>Same links, same order on every page (3.2.3).</li><li><code>aria-current="page"</code> on the active link.</li><li><code>details.nav-menu</code> collapses the links behind Menu on small screens. With contour.js, on phones the Menu button floats at the bottom right, within thumb reach, and the links open as a sheet from the bottom edge; Escape or a tap outside closes it. Without JS it is an open list in the header.</li><li>Keep the header to one slim row on phones and do not make it sticky there.</li></ul></div>
+            <div><h3>Use</h3><ul><li>Same links, same order on every page (3.2.3).</li><li><code>aria-current="page"</code> on the active link.</li><li><code>details.nav-menu</code> collapses the links behind Menu on small screens. With hematite.js, on phones the Menu button floats at the bottom right, within thumb reach, and the links open as a sheet from the bottom edge; Escape or a tap outside closes it. Without JS it is an open list in the header.</li><li>Keep the header to one slim row on phones and do not make it sticky there.</li></ul></div>
             <div><h3>Don't</h3><ul><li>Hide primary links behind a menu on desktop.</li><li>Use more than about seven top-level items.</li></ul></div>
             <div><h3>Modifiers</h3><ul><li><code>--sticky</code> sticks it to the top</li></ul></div>
           </div>
@@ -135,7 +135,7 @@
               </div>
             </div>
           <div class="docs-rules">
-            <div><h3>Use</h3><ul><li>Accept and reject are equal buttons.</li><li>First in the page after the skip link; no consent cookies until people choose.</li><li>Listen for the <code>contour:cookies</code> event to load analytics.</li></ul></div>
+            <div><h3>Use</h3><ul><li>Accept and reject are equal buttons.</li><li>First in the page after the skip link; no consent cookies until people choose.</li><li>Listen for the <code>hematite:cookies</code> event to load analytics.</li></ul></div>
             <div><h3>Don't</h3><ul><li>Use a modal that blocks the page.</li><li>Make "accept" the only bright button.</li></ul></div>
           </div>
           </div>
@@ -191,12 +191,12 @@
 
 <footer class="site-footer">
   <div class="container cluster" style="justify-content: space-between">
-    <span>Contour 1.0.0 · plain CSS · MIT</span>
+    <span>Hematite 1.0.0 · plain CSS · MIT</span>
     <span>Sculpted, accessible, efficient.</span>
   </div>
 </footer>
 
 <script src="docs.js"></script>
-<script src="../js/contour.js"></script>
+<script src="../js/hematite.js"></script>
 </body>
 </html>

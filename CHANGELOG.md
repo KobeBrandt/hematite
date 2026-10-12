@@ -1,11 +1,11 @@
 # Changelog
 
-Contour follows [semantic versioning](https://semver.org/).
+Hematite follows [semantic versioning](https://semver.org/).
 
 
 ## 1.0.0 (2026-10-12)
 
-First release of Contour, forked from Formwork 2.4.0. Every class, component, pattern and template
+First release of Hematite, forked from Formwork 2.4.0. Every class, component, pattern and template
 is kept; only the skin changes.
 
 - New look after the MX Master 4: graphite and pale grey themes, sculpted radii, soft layered
@@ -21,8 +21,8 @@ is kept; only the skin changes.
 - New modifiers: `.button--quiet`, `.card--flat`, `.table--striped` (stripes are now opt-in).
 - Focus is a single 2px gunmetal outline with a soft halo instead of the two-colour ring.
 - Mono is for code only; headings, labels and buttons use the system sans.
-- Files renamed: `contour.css`, `contour.js` (global `Contour`), `contour-icons.svg`; cascade
-  layers are `contour.*`.
+- Files renamed: `hematite.css`, `hematite.js` (global `Hematite`), `hematite-icons.svg`; cascade
+  layers are `hematite.*`.
 - `tools/check-contrast.py` also checks surfaces, edges and the accent in both themes.
 - Consistency pass: docs footers use the same footer as the templates (no inverted block),
   `.mono` is kept for code and a new `.tabular` utility sets times and phone numbers, the
@@ -32,7 +32,7 @@ is kept; only the skin changes.
 - In-page navigation ("On this page") now has the same rows, hover and raised current item as
   the side navigation. The mouse logo and hero drawing were removed from the docs.
 
-The entries below are the history of Formwork, which Contour was forked from.
+The entries below are the history of Formwork, which Hematite was forked from.
 
 ## Formwork 2.4.0 · 2026-10-12
 
@@ -41,7 +41,7 @@ The entries below are the history of Formwork, which Contour was forked from.
 - Phones: the header menu button now floats at the bottom right, within thumb reach, instead of
   sitting at the top. The links open as a sheet along the bottom edge, with the button that closes
   it underneath. Escape or a tap outside closes it and returns focus to the button; only one sheet
-  is open at a time. Needs contour.js (it marks the menu `data-ready`); without it the menu stays
+  is open at a time. Needs hematite.js (it marks the menu `data-ready`); without it the menu stays
   an open list in the header.
 - Phones: the header is one slim row (brand and nothing else) and `.site-header--sticky` is no
   longer sticky below 48em. The phase banner drops its optional end (`.phase-banner__more`)
@@ -53,7 +53,7 @@ The entries below are the history of Formwork, which Contour was forked from.
 - Safe-area insets (`env(safe-area-inset-*)`) on the container gutters, sticky action bar, toast
   region and the floating menu button; `viewport-fit=cover` in the templates and docs.
 - `--fab-lift` token: raises the floating button, for example above a sticky action bar (set
-  automatically when the page has one). `Contour.sheet(details, mediaQuery)` makes any
+  automatically when the page has one). `Hematite.sheet(details, mediaQuery)` makes any
   `<details>` behave as a bottom sheet.
 
 ## 2.3.0 · 2026-10-12
@@ -108,7 +108,7 @@ No change to the CSS, JavaScript, icons or templates.
 
 ## 2.1.0 · 2026-10-12
 
-Moved Contour onto current CSS. Nothing is renamed or removed; pages look the same.
+Moved Hematite onto current CSS. Nothing is renamed or removed; pages look the same.
 
 ### Changed
 
@@ -143,19 +143,19 @@ Moved Contour onto current CSS. Nothing is renamed or removed; pages look the sa
 ### Fixed
 
 - Docs page dark mode: the hosting page injected an unlayered `body { background: #fff; color: #000 }`
-  and `color-scheme: light`, which beat Contour's layered base, so tokens turned dark on a white page.
+  and `color-scheme: light`, which beat Hematite's layered base, so tokens turned dark on a white page.
   The docs now restate the page ground unlayered.
-- Docs and README explain how unlayered resets interact with Contour's cascade layers.
+- Docs and README explain how unlayered resets interact with Hematite's cascade layers.
 
 ## 2.0.0 · 2026-10-12
 
-Filled the gaps found by comparing Contour with the GOV.UK, Vlaanderen and US Web design systems.
+Filled the gaps found by comparing Hematite with the GOV.UK, Vlaanderen and US Web design systems.
 
 ### Breaking
 
-- All CSS now loads in cascade layers (`contour.tokens` to `contour.print`). Unlayered CSS in
-  your project now always beats Contour, whatever its specificity.
-- `components.css` is now an index that imports `css/components/*.css`. Link `contour.css` or
+- All CSS now loads in cascade layers (`hematite.tokens` to `hematite.print`). Unlayered CSS in
+  your project now always beats Hematite, whatever its specificity.
+- `components.css` is now an index that imports `css/components/*.css`. Link `hematite.css` or
   `components.css` as before; if you copied `components.css` alone, copy the `components/` folder too.
 - Focus is now two rings (yellow band plus ink outline) through the new `--focus-ring` token.
   Components with their own `box-shadow` must add `var(--focus-ring)` on `:focus-visible`.
@@ -180,7 +180,7 @@ Filled the gaps found by comparing Contour with the GOV.UK, Vlaanderen and US We
 - Page: collapsing header menu, sticky header, footer columns, cookie banner, sticky action bar.
 - Actions: small, icon, block and link-style buttons, busy state, button group, back link, exit this page.
 - Layout: `.container--narrow`, `.page`, `.switcher`.
-- `print.css`, `js/contour.js`, `icons/contour-icons.svg`, 10 templates.
+- `print.css`, `js/hematite.js`, `icons/hematite-icons.svg`, 10 templates.
 - Docs: component index, patterns, writing rules, templates, axe test record, browser support,
   install and versioning notes.
 - `[hidden]` now always hides, even on components that set `display`.

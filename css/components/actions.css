@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / components/actions.css
+   HEMATITE / components/actions.css
    Things you press: skip link, button, button group, back link, exit page.
    ========================================================================== */
 
@@ -253,7 +253,7 @@
 
 /* --- Exit this page · Molecule ---------------------------------------------
    Only for services about domestic abuse or other risks where someone may be
-   watching. Sticks to the top; contour.js also exits on Shift pressed 3 times. */
+   watching. Sticks to the top; hematite.js also exits on Shift pressed 3 times. */
 .exit-page {
   position: sticky;
   inset-block-start: 0;

@@ -1,26 +1,26 @@
-# Contour design system
+# Hematite design system
 
-A contour is the curve of a shape: the line your hand follows round a well-made object.
+Hematite is a dark grey stone with a metallic sheen: graphite that catches the light.
 
 Zero-dependency design system in plain CSS, with the look of the Logitech MX Master 4: a matte
 graphite or pale grey shell with a fine grain, sculpted curves, soft light from above, keys with a
 dished top, and knurled metal as the only shiny part. Targets WCAG 2.2 level AA.
 
-Contour keeps the structure of [Formwork](https://github.com/KobeBrandt/formwork) (same classes,
+Hematite keeps the structure of [Formwork](https://github.com/KobeBrandt/formwork) (same classes,
 same HTML, same components, patterns and templates) and replaces its brutalist skin. A page built
 on Formwork switches by changing the stylesheet and script names. Not affiliated with Logitech:
 the mouse is a design reference, and no logo, name or product image is used.
 
 | Pale Grey | Graphite |
 |-----------|----------|
-| ![Contour overview page in the Pale Grey theme](.github/screenshots/overview-light.png) | ![Contour overview page in the Graphite theme](.github/screenshots/overview-dark.png) |
+| ![Hematite overview page in the Pale Grey theme](.github/screenshots/overview-light.png) | ![Hematite overview page in the Graphite theme](.github/screenshots/overview-dark.png) |
 | ![Button examples: graphite key, pale key, knurled metal, danger, disabled](.github/screenshots/components-light.png) | ![Task list template in the Graphite theme](.github/screenshots/template-dark.png) |
 
 ## Documentation
 
 The documentation is the site itself: open `index.html` in a browser (serve the folder, for
 example with `python3 -m http.server`, because the icon sprite does not load over `file://`).
-It is also published at **https://kobebrandt.github.io/contour/** once GitHub Pages is switched on
+It is also published at **https://kobebrandt.github.io/hematite/** once GitHub Pages is switched on
 for this repository (the workflow in `.github/workflows/pages.yml` deploys every push to `main`).
 
 ## Quick start
@@ -31,8 +31,8 @@ for this repository (the workflow in `.github/workflows/pages.yml` deploys every
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/contour.css">
-  <script src="js/contour.js" defer></script>  <!-- optional -->
+  <link rel="stylesheet" href="css/hematite.css">
+  <script src="js/hematite.js" defer></script>  <!-- optional -->
 </head>
 <body>
   <main class="container stack">
@@ -69,14 +69,14 @@ US Web Design System.
   side nav, step indicator, task list, tabs…), content, data and page furniture.
 - 16 patterns (asking for names, dates, addresses; check answers; error pages…) and writing rules.
 - 10 page templates in `templates/` for an example service.
-- 39 icons in `icons/contour-icons.svg`.
-- An optional 5 KB (gzipped) script, `js/contour.js`. Every component works without it.
+- 39 icons in `icons/hematite-icons.svg`.
+- An optional 5 KB (gzipped) script, `js/hematite.js`. Every component works without it.
 
 ## Files
 
 ```
 css/
-  contour.css        entry: imports everything into cascade layers
+  hematite.css        entry: imports everything into cascade layers
   tokens.css          colour, type, space, shape, z-index, motion, breakpoints
   base.css            reset, elements, focus
   layout.css          container, stack, cluster, grid, sidebar, switcher
@@ -92,7 +92,7 @@ css/
     page.css          site header, footer, cookie banner, sticky bar
   utilities.css       helpers
   print.css           print styles
-js/contour.js        optional enhancements
+js/hematite.js        optional enhancements
 icons/                SVG sprite
 templates/            example pages
 index.html            documentation: overview and principles (open it next to the folders)
@@ -110,15 +110,15 @@ tools/build-docs.py   copies the docs to dist/ with scripts inlined, for hosts w
 ## Use
 
 ```html
-<link rel="stylesheet" href="css/contour.css">
-<script src="js/contour.js" defer></script>  <!-- optional -->
+<link rel="stylesheet" href="css/hematite.css">
+<script src="js/hematite.js" defer></script>  <!-- optional -->
 ```
 
 - Naming: BEM (`.block__element--modifier`). Each component is tagged Atom, Molecule or Organism.
-- Every file sits in a cascade layer (`contour.tokens` … `contour.print`), so your own
+- Every file sits in a cascade layer (`hematite.tokens` … `hematite.print`), so your own
   unlayered CSS always wins without `!important`. The same goes for an unlayered reset from a
   CMS or host page: if it sets `body { background: #fff }`, dark mode breaks. Put such a reset in
-  a layer declared before Contour, or restate `body { background: var(--color-bg); color: var(--color-ink); }`.
+  a layer declared before Hematite, or restate `body { background: var(--color-bg); color: var(--color-ink); }`.
 - Theme: override tokens, never component rules. Colour tokens are `light-dark(light, dark)`
   pairs. Dark mode follows the OS; set `data-theme="light"` or `"dark"` on `<html>` to pin one,
   or add `.theme-dark` / `.theme-light` to a single block.
@@ -127,7 +127,7 @@ tools/build-docs.py   copies the docs to dist/ with scripts inlined, for hosts w
 
 ## Browser support
 
-Last two versions of Chrome, Edge, Firefox and Safari. Contour uses Baseline CSS: cascade
+Last two versions of Chrome, Edge, Firefox and Safari. Hematite uses Baseline CSS: cascade
 layers, nesting, `:has()`, container queries, `light-dark()`, relative colours, `@property` and
 `@starting-style`. Newer features (anchor positioning, `field-sizing`) are enhancements only.
 `light-dark()` has a media-query fallback. The docs page lists every feature and its status.
@@ -136,9 +136,9 @@ See `CHANGELOG.md` for releases and `CONTRIBUTING.md` to add a component.
 
 ## Credits
 
-Contour is a re-skin of [Formwork](https://github.com/KobeBrandt/formwork), which supplies the
+Hematite is a re-skin of [Formwork](https://github.com/KobeBrandt/formwork), which supplies the
 structure, components, patterns, templates and accessibility work. The visual reference is the
-Logitech MX Master 4 and the MX desk range; Contour is an independent project, not made or
+Logitech MX Master 4 and the MX desk range; Hematite is an independent project, not made or
 endorsed by Logitech, and contains no Logitech logos, names in the UI or product images.
 
 ## License

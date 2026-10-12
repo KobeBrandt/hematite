@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / components/navigation.css
+   HEMATITE / components/navigation.css
    Finding your way: breadcrumb, pagination, side navigation, in-page
    navigation, step indicator, task list, language selector, share links.
    Mark the current item with aria-current, shown with more than colour:
@@ -185,7 +185,7 @@
    "On this page": links to the h2s of a long page. Sticky on wide screens.
    Same shape as the side navigation, so every menu in a sidebar looks alike:
    rows that darken on hover, and the section in view raised as a key with a
-   green status light (contour.js marks it aria-current="true"). */
+   green status light (hematite.js marks it aria-current="true"). */
 .in-page-nav {
   display: flex;
   flex-direction: column;

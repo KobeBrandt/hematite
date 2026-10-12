@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / components.css
+   HEMATITE / components.css
    Imports every component file. Link this one, or only the files you use.
    BEM naming: .block, .block__element, .block--modifier.
    Each component is tagged Atom, Molecule or Organism (Atomic design).

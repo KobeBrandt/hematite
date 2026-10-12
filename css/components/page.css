@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTOUR / components/page.css
+   HEMATITE / components/page.css
    The frame around every page: site header and navigation, footer, cookie
    banner, sticky action bar.
    ========================================================================== */
@@ -98,7 +98,7 @@
 /* Small screens: wrap the nav in <details class="nav-menu">. On phones the
    "Menu" button floats at the bottom right, where a thumb reaches it, and the
    links open as a sheet from the bottom edge. On wide screens the summary is
-   hidden and the links always show. The floating button needs contour.js
+   hidden and the links always show. The floating button needs hematite.js
    (it marks the menu data-ready and adds Escape and tap-outside to close);
    without it the menu stays an open list in the header. */
 .nav-menu > summary {

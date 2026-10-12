@@ -1,5 +1,5 @@
-/* Contour docs site: styles for the documentation pages only, built from the system tokens. */
-/* Contour sits in cascade layers, so any unlayered CSS beats it. Hosts that
+/* Hematite docs site: styles for the documentation pages only, built from the system tokens. */
+/* Hematite sits in cascade layers, so any unlayered CSS beats it. Hosts that
    inject their own unlayered reset (body background, font, color-scheme)
    would otherwise override the page ground. Restate it here, unlayered.
    The colour tokens use light-dark(), so color-scheme alone picks the theme. */

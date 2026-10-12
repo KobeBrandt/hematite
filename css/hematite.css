@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Hematite design system: entry file.
+   Load this one file, or link the layers yourself in this order.
+
+   Every file goes into a cascade layer, so specificity can never fight the
+   order: tokens < base < layout < components < utilities. Your own CSS,
+   written outside any layer, always wins over Hematite without !important.
+   ========================================================================== */
+@layer hematite.tokens, hematite.base, hematite.layout, hematite.components, hematite.utilities, hematite.print;
+
+@import url("tokens.css") layer(hematite.tokens);
+@import url("base.css") layer(hematite.base);
+@import url("layout.css") layer(hematite.layout);
+@import url("components.css") layer(hematite.components);
+@import url("utilities.css") layer(hematite.utilities);
+@import url("print.css") layer(hematite.print);
