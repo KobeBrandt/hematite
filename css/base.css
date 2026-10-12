@@ -93,6 +93,13 @@ dd {
   text-wrap: pretty;
 }
 
+/* Running text is capped at the measure. Items of a component list (any list
+   or dd with a class) belong to their component and fill its full width. */
+:where(ul, ol)[class] > li,
+dd[class] {
+  max-width: none;
+}
+
 strong,
 b {
   font-weight: var(--weight-bold);
