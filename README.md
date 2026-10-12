@@ -11,6 +11,40 @@ same HTML, same components, patterns and templates) and replaces its brutalist s
 on Formwork switches by changing the stylesheet and script names. Not affiliated with Logitech:
 the mouse is a design reference, and no logo, name or product image is used.
 
+| Pale Grey | Graphite |
+|-----------|----------|
+| ![Contour overview page in the Pale Grey theme](.github/screenshots/overview-light.png) | ![Contour overview page in the Graphite theme](.github/screenshots/overview-dark.png) |
+| ![Button examples: graphite key, pale key, knurled metal, danger, disabled](.github/screenshots/components-light.png) | ![Task list template in the Graphite theme](.github/screenshots/template-dark.png) |
+
+## Documentation
+
+The documentation is the site itself: open `index.html` in a browser (serve the folder, for
+example with `python3 -m http.server`, because the icon sprite does not load over `file://`).
+It is also published at **https://kobebrandt.github.io/contour/** once GitHub Pages is switched on
+for this repository (the workflow in `.github/workflows/pages.yml` deploys every push to `main`).
+
+## Quick start
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/contour.css">
+  <script src="js/contour.js" defer></script>  <!-- optional -->
+</head>
+<body>
+  <main class="container stack">
+    <h1>Hello</h1>
+    <button class="button" type="button">Save</button>
+  </main>
+</body>
+</html>
+```
+
+Or copy a page from `templates/` and change it.
+
 ## The look
 
 | From the mouse          | In the system |
@@ -99,3 +133,15 @@ layers, nesting, `:has()`, container queries, `light-dark()`, relative colours, 
 `light-dark()` has a media-query fallback. The docs page lists every feature and its status.
 
 See `CHANGELOG.md` for releases and `CONTRIBUTING.md` to add a component.
+
+## Credits
+
+Contour is a re-skin of [Formwork](https://github.com/KobeBrandt/formwork), which supplies the
+structure, components, patterns, templates and accessibility work. The visual reference is the
+Logitech MX Master 4 and the MX desk range; Contour is an independent project, not made or
+endorsed by Logitech, and contains no Logitech logos, names in the UI or product images.
+
+## License
+
+[MIT](LICENSE)
+

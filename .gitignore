@@ -1,1 +1,11 @@
+# Build output from tools/build-docs.py
 dist/
+
+# Local and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+node_modules/
+__pycache__/
