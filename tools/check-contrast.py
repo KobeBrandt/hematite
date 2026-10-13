@@ -49,6 +49,7 @@ def ratio(a, b):
 # (foreground, background, floor, what it is)
 PAIRS = [('ink', bg, 7, 'body text') for bg in ('bg', 'surface', 'sunken', 'accent-soft')]
 PAIRS += [(t, bg, 4.5, 'text') for t in ('muted', 'link', 'danger', 'success', 'warning', 'info') for bg in ('bg', 'surface', 'sunken')]
+PAIRS += [('on-fill', f'{k}-fill', 4.5, 'text on a status fill') for k in ('success', 'danger', 'warning', 'info')]
 PAIRS += [('on-key', 'key', 7, 'label on a key'), ('on-ink', 'ink', 7, 'text on graphite fills'), ('on-accent', 'accent', 4.5, 'label on the accent')]
 PAIRS += [('focus', bg, 3, 'focus outline') for bg in ('bg', 'surface')]
 PAIRS += [('edge', bg, 3, 'edges of controls') for bg in ('bg', 'surface')]

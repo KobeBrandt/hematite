@@ -40,7 +40,7 @@
   --color-danger: light-dark(oklch(50% 0.18 25), oklch(74% 0.14 22));                /* errors                   5.8 /  7.6 */
   --color-success: light-dark(oklch(48% 0.11 158), oklch(78% 0.13 158));             /* confirmations            5.4 /  9.8 */
   --color-warning: light-dark(oklch(49% 0.105 62), oklch(81% 0.12 78));              /* warnings                 5.7 / 10.2 */
-  --color-info: light-dark(oklch(47% 0.05 245), oklch(78% 0.04 238));                /* neutral notices: steel    6.0 /  9.4 */
+  --color-info: light-dark(oklch(46% 0.025 250), oklch(78% 0.02 250));               /* neutral notices: slate grey, not blue */
   --color-accent: light-dark(oklch(38% 0.01 255), oklch(84% 0.005 255));             /* gunmetal / brushed silver: focus, checked, selected edges */
   --color-on-accent: light-dark(oklch(98.8% 0.002 255), oklch(20% 0.006 255));       /* label on a solid accent fill */
   --color-accent-soft: light-dark(oklch(90% 0.004 255), oklch(29% 0.006 255));       /* selected tiles and rows: fill behind ink text */
@@ -48,6 +48,11 @@
   --color-focus: var(--color-accent);         /* focus ring, 3:1 on bg in both themes */
   --color-focus-gap: var(--color-bg);         /* thin band between element and ring, so the ring reads on any fill */
   --color-on-ink: var(--color-bg);            /* text on an ink (graphite) fill */
+  --color-success-fill: light-dark(oklch(48% 0.11 158), oklch(37% 0.075 158));       /* solid status fills: confirmation panel, */
+  --color-danger-fill: light-dark(oklch(50% 0.18 25), oklch(39% 0.12 25));           /* notification headers, the danger key.  */
+  --color-warning-fill: light-dark(oklch(49% 0.105 62), oklch(39% 0.075 65));        /* Deep and matte in Graphite, so they    */
+  --color-info-fill: light-dark(oklch(46% 0.025 250), oklch(37% 0.02 250));          /* never glow on the dark shell.          */
+  --color-on-fill: light-dark(oklch(97% 0.003 255), oklch(96% 0.003 255));           /* text on a status fill                  */
   --color-key: light-dark(oklch(27% 0.012 255), oklch(34% 0.008 255));               /* keycaps: graphite in both themes, like the mouse */
   --color-on-key: light-dark(oklch(95.5% 0.004 255), oklch(94% 0.004 255));          /* label on a key */
   --color-scrim: oklch(14% 0.01 255 / 0.5);   /* behind dialogs, dark in both themes */
@@ -243,12 +248,17 @@
     --color-danger: oklch(50% 0.18 25);
     --color-success: oklch(48% 0.11 158);
     --color-warning: oklch(49% 0.105 62);
-    --color-info: oklch(47% 0.05 245);
+    --color-info: oklch(46% 0.025 250);
     --color-accent: oklch(38% 0.01 255);
     --color-on-accent: oklch(98.8% 0.002 255);
     --color-accent-soft: oklch(90% 0.004 255);
     --color-led: oklch(55% 0.15 150);
     --color-key: oklch(27% 0.012 255);
+    --color-success-fill: oklch(48% 0.11 158);
+    --color-danger-fill: oklch(50% 0.18 25);
+    --color-warning-fill: oklch(49% 0.105 62);
+    --color-info-fill: oklch(46% 0.025 250);
+    --color-on-fill: oklch(97% 0.003 255);
     --color-on-key: oklch(95.5% 0.004 255);
     --color-sheen: oklch(100% 0 0 / 0.9);
     --color-shade: oklch(30% 0.02 255 / 0.1);
@@ -267,12 +277,17 @@
       --color-danger: oklch(74% 0.14 22);
       --color-success: oklch(78% 0.13 158);
       --color-warning: oklch(81% 0.12 78);
-      --color-info: oklch(78% 0.04 238);
+      --color-info: oklch(78% 0.02 250);
       --color-accent: oklch(84% 0.005 255);
       --color-on-accent: oklch(20% 0.006 255);
       --color-accent-soft: oklch(29% 0.006 255);
       --color-led: oklch(78% 0.17 150);
       --color-key: oklch(34% 0.008 255);
+      --color-success-fill: oklch(37% 0.075 158);
+      --color-danger-fill: oklch(39% 0.12 25);
+      --color-warning-fill: oklch(39% 0.075 65);
+      --color-info-fill: oklch(37% 0.02 250);
+      --color-on-fill: oklch(96% 0.003 255);
       --color-on-key: oklch(94% 0.004 255);
       --color-sheen: oklch(100% 0 0 / 0.07);
       --color-shade: oklch(0% 0 0 / 0.42);
@@ -291,12 +306,17 @@
     --color-danger: oklch(74% 0.14 22);
     --color-success: oklch(78% 0.13 158);
     --color-warning: oklch(81% 0.12 78);
-    --color-info: oklch(78% 0.04 238);
+    --color-info: oklch(78% 0.02 250);
     --color-accent: oklch(84% 0.005 255);
     --color-on-accent: oklch(20% 0.006 255);
     --color-accent-soft: oklch(29% 0.006 255);
     --color-led: oklch(78% 0.17 150);
     --color-key: oklch(34% 0.008 255);
+    --color-success-fill: oklch(37% 0.075 158);
+    --color-danger-fill: oklch(39% 0.12 25);
+    --color-warning-fill: oklch(39% 0.075 65);
+    --color-info-fill: oklch(37% 0.02 250);
+    --color-on-fill: oklch(96% 0.003 255);
     --color-on-key: oklch(94% 0.004 255);
     --color-sheen: oklch(100% 0 0 / 0.07);
     --color-shade: oklch(0% 0 0 / 0.42);

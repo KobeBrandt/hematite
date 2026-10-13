@@ -21,6 +21,15 @@ is kept; only the skin changes.
 - On phones the floating Menu button slides away while you scroll down and comes back when you
   scroll up, reach the end of the page or tab to it.
 - `tools/check-a11y.mjs` runs axe on every page in both themes; CI runs it with the contrast check.
+- Status fills (`--color-*-fill`, `--color-on-fill`) are deep and matte in the dark theme, so
+  notification headers, the confirmation panel and the danger key never glow on graphite. The
+  info colour is slate grey instead of blue.
+- Every control is a key: secondary buttons, share links and the file button are pale keys, the
+  danger button a red key, selected tabs and the current language a graphite key.
+- Wide tables keep readable columns and scroll inside their box, with edge shadows; tabs scroll
+  instead of wrapping; numbered pagination shrinks to previous, current and next on phones.
+- Inline code never breaks mid-token (`.code--wrap` for long snippets); short pages keep the
+  footer at the bottom of the window.
 - Removed tokens: `--shadow-offset`, `--shadow-press`.
 - `--color-accent` is gunmetal in light and brushed silver in dark; the main action is knurled metal.
 - New modifiers: `.button--quiet`, `.card--flat`, `.table--striped` (stripes are now opt-in).

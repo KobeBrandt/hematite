@@ -71,7 +71,7 @@
           <h2 id="install">Install</h2>
           <p>Copy the <code>css/</code>, <code>js/</code> and <code>icons/</code> folders into your project, or add the repository as a git submodule. There is no build step and nothing to install.</p>
           <h2 id="start-a-page">Start a page</h2>
-<pre tabindex="0"><code>&lt;!doctype html&gt;
+<pre tabindex="0"><code class="code--wrap">&lt;!doctype html&gt;
 &lt;html lang="nl"&gt;
 &lt;head&gt;
   &lt;meta charset="utf-8"&gt;
@@ -90,10 +90,10 @@
 &lt;/html&gt;</code></pre>
           <h2 id="cascade-layers">Cascade layers</h2>
           <p>Hematite puts every file in a layer: <code>hematite.tokens</code> &lt; <code>base</code> &lt; <code>layout</code> &lt; <code>components</code> &lt; <code>utilities</code> &lt; <code>print</code>. Your own CSS, outside any layer, always wins, whatever its specificity. No <code>!important</code> needed.</p>
-          <p>The flip side: any unlayered reset also wins. If a CMS, framework or host page sets <code>body { background: #fff }</code> without a layer, dark mode breaks. Put that reset in a layer declared before Hematite (<code>@layer reset, hematite.tokens, …</code>), or restate the page ground unlayered: <code>body { background: var(--color-bg); color: var(--color-ink); }</code>.</p>
+          <p>The flip side: any unlayered reset also wins. If a CMS, framework or host page sets <code>body { background: #fff }</code> without a layer, dark mode breaks. Put that reset in a layer declared before Hematite (<code class="code--wrap">@layer reset, hematite.tokens, …</code>), or restate the page ground unlayered: <code class="code--wrap">body { background: var(--color-bg); color: var(--color-ink); }</code>.</p>
           <h2 id="make-a-theme">Make a theme</h2>
           <p>Override tokens, not components. Give each colour a light and a dark value with <code>light-dark()</code>, and keep every text colour at 4.5:1 or above on <code>--color-bg</code> in both.</p>
-<pre tabindex="0"><code>:root {
+<pre tabindex="0"><code class="code--wrap">:root {
   --color-accent: light-dark(oklch(55% 0.17 150), oklch(80% 0.14 150));   /* --color-on-accent on it must stay 4.5:1+ */
   --color-link: light-dark(oklch(45% 0.2 300), oklch(80% 0.12 300));
   --radius-l: 2rem;   /* rounder shells */

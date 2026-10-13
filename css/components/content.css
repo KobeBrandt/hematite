@@ -19,7 +19,7 @@
   margin-block-start: var(--space-xs);
 }
 
-.prose :is(ul, ol) {
+.prose :is(ul, ol):not([class]) {
   padding-inline-start: 1.25em;
 }
 
@@ -335,7 +335,7 @@
 .divider--thick {
   height: 0.5rem;
   border: 0;
-  background: var(--texture-knurl);
+  background: var(--texture-knurl), var(--color-line);
   border-radius: var(--radius-pill);
 }
 
@@ -377,7 +377,7 @@
 
   &::before {
     content: "\25CF\00a0";   /* ● */
-    color: var(--color-led);
+    color: var(--color-edge);
   }
 }
 
@@ -600,8 +600,8 @@
 }
 
 .bar-chart__row--highlight .bar-chart__value::before {
-  background: var(--gradient-key);
-  background-color: var(--color-key);
+  background: var(--texture-knurl), linear-gradient(180deg, oklch(from var(--color-accent) calc(l + 0.12) c h), var(--color-accent));
+  background-color: var(--color-accent);
 }
 
 .bar-chart__row--highlight .bar-chart__value {

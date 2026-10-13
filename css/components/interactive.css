@@ -156,11 +156,14 @@
    one under the other. hematite.js adds the ARIA tabs pattern: arrow keys,
    Home / End, one panel at a time. Only for content people do not need to
    compare; otherwise show it all.
-   The tab list is a segmented control: a recessed track, the selected tab
-   a raised pill inside it. */
+   The tab list is a segmented control: a recessed well, the selected tab a
+   graphite key inside it, like the theme switch. Too many tabs for the
+   width scroll sideways instead of wrapping. */
 .tabs__list {
   display: inline-flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   gap: var(--space-3xs);
   max-width: 100%;
   padding: var(--space-3xs);
@@ -168,7 +171,7 @@
   list-style: none;
   background: var(--color-sunken);
   border: var(--border-control);
-  border-radius: var(--radius-m);
+  border-radius: calc(var(--radius-key) + var(--space-3xs));
   box-shadow: var(--shadow-inset);
 }
 
@@ -178,8 +181,9 @@
   min-height: calc(var(--target-min) - var(--space-2xs) - 2 * var(--border-width));
   padding-inline: var(--space-s);
   border: var(--border-width) solid transparent;
-  border-radius: calc(var(--radius-m) - var(--space-3xs));
+  border-radius: var(--radius-key);
   color: var(--color-muted);
+  white-space: nowrap;
   font-weight: var(--weight-medium);
   text-decoration: none;
   background: none;
@@ -190,13 +194,12 @@
     color: var(--color-ink);
   }
 
-  /* Selected: raised and bold, so the state is not colour alone. */
+  /* Selected: a graphite key and bold, so the state is not colour alone. */
   &[aria-selected="true"] {
-    background: var(--gradient-shell);
-    background-color: var(--color-surface);
-    border-color: var(--color-line);
-    box-shadow: var(--shadow-1);
-    color: var(--color-ink);
+    background: var(--texture-grain), var(--gradient-key);
+    background-color: var(--color-key);
+    box-shadow: var(--shadow-key);
+    color: var(--color-on-key);
     font-weight: var(--weight-bold);
   }
 

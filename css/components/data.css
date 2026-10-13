@@ -10,10 +10,23 @@
 .table-wrap {
   max-width: 100%;
   overflow-x: auto;
-  background: var(--color-surface);
+  /* Soft shadows at an edge where more of the table is hidden: the light
+     covers stay with the content (local), the shadows stay with the box. */
+  background:
+    linear-gradient(90deg, var(--color-surface) 30%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(270deg, var(--color-surface) 30%, transparent) right / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--color-shade), transparent) left / 0.875rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--color-shade), transparent) right / 0.875rem 100% no-repeat scroll;
+  background-color: var(--color-surface);
   border: var(--border);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-1);
+}
+
+/* Columns never squeeze below a readable width: on a phone the table
+   scrolls inside its box instead of stacking one word per line. */
+.table-wrap > .table {
+  min-width: 34rem;
 }
 
 .table {

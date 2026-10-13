@@ -95,6 +95,12 @@
   }
 }
 
+/* A floating button tucked away while the page scrolls down (hematite.js
+   sets data-tucked on any <details data-ready> whose summary floats). */
+details[data-tucked]:not([open]) > summary {
+  translate: 0 calc(100% + var(--fab-bottom, var(--space-s)) + var(--space-s));
+}
+
 /* Small screens: wrap the nav in <details class="nav-menu">. On phones the
    "Menu" button floats at the bottom right, where a thumb reaches it, and the
    links open as a sheet from the bottom edge. On wide screens the summary is
@@ -174,14 +180,9 @@
     rotate: 45deg;
   }
 
-  /* Tucked: slid below the screen edge while the page scrolls down
-     (hematite.js sets data-tucked), so it never sits on top of content. */
+  /* It slides when it tucks away (see details[data-tucked] above). */
   .nav-menu[data-ready] > summary {
     transition: transform var(--duration) var(--ease), translate var(--duration-slow) var(--ease);
-  }
-
-  .nav-menu[data-ready][data-tucked]:not([open]) > summary {
-    translate: 0 calc(100% + var(--fab-bottom) + var(--space-s));
   }
 
   /* The open menu: a sheet along the bottom edge, links stacked above the
@@ -225,6 +226,16 @@
 }
 
 /* --- Footer · Organism ------------------------------------------------------ */
+/* The footer sits at the bottom of the window even on short pages. */
+body:has(> .site-footer) {
+  display: flex;
+  flex-direction: column;
+}
+
+body > .site-footer {
+  margin-block-start: auto;
+}
+
 .site-footer {
   padding-block: var(--space-l);
   background: var(--color-sunken);
@@ -266,6 +277,8 @@
   background: var(--gradient-shell);
   background-color: var(--color-surface);
   border-block-end: var(--border);
+  border-end-start-radius: var(--radius-l);
+  border-end-end-radius: var(--radius-l);
   box-shadow: var(--shadow-2);
 }
 
@@ -291,6 +304,8 @@
   background: oklch(from var(--color-surface) l c h / 0.88);
   backdrop-filter: saturate(1.4) blur(0.875rem);
   border-block-start: var(--border);
+  border-start-start-radius: var(--radius-l);
+  border-start-end-radius: var(--radius-l);
   box-shadow: 0 -0.5rem 1.5rem -0.75rem var(--color-shade);
 }
 

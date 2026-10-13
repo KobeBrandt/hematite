@@ -13,11 +13,11 @@ the mouse is a design reference, and no logo, name or product image is used.
 
 | Pale Grey | Graphite |
 |-----------|----------|
-| ![Hematite overview page in the Pale Grey theme](.github/screenshots/hematite-v1-overview-light.png) | ![Hematite overview page in the Graphite theme](.github/screenshots/hematite-v1-overview-dark.png) |
-| ![Buttons: graphite key, pale key, knurled metal, danger, disabled, small, icon and busy](.github/screenshots/hematite-v1-buttons-light.png) | ![Text inputs with a hint and an error message](.github/screenshots/hematite-v1-forms-dark.png) |
-| ![Info, done, warning and error alerts](.github/screenshots/hematite-v1-alerts-light.png) | ![Cards: a plain card, a featured card and a stat card](.github/screenshots/hematite-v1-cards-dark.png) |
+| ![Hematite overview page in the Pale Grey theme](.github/screenshots/hematite-v2-overview-light.png) | ![Hematite overview page in the Graphite theme](.github/screenshots/hematite-v2-overview-dark.png) |
+| ![Buttons: graphite key, pale key, knurled metal, danger, disabled, small, icon and busy](.github/screenshots/hematite-v2-buttons-light.png) | ![Text inputs with a hint and an error message](.github/screenshots/hematite-v2-forms-dark.png) |
+| ![Info, done, warning and error alerts](.github/screenshots/hematite-v2-alerts-light.png) | ![Cards: a plain card, a featured card and a stat card](.github/screenshots/hematite-v2-cards-dark.png) |
 
-![Task list template for an example repair café service, in the Graphite theme](.github/screenshots/hematite-v1-template-dark.png)
+![Task list template for an example repair café service, in the Graphite theme](.github/screenshots/hematite-v2-template-dark.png)
 
 ## Documentation
 

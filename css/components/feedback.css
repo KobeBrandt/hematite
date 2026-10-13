@@ -77,6 +77,10 @@
 }
 
 .alert--info    { --alert-colour: var(--color-info); }
+@media (max-width: 30em) {
+  .alert { grid-template-columns: 1fr; }
+}
+
 .alert--success { --alert-colour: var(--color-success); }
 .alert--warning { --alert-colour: var(--color-warning); }
 .alert--danger  { --alert-colour: var(--color-danger); }
@@ -87,6 +91,7 @@
    whole page. One per page. Success banners get role="alert" and focus. */
 .notification {
   --notification-colour: var(--color-info);
+  --notification-fill: var(--color-info-fill);
   overflow: hidden;
   border: var(--border-width) solid var(--notification-colour);
   border-radius: var(--radius-l);
@@ -94,18 +99,19 @@
   box-shadow: var(--shadow-2);
 }
 
-.notification--success { --notification-colour: var(--color-success); }
-.notification--warning { --notification-colour: var(--color-warning); }
-.notification--danger  { --notification-colour: var(--color-danger); }
+.notification--success { --notification-colour: var(--color-success); --notification-fill: var(--color-success-fill); }
+.notification--warning { --notification-colour: var(--color-warning); --notification-fill: var(--color-warning-fill); }
+.notification--danger  { --notification-colour: var(--color-danger);  --notification-fill: var(--color-danger-fill); }
 
 .notification__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-s);
+  min-height: calc(var(--target-min) + 2 * var(--space-2xs));
   padding: var(--space-2xs) var(--space-2xs) var(--space-2xs) var(--space-m);
-  background: var(--notification-colour);
-  color: var(--color-bg);
+  background: var(--texture-grain), var(--notification-fill);
+  color: var(--color-on-fill);
 }
 
 .notification__title {
@@ -130,16 +136,18 @@
 .notification__close {
   min-height: var(--target-min);
   padding-inline: var(--space-s);
-  background: transparent;
+  background: none;
   color: inherit;
-  border: var(--border-width) solid currentColor;
+  border: 0;
   border-radius: var(--radius-key);
   font-weight: var(--weight-medium);
+  text-decoration: underline;
+  text-decoration-thickness: 0.0625rem;
+  text-underline-offset: 0.22em;
   cursor: pointer;
 
   &:hover {
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.125rem;
   }
 }
 
@@ -153,8 +161,9 @@
   padding: var(--space-xl) var(--space-l);
   background:
     linear-gradient(180deg, oklch(from var(--color-sheen) l c h / 0.2), transparent 55%),
-    var(--color-success);
-  color: var(--color-bg);
+    var(--texture-grain),
+    var(--color-success-fill);
+  color: var(--color-on-fill);
   border-radius: var(--radius-l);
   box-shadow: var(--shadow-3);
   text-align: center;
@@ -435,8 +444,8 @@
 }
 
 .site-banner--danger {
-  background: var(--color-danger);
-  color: var(--color-bg);
+  background: var(--texture-grain), var(--color-danger-fill);
+  color: var(--color-on-fill);
 }
 
 .site-banner a {

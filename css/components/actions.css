@@ -74,9 +74,10 @@
   filter: none;
 }
 
-/* Secondary: a pale key from the same set. A raised surface with a hairline. */
+/* Secondary: a pale key from the same set: the same dish and lit edge as
+   the graphite key, on the shell colour, with a hairline. */
 .button--secondary {
-  background: var(--gradient-shell);
+  background: radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-surface) calc(l + 0.04) c h), var(--color-surface) 72%);
   background-color: var(--color-surface);
   color: var(--color-ink);
   border-color: var(--color-line);
@@ -91,9 +92,11 @@
   border-color: var(--color-line);
 }
 
+/* Danger: a key in deep red, matte like the others. */
 .button--danger {
-  background: var(--color-danger);
-  color: var(--color-bg);
+  background: var(--texture-grain), radial-gradient(120% 95% at 50% 28%, oklch(from var(--color-danger-fill) calc(l + 0.06) c h), var(--color-danger-fill) 72%);
+  background-color: var(--color-danger-fill);
+  color: var(--color-on-fill);
 }
 
 /* Quiet: no shell until you point at it. For toolbars. */
@@ -205,6 +208,10 @@
   background-color: var(--color-key);
   color: var(--color-on-key);
   box-shadow: var(--shadow-key);
+}
+
+.button-group + :is(h2, h3) {
+  margin-block-start: var(--space-xl);
 }
 
 .button-group--joined > .button:not([aria-pressed="true"]):hover {

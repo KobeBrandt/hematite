@@ -341,10 +341,20 @@
     // On phones the button floats at the bottom and the links open as a sheet.
     menu.setAttribute('data-ready', '');
     initSheet(menu, small);
-    // The floating button slides away while you scroll down to read, and
-    // comes back as soon as you scroll up, reach the end or tab to it.
+  }
+
+  /* --- Floating buttons tuck away while you read ---------------------------
+     Any <details data-ready> whose button floats (position: fixed) slides it
+     below the screen edge while the page scrolls down, and brings it back as
+     soon as you scroll up, reach the end or tab to it (CSS: [data-tucked]). */
+  function initTuck(details) {
+    var summary = details.querySelector('summary');
+    if (!summary) return;
     var lastY = window.scrollY, ticking = false;
-    var tuck = function (on) { menu.toggleAttribute('data-tucked', on && !menu.open); };
+    var tuck = function (on) {
+      var floating = getComputedStyle(summary).position === 'fixed';
+      details.toggleAttribute('data-tucked', on && floating && !details.open);
+    };
     window.addEventListener('scroll', function () {
       if (ticking) return;
       ticking = true;
@@ -357,7 +367,7 @@
         ticking = false;
       });
     }, { passive: true });
-    menu.addEventListener('focusin', function () { tuck(false); });
+    details.addEventListener('focusin', function () { tuck(false); });
   }
 
   /* --- Bottom sheet: a <details> shown as a sheet on small screens --------
@@ -382,6 +392,7 @@
   function init(root) {
     root = root || document;
     $$('.nav-menu', root).forEach(initNavMenu);
+    $$('details[data-ready]', root).forEach(initTuck);
     $$('.tabs', root).forEach(initTabs);
     $$('.accordion', root).forEach(initAccordion);
     $$('.character-count[data-maxlength]', root).forEach(initCharacterCount);
